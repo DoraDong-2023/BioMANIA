@@ -1,5 +1,6 @@
 name: Python unit tests
-
+env:
+    PYTHONPATH: BioMANIA
 on:
   push:
     branches: [ main ]
