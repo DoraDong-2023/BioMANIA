@@ -30,6 +30,7 @@ jobs:
 
     - name: Build documentation
       run: |
+        pip install sphinx_rtd_theme
         sphinx-apidoc -o docs/source ./src -E -e
         cd docs
         make html
