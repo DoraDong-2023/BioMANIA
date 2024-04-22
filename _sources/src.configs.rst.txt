@@ -4,12 +4,29 @@ src.configs package
 Submodules
 ----------
 
-.. toctree::
-   :maxdepth: 4
+src.configs.Base\_cheatsheet module
+-----------------------------------
 
-   src.configs.Base_cheatsheet
-   src.configs.Lib_cheatsheet
-   src.configs.model_config
+.. automodule:: src.configs.Base_cheatsheet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.configs.Lib\_cheatsheet module
+----------------------------------
+
+.. automodule:: src.configs.Lib_cheatsheet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.configs.model\_config module
+--------------------------------
+
+.. automodule:: src.configs.model_config
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 Module contents
 ---------------

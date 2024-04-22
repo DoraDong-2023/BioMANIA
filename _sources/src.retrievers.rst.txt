@@ -4,11 +4,21 @@ src.retrievers package
 Submodules
 ----------
 
-.. toctree::
-   :maxdepth: 4
+src.retrievers.bm25 module
+--------------------------
 
-   src.retrievers.bm25
-   src.retrievers.schema
+.. automodule:: src.retrievers.bm25
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.retrievers.schema module
+----------------------------
+
+.. automodule:: src.retrievers.schema
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 Module contents
 ---------------

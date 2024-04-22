@@ -11,6 +11,7 @@ Subpackages
    src.dataloader
    src.deploy
    src.gpt
+   src.gpt_bak_240416
    src.inference
    src.models
    src.prompt

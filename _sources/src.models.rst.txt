@@ -12,18 +12,77 @@ Subpackages
 Submodules
 ----------
 
-.. toctree::
-   :maxdepth: 4
+src.models.api\_evaluator module
+--------------------------------
 
-   src.models.api_evaluator
-   src.models.chitchat_classification
-   src.models.chitchat_classification_multicorpus
-   src.models.data_classification
-   src.models.generate
-   src.models.inference_classification
-   src.models.model
-   src.models.train_classification
-   src.models.train_retriever
+.. automodule:: src.models.api_evaluator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.models.chitchat\_classification module
+------------------------------------------
+
+.. automodule:: src.models.chitchat_classification
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.models.chitchat\_classification\_multicorpus module
+-------------------------------------------------------
+
+.. automodule:: src.models.chitchat_classification_multicorpus
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.models.data\_classification module
+--------------------------------------
+
+.. automodule:: src.models.data_classification
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.models.generate module
+--------------------------
+
+.. automodule:: src.models.generate
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.models.inference\_classification module
+-------------------------------------------
+
+.. automodule:: src.models.inference_classification
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.models.model module
+-----------------------
+
+.. automodule:: src.models.model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.models.train\_classification module
+---------------------------------------
+
+.. automodule:: src.models.train_classification
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.models.train\_retriever module
+----------------------------------
+
+.. automodule:: src.models.train_retriever
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 Module contents
 ---------------
