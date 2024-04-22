@@ -45,11 +45,26 @@
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">src.prompt package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#src-prompt-composite-module">src.prompt.composite module</a></li>
-<li><a class="reference internal" href="#src-prompt-instruction-module">src.prompt.instruction module</a></li>
-<li><a class="reference internal" href="#src-prompt-parameters-module">src.prompt.parameters module</a></li>
-<li><a class="reference internal" href="#src-prompt-summary-module">src.prompt.summary module</a></li>
-<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li><a class="reference internal" href="#module-src.prompt.composite">src.prompt.composite module</a><ul>
+<li><a class="reference internal" href="#src.prompt.composite.build_prompt_for_composite_docstring"><code class="docutils literal notranslate"><span class="pre">build_prompt_for_composite_docstring()</span></code></a></li>
+<li><a class="reference internal" href="#src.prompt.composite.build_prompt_for_composite_name"><code class="docutils literal notranslate"><span class="pre">build_prompt_for_composite_name()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.prompt.instruction">src.prompt.instruction module</a><ul>
+<li><a class="reference internal" href="#src.prompt.instruction.make_instruction_generation_prompt"><code class="docutils literal notranslate"><span class="pre">make_instruction_generation_prompt()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.prompt.parameters">src.prompt.parameters module</a><ul>
+<li><a class="reference internal" href="#src.prompt.parameters.bak_prepare_parameters_prompt"><code class="docutils literal notranslate"><span class="pre">bak_prepare_parameters_prompt()</span></code></a></li>
+<li><a class="reference internal" href="#src.prompt.parameters.prepare_parameters_prompt"><code class="docutils literal notranslate"><span class="pre">prepare_parameters_prompt()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.prompt.summary">src.prompt.summary module</a><ul>
+<li><a class="reference internal" href="#src.prompt.summary.prepare_summary_prompt"><code class="docutils literal notranslate"><span class="pre">prepare_summary_prompt()</span></code></a></li>
+<li><a class="reference internal" href="#src.prompt.summary.prepare_summary_prompt_full"><code class="docutils literal notranslate"><span class="pre">prepare_summary_prompt_full()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.prompt">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -83,20 +98,59 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
-<section id="src-prompt-composite-module">
-<h2>src.prompt.composite module<a class="headerlink" href="#src-prompt-composite-module" title="Permalink to this heading"></a></h2>
+<section id="module-src.prompt.composite">
+<span id="src-prompt-composite-module"></span><h2>src.prompt.composite module<a class="headerlink" href="#module-src.prompt.composite" title="Permalink to this heading"></a></h2>
+<p>Author: Zhengyuan Dong
+Date Created: January 16, 2024
+Last Modified: January 16, 2024
+Description: prompts for composite docstring/name generation</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.prompt.composite.build_prompt_for_composite_docstring">
+<span class="sig-prename descclassname"><span class="pre">src.prompt.composite.</span></span><span class="sig-name descname"><span class="pre">build_prompt_for_composite_docstring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">API_description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func_inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func_outputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description_text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.prompt.composite.build_prompt_for_composite_docstring" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.prompt.composite.build_prompt_for_composite_name">
+<span class="sig-prename descclassname"><span class="pre">src.prompt.composite.</span></span><span class="sig-name descname"><span class="pre">build_prompt_for_composite_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub_API_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">llm_docstring</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.prompt.composite.build_prompt_for_composite_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 </section>
-<section id="src-prompt-instruction-module">
-<h2>src.prompt.instruction module<a class="headerlink" href="#src-prompt-instruction-module" title="Permalink to this heading"></a></h2>
+<section id="module-src.prompt.instruction">
+<span id="src-prompt-instruction-module"></span><h2>src.prompt.instruction module<a class="headerlink" href="#module-src.prompt.instruction" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.prompt.instruction.make_instruction_generation_prompt">
+<span class="sig-prename descclassname"><span class="pre">src.prompt.instruction.</span></span><span class="sig-name descname"><span class="pre">make_instruction_generation_prompt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">API_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">docs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.prompt.instruction.make_instruction_generation_prompt" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 </section>
-<section id="src-prompt-parameters-module">
-<h2>src.prompt.parameters module<a class="headerlink" href="#src-prompt-parameters-module" title="Permalink to this heading"></a></h2>
+<section id="module-src.prompt.parameters">
+<span id="src-prompt-parameters-module"></span><h2>src.prompt.parameters module<a class="headerlink" href="#module-src.prompt.parameters" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.prompt.parameters.bak_prepare_parameters_prompt">
+<span class="sig-prename descclassname"><span class="pre">src.prompt.parameters.</span></span><span class="sig-name descname"><span class="pre">bak_prepare_parameters_prompt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_parameters_information</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters_name_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.prompt.parameters.bak_prepare_parameters_prompt" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.prompt.parameters.prepare_parameters_prompt">
+<span class="sig-prename descclassname"><span class="pre">src.prompt.parameters.</span></span><span class="sig-name descname"><span class="pre">prepare_parameters_prompt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_docstring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters_name_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.prompt.parameters.prepare_parameters_prompt" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 </section>
-<section id="src-prompt-summary-module">
-<h2>src.prompt.summary module<a class="headerlink" href="#src-prompt-summary-module" title="Permalink to this heading"></a></h2>
+<section id="module-src.prompt.summary">
+<span id="src-prompt-summary-module"></span><h2>src.prompt.summary module<a class="headerlink" href="#module-src.prompt.summary" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.prompt.summary.prepare_summary_prompt">
+<span class="sig-prename descclassname"><span class="pre">src.prompt.summary.</span></span><span class="sig-name descname"><span class="pre">prepare_summary_prompt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters_description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_information</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.prompt.summary.prepare_summary_prompt" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.prompt.summary.prepare_summary_prompt_full">
+<span class="sig-prename descclassname"><span class="pre">src.prompt.summary.</span></span><span class="sig-name descname"><span class="pre">prepare_summary_prompt_full</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters_description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_information</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execution_code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.prompt.summary.prepare_summary_prompt_full" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
+<section id="module-src.prompt">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src.prompt" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 

@@ -42,7 +42,12 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
-              <div class="local-toc"><ul class="simple">
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">download_readthedoc()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.utils.other_download.download_tutorial"><code class="docutils literal notranslate"><span class="pre">download_tutorial()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.utils.other_download.extract_repo_details"><code class="docutils literal notranslate"><span class="pre">extract_repo_details()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.utils.other_download.get_all_variable_from_cheatsheet"><code class="docutils literal notranslate"><span class="pre">get_all_variable_from_cheatsheet()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.utils.other_download.urlparse"><code class="docutils literal notranslate"><span class="pre">urlparse()</span></code></a></li>
 </ul>
 </div>
         </div>
@@ -69,7 +74,77 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <span class="target" id="module-src.dataloader.utils.other_download"></span><dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.utils.other_download.download_readthedoc">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.utils.other_download.</span></span><span class="sig-name descname"><span class="pre">download_readthedoc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">readthedoc_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_html</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'single'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.utils.other_download.download_readthedoc" title="Permalink to this definition"></a></dt>
+<dd><p>Download ReadTheDocs HTML pages for API documentation and tutorials.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>readthedoc_path</strong> (<em>str</em>) – The directory path where to save downloaded files.</p></li>
+<li><p><strong>api_html</strong> (<em>str</em><em> | </em><em>list</em>) – The URL(s) of the HTML page(s) to download.</p></li>
+<li><p><strong>source_type</strong> (<em>str</em><em>, </em><em>optional</em>) – ‘single’ for a single HTML file, ‘full’ for a full website. Default is ‘single’.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.utils.other_download.download_tutorial">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.utils.other_download.</span></span><span class="sig-name descname"><span class="pre">download_tutorial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tutorial_github</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">analysis_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.utils.other_download.download_tutorial" title="Permalink to this definition"></a></dt>
+<dd><p>Clone a GitHub repository to a local directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tutorial_github</strong> (<em>str</em><em> | </em><em>list</em>) – The URL(s) of the GitHub repository or repositories.</p></li>
+<li><p><strong>analysis_path</strong> (<em>str</em>) – The local directory where to clone the repository.</p></li>
+<li><p><strong>lib_name</strong> (<em>str</em>) – The library name associated with the repository.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.utils.other_download.extract_repo_details">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.utils.other_download.</span></span><span class="sig-name descname"><span class="pre">extract_repo_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">github_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.utils.other_download.extract_repo_details" title="Permalink to this definition"></a></dt>
+<dd><p>Extract user_name and user_repo from a GitHub repository URL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>github_url</strong> (<em>str</em>) – The URL of the GitHub repository to analyze.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns the formatted string of user_name and user_repo if available, otherwise None.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.utils.other_download.get_all_variable_from_cheatsheet">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.utils.other_download.</span></span><span class="sig-name descname"><span class="pre">get_all_variable_from_cheatsheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">LIB</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.utils.other_download.get_all_variable_from_cheatsheet" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.utils.other_download.urlparse">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.utils.other_download.</span></span><span class="sig-name descname"><span class="pre">urlparse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_fragments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.utils.other_download.urlparse" title="Permalink to this definition"></a></dt>
+<dd><p>Parse a URL into 6 components:
+&lt;scheme&gt;://&lt;netloc&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;fragment&gt;</p>
+<p>The result is a named 6-tuple with fields corresponding to the
+above. It is either a ParseResult or ParseResultBytes object,
+depending on the type of the url parameter.</p>
+<p>The username, password, hostname, and port sub-components of netloc
+can also be accessed as attributes of the returned object.</p>
+<p>The scheme argument provides the default value of the scheme
+component when no scheme is found in url.</p>
+<p>If allow_fragments is False, no attempt is made to separate the
+fragment component from the previous component, which can be either
+path or query.</p>
+<p>Note that % escapes are not expanded.</p>
+</dd></dl>
+
+
 
            </div>
           </div>

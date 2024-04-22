@@ -42,7 +42,45 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
-              <div class="local-toc"><ul class="simple">
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">bert_embed()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.compress_and_save_image"><code class="docutils literal notranslate"><span class="pre">compress_and_save_image()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.compress_api_str_from_list"><code class="docutils literal notranslate"><span class="pre">compress_api_str_from_list()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.compress_api_str_from_list_query_version"><code class="docutils literal notranslate"><span class="pre">compress_api_str_from_list_query_version()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.compress_desc"><code class="docutils literal notranslate"><span class="pre">compress_desc()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.compress_tut_version"><code class="docutils literal notranslate"><span class="pre">compress_tut_version()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.defaultdict"><code class="docutils literal notranslate"><span class="pre">defaultdict</span></code></a><ul>
+<li><a class="reference internal" href="#src.inference.utils.defaultdict.clear"><code class="docutils literal notranslate"><span class="pre">defaultdict.clear()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.defaultdict.copy"><code class="docutils literal notranslate"><span class="pre">defaultdict.copy()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.defaultdict.default_factory"><code class="docutils literal notranslate"><span class="pre">defaultdict.default_factory</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.defaultdict.fromkeys"><code class="docutils literal notranslate"><span class="pre">defaultdict.fromkeys()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.defaultdict.get"><code class="docutils literal notranslate"><span class="pre">defaultdict.get()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.defaultdict.items"><code class="docutils literal notranslate"><span class="pre">defaultdict.items()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.defaultdict.keys"><code class="docutils literal notranslate"><span class="pre">defaultdict.keys()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.defaultdict.pop"><code class="docutils literal notranslate"><span class="pre">defaultdict.pop()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.defaultdict.popitem"><code class="docutils literal notranslate"><span class="pre">defaultdict.popitem()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.defaultdict.setdefault"><code class="docutils literal notranslate"><span class="pre">defaultdict.setdefault()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.defaultdict.update"><code class="docutils literal notranslate"><span class="pre">defaultdict.update()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.defaultdict.values"><code class="docutils literal notranslate"><span class="pre">defaultdict.values()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.inference.utils.find_similar_api_pairs"><code class="docutils literal notranslate"><span class="pre">find_similar_api_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.find_similar_pairs"><code class="docutils literal notranslate"><span class="pre">find_similar_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.find_similar_two_pairs"><code class="docutils literal notranslate"><span class="pre">find_similar_two_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.get_all_api_json"><code class="docutils literal notranslate"><span class="pre">get_all_api_json()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.get_all_types_in_API"><code class="docutils literal notranslate"><span class="pre">get_all_types_in_API()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.get_ambiguous_pairs"><code class="docutils literal notranslate"><span class="pre">get_ambiguous_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.is_pair_in_merged_pairs"><code class="docutils literal notranslate"><span class="pre">is_pair_in_merged_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.json_to_docstring"><code class="docutils literal notranslate"><span class="pre">json_to_docstring()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.load_json"><code class="docutils literal notranslate"><span class="pre">load_json()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.predict_by_similarity"><code class="docutils literal notranslate"><span class="pre">predict_by_similarity()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.process_retrieval_desc"><code class="docutils literal notranslate"><span class="pre">process_retrieval_desc()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.process_retrieval_document"><code class="docutils literal notranslate"><span class="pre">process_retrieval_document()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.process_retrieval_document_query_version"><code class="docutils literal notranslate"><span class="pre">process_retrieval_document_query_version()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.process_tut_version"><code class="docutils literal notranslate"><span class="pre">process_tut_version()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.save_json"><code class="docutils literal notranslate"><span class="pre">save_json()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.save_plot_with_timestamp"><code class="docutils literal notranslate"><span class="pre">save_plot_with_timestamp()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.utils.sentence_transformer_embed"><code class="docutils literal notranslate"><span class="pre">sentence_transformer_embed()</span></code></a></li>
 </ul>
 </div>
         </div>
@@ -69,7 +107,234 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <span class="target" id="module-src.inference.utils"></span><dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.bert_embed">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">bert_embed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.bert_embed" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.compress_and_save_image">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">compress_and_save_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.compress_and_save_image" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.compress_api_str_from_list">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">compress_api_str_from_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.compress_api_str_from_list" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.compress_api_str_from_list_query_version">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">compress_api_str_from_list_query_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.compress_api_str_from_list_query_version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.compress_desc">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">compress_desc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.compress_desc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.compress_tut_version">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">compress_tut_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.compress_tut_version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.inference.utils.defaultdict">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">defaultdict</span></span><a class="headerlink" href="#src.inference.utils.defaultdict" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>defaultdict(default_factory=None, /, […]) –&gt; dict with default factory</p>
+<p>The default factory is called without arguments to produce
+a new value when a key is not present, in __getitem__ only.
+A defaultdict compares equal to a dict with the same items.
+All remaining arguments are treated the same as if they were
+passed to the dict constructor, including keyword arguments.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.utils.defaultdict.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None.</span>&#160; <span class="pre">Remove</span> <span class="pre">all</span> <span class="pre">items</span> <span class="pre">from</span> <span class="pre">D.</span></span></span><a class="headerlink" href="#src.inference.utils.defaultdict.clear" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.utils.defaultdict.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">shallow</span> <span class="pre">copy</span> <span class="pre">of</span> <span class="pre">D.</span></span></span><a class="headerlink" href="#src.inference.utils.defaultdict.copy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.inference.utils.defaultdict.default_factory">
+<span class="sig-name descname"><span class="pre">default_factory</span></span><a class="headerlink" href="#src.inference.utils.defaultdict.default_factory" title="Permalink to this definition"></a></dt>
+<dd><p>Factory for default value called by __missing__().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.utils.defaultdict.fromkeys">
+<span class="sig-name descname"><span class="pre">fromkeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.defaultdict.fromkeys" title="Permalink to this definition"></a></dt>
+<dd><p>Create a new dictionary with keys from iterable and values set to value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.utils.defaultdict.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.defaultdict.get" title="Permalink to this definition"></a></dt>
+<dd><p>Return the value for key if key is in the dictionary, else default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.utils.defaultdict.items">
+<span class="sig-name descname"><span class="pre">items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">items</span></span></span><a class="headerlink" href="#src.inference.utils.defaultdict.items" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.utils.defaultdict.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">keys</span></span></span><a class="headerlink" href="#src.inference.utils.defaultdict.keys" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.utils.defaultdict.pop">
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">v,</span> <span class="pre">remove</span> <span class="pre">specified</span> <span class="pre">key</span> <span class="pre">and</span> <span class="pre">return</span> <span class="pre">the</span> <span class="pre">corresponding</span> <span class="pre">value.</span></span></span><a class="headerlink" href="#src.inference.utils.defaultdict.pop" title="Permalink to this definition"></a></dt>
+<dd><p>If key is not found, default is returned if given, otherwise KeyError is raised</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.utils.defaultdict.popitem">
+<span class="sig-name descname"><span class="pre">popitem</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.defaultdict.popitem" title="Permalink to this definition"></a></dt>
+<dd><p>Remove and return a (key, value) pair as a 2-tuple.</p>
+<p>Pairs are returned in LIFO (last-in, first-out) order.
+Raises KeyError if the dict is empty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.utils.defaultdict.setdefault">
+<span class="sig-name descname"><span class="pre">setdefault</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.defaultdict.setdefault" title="Permalink to this definition"></a></dt>
+<dd><p>Insert key with a value of default if key is not in the dictionary.</p>
+<p>Return the value for key if key is in the dictionary, else default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.utils.defaultdict.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <span class="optional">]</span><em class="sig-param"><span class="n"><span class="pre">**F</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None.</span>&#160; <span class="pre">Update</span> <span class="pre">D</span> <span class="pre">from</span> <span class="pre">dict/iterable</span> <span class="pre">E</span> <span class="pre">and</span> <span class="pre">F.</span></span></span><a class="headerlink" href="#src.inference.utils.defaultdict.update" title="Permalink to this definition"></a></dt>
+<dd><p>If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k]
+If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v
+In either case, this is followed by: for k in F:  D[k] = F[k]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.utils.defaultdict.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">an</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">values</span></span></span><a class="headerlink" href="#src.inference.utils.defaultdict.values" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.find_similar_api_pairs">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">find_similar_api_pairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_descriptions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.find_similar_api_pairs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.find_similar_pairs">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">find_similar_pairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">require_same_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.find_similar_pairs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.find_similar_two_pairs">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">find_similar_two_pairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">API_init_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./data/standard_process/scanpy/API_init.json'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.find_similar_two_pairs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.get_all_api_json">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">get_all_api_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">API_init_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'full'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.get_all_api_json" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.get_all_types_in_API">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">get_all_types_in_API</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">LIB</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.get_all_types_in_API" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.get_ambiguous_pairs">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">get_ambiguous_pairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">API_init_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./data/standard_process/scanpy/API_init.json'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.get_ambiguous_pairs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.is_pair_in_merged_pairs">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">is_pair_in_merged_pairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merged_pairs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.is_pair_in_merged_pairs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.json_to_docstring">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">json_to_docstring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.json_to_docstring" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.load_json">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">load_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#src.inference.utils.load_json" title="Permalink to this definition"></a></dt>
+<dd><p>Load JSON data from a specified file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – The path to the JSON file to be loaded.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The data loaded from the JSON file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.predict_by_similarity">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">predict_by_similarity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_query_vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centroids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.predict_by_similarity" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.process_retrieval_desc">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">process_retrieval_desc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">documents_df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.process_retrieval_desc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.process_retrieval_document">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">process_retrieval_document</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">documents_df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.process_retrieval_document" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.process_retrieval_document_query_version">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">process_retrieval_document_query_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">documents_df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.process_retrieval_document_query_version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.process_tut_version">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">process_tut_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">documents_df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.process_tut_version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.save_json">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">save_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.inference.utils.save_json" title="Permalink to this definition"></a></dt>
+<dd><p>Save results to a JSON file with indentation of 4 spaces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_path</strong> (<em>str</em>) – Path to the output file.</p></li>
+<li><p><strong>results</strong> (<em>dict</em>) – Dictionary containing the results to be saved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">save_json</span><span class="p">(</span><span class="s1">&#39;output.json&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.save_plot_with_timestamp">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">save_plot_with_timestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./tmp/images'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'img'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'webp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_pdf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.save_plot_with_timestamp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.utils.sentence_transformer_embed">
+<span class="sig-prename descclassname"><span class="pre">src.inference.utils.</span></span><span class="sig-name descname"><span class="pre">sentence_transformer_embed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">texts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.utils.sentence_transformer_embed" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+
 
            </div>
           </div>

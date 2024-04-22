@@ -42,7 +42,25 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
-              <div class="local-toc"><ul class="simple">
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">CondaInstall</span></code></a><ul>
+<li><a class="reference internal" href="#src.dataloader.utils.code_download_strategy.CondaInstall.download"><code class="docutils literal notranslate"><span class="pre">CondaInstall.download()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.dataloader.utils.code_download_strategy.DownloadStrategy"><code class="docutils literal notranslate"><span class="pre">DownloadStrategy</span></code></a><ul>
+<li><a class="reference internal" href="#src.dataloader.utils.code_download_strategy.DownloadStrategy.download"><code class="docutils literal notranslate"><span class="pre">DownloadStrategy.download()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.dataloader.utils.code_download_strategy.GitInstall"><code class="docutils literal notranslate"><span class="pre">GitInstall</span></code></a><ul>
+<li><a class="reference internal" href="#src.dataloader.utils.code_download_strategy.GitInstall.download"><code class="docutils literal notranslate"><span class="pre">GitInstall.download()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.dataloader.utils.code_download_strategy.PipInstall"><code class="docutils literal notranslate"><span class="pre">PipInstall</span></code></a><ul>
+<li><a class="reference internal" href="#src.dataloader.utils.code_download_strategy.PipInstall.download"><code class="docutils literal notranslate"><span class="pre">PipInstall.download()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.dataloader.utils.code_download_strategy.download_lib"><code class="docutils literal notranslate"><span class="pre">download_lib()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.utils.code_download_strategy.get_lib_localpath"><code class="docutils literal notranslate"><span class="pre">get_lib_localpath()</span></code></a></li>
 </ul>
 </div>
         </div>
@@ -69,7 +87,61 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <span class="target" id="module-src.dataloader.utils.code_download_strategy"></span><dl class="py class">
+<dt class="sig sig-object py" id="src.dataloader.utils.code_download_strategy.CondaInstall">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataloader.utils.code_download_strategy.</span></span><span class="sig-name descname"><span class="pre">CondaInstall</span></span><a class="headerlink" href="#src.dataloader.utils.code_download_strategy.CondaInstall" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.dataloader.utils.code_download_strategy.DownloadStrategy" title="src.dataloader.utils.code_download_strategy.DownloadStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">DownloadStrategy</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.utils.code_download_strategy.CondaInstall.download">
+<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.utils.code_download_strategy.CondaInstall.download" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dataloader.utils.code_download_strategy.DownloadStrategy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataloader.utils.code_download_strategy.</span></span><span class="sig-name descname"><span class="pre">DownloadStrategy</span></span><a class="headerlink" href="#src.dataloader.utils.code_download_strategy.DownloadStrategy" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.utils.code_download_strategy.DownloadStrategy.download">
+<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.utils.code_download_strategy.DownloadStrategy.download" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dataloader.utils.code_download_strategy.GitInstall">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataloader.utils.code_download_strategy.</span></span><span class="sig-name descname"><span class="pre">GitInstall</span></span><a class="headerlink" href="#src.dataloader.utils.code_download_strategy.GitInstall" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.dataloader.utils.code_download_strategy.DownloadStrategy" title="src.dataloader.utils.code_download_strategy.DownloadStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">DownloadStrategy</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.utils.code_download_strategy.GitInstall.download">
+<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib_link</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib_github_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.utils.code_download_strategy.GitInstall.download" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dataloader.utils.code_download_strategy.PipInstall">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataloader.utils.code_download_strategy.</span></span><span class="sig-name descname"><span class="pre">PipInstall</span></span><a class="headerlink" href="#src.dataloader.utils.code_download_strategy.PipInstall" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.dataloader.utils.code_download_strategy.DownloadStrategy" title="src.dataloader.utils.code_download_strategy.DownloadStrategy"><code class="xref py py-class docutils literal notranslate"><span class="pre">DownloadStrategy</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.utils.code_download_strategy.PipInstall.download">
+<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.utils.code_download_strategy.PipInstall.download" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.utils.code_download_strategy.download_lib">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.utils.code_download_strategy.</span></span><span class="sig-name descname"><span class="pre">download_lib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strategy_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib_link</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib_alias</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">github_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.utils.code_download_strategy.download_lib" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.utils.code_download_strategy.get_lib_localpath">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.utils.code_download_strategy.</span></span><span class="sig-name descname"><span class="pre">get_lib_localpath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib_alias</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.utils.code_download_strategy.get_lib_localpath" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+
 
            </div>
           </div>
