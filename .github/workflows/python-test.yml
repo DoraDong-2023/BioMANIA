@@ -29,5 +29,15 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
+    - name: List directories
+      run: |
+        echo "Current directory:"
+        pwd
+        echo "List of files in current directory:"
+        ls -la
+        echo "List of files in src directory:"
+        ls -la src/
+    
+
     - name: Run pytest
       run: pytest tests
