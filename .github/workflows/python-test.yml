@@ -7,6 +7,7 @@ on:
   pull_request:
     branches: [ main ]
 
+
 jobs:
   test:
 
@@ -25,4 +26,4 @@ jobs:
     - name: Run pytest
       run: |
         pytest tests/unit
-
+      working-directory: BioMANIA
