@@ -1,0 +1,23 @@
+src.models.lit\_llama package
+=============================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.models.lit_llama.lora
+   src.models.lit_llama.model
+   src.models.lit_llama.packed_dataset
+   src.models.lit_llama.quantization
+   src.models.lit_llama.tokenizer
+   src.models.lit_llama.utils
+
+Module contents
+---------------
+
+.. automodule:: src.models.lit_llama
+   :members:
+   :undoc-members:
+   :show-inheritance:

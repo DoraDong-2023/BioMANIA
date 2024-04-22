@@ -1,0 +1,31 @@
+src.dataloader package
+======================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.dataloader.utils
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.dataloader.check_valid_API_annotate
+   src.dataloader.extract_function_from_sourcecode
+   src.dataloader.get_API_composite_from_tutorial
+   src.dataloader.get_API_full_from_unittest
+   src.dataloader.get_API_init_from_sourcecode
+   src.dataloader.preprocess_retriever_data
+
+Module contents
+---------------
+
+.. automodule:: src.dataloader
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; BioMANIA 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=01f34227"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/BioMANIA.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code></a><ul>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.vocabulary_"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.vocabulary_</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.fixed_vocabulary_"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.fixed_vocabulary_</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.idf_"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.idf_</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.stop_words_"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.stop_words_</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.build_analyzer"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.build_analyzer()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.build_preprocessor"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.build_preprocessor()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.build_tokenizer"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.build_tokenizer()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.decode"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.decode()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.fit"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.fit()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.fit_transform"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.fit_transform()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.get_feature_names"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.get_feature_names()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.get_feature_names_out"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.get_feature_names_out()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.get_params"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.get_params()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.get_stop_words"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.get_stop_words()</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.idf_</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.inverse_transform"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.inverse_transform()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.set_params"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.set_params()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.transform"><code class="docutils literal notranslate"><span class="pre">TfidfVectorizer.transform()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.calculate_centroid"><code class="docutils literal notranslate"><span class="pre">calculate_centroid()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.load_json"><code class="docutils literal notranslate"><span class="pre">load_json()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.plot_tsne_distribution_modified"><code class="docutils literal notranslate"><span class="pre">plot_tsne_distribution_modified()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.predict_by_similarity"><code class="docutils literal notranslate"><span class="pre">predict_by_similarity()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.process_chitchat"><code class="docutils literal notranslate"><span class="pre">process_chitchat()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.process_multi_libraries"><code class="docutils literal notranslate"><span class="pre">process_multi_libraries()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.process_topicalchat"><code class="docutils literal notranslate"><span class="pre">process_topicalchat()</span></code></a></li>
+<li><a class="reference internal" href="#src.models.chitchat_classification_multicorpus.sampledata_combine"><code class="docutils literal notranslate"><span class="pre">sampledata_combine()</span></code></a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BioMANIA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/batmen-lab/BioMANIA/blob/main/docs/source/src.models.chitchat_classification_multicorpus.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <dl class="py class" id="module-src.models.chitchat_classification_multicorpus">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.models.chitchat_classification_multicorpus.</span></span><span class="sig-name descname"><span class="pre">TfidfVectorizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input='content'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding='utf-8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decode_error='strict'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strip_accents=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lowercase=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocessor=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">analyzer='word'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_words=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_pattern='(?u)\\b\\w\\w+\\b'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngram_range=(1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_df=1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_df=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_features=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vocabulary=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.float64'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm='l2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_idf=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth_idf=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sublinear_tf=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CountVectorizer</span></code></p>
+<p>Convert a collection of raw documents to a matrix of TF-IDF features.</p>
+<p>Equivalent to <code class="xref py py-class docutils literal notranslate"><span class="pre">CountVectorizer</span></code> followed by
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TfidfTransformer</span></code>.</p>
+<p>Read more in the <span class="xref std std-ref">User Guide</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> (<em>{'filename'</em><em>, </em><em>'file'</em><em>, </em><em>'content'}</em><em>, </em><em>default='content'</em>) – <ul>
+<li><p>If <cite>‘filename’</cite>, the sequence passed as an argument to fit is
+expected to be a list of filenames that need reading to fetch
+the raw content to analyze.</p></li>
+<li><p>If <cite>‘file’</cite>, the sequence items must have a ‘read’ method (file-like
+object) that is called to fetch the bytes in memory.</p></li>
+<li><p>If <cite>‘content’</cite>, the input is expected to be a sequence of items that
+can be of type string or byte.</p></li>
+</ul>
+</p></li>
+<li><p><strong>encoding</strong> (<em>str</em><em>, </em><em>default='utf-8'</em>) – If bytes or files are given to analyze, this encoding is used to
+decode.</p></li>
+<li><p><strong>decode_error</strong> (<em>{'strict'</em><em>, </em><em>'ignore'</em><em>, </em><em>'replace'}</em><em>, </em><em>default='strict'</em>) – Instruction on what to do if a byte sequence is given to analyze that
+contains characters not of the given <cite>encoding</cite>. By default, it is
+‘strict’, meaning that a UnicodeDecodeError will be raised. Other
+values are ‘ignore’ and ‘replace’.</p></li>
+<li><p><strong>strip_accents</strong> (<em>{'ascii'</em><em>, </em><em>'unicode'}</em><em>, </em><em>default=None</em>) – <p>Remove accents and perform other character normalization
+during the preprocessing step.
+‘ascii’ is a fast method that only works on characters that have
+an direct ASCII mapping.
+‘unicode’ is a slightly slower method that works on any characters.
+None (default) does nothing.</p>
+<p>Both ‘ascii’ and ‘unicode’ use NFKD normalization from
+<code class="xref py py-func docutils literal notranslate"><span class="pre">unicodedata.normalize()</span></code>.</p>
+</p></li>
+<li><p><strong>lowercase</strong> (<em>bool</em><em>, </em><em>default=True</em>) – Convert all characters to lowercase before tokenizing.</p></li>
+<li><p><strong>preprocessor</strong> (<em>callable</em><em>, </em><em>default=None</em>) – Override the preprocessing (string transformation) stage while
+preserving the tokenizing and n-grams generation steps.
+Only applies if <code class="docutils literal notranslate"><span class="pre">analyzer</span></code> is not callable.</p></li>
+<li><p><strong>tokenizer</strong> (<em>callable</em><em>, </em><em>default=None</em>) – Override the string tokenization step while preserving the
+preprocessing and n-grams generation steps.
+Only applies if <code class="docutils literal notranslate"><span class="pre">analyzer</span> <span class="pre">==</span> <span class="pre">'word'</span></code>.</p></li>
+<li><p><strong>analyzer</strong> (<em>{'word'</em><em>, </em><em>'char'</em><em>, </em><em>'char_wb'}</em><em> or </em><em>callable</em><em>, </em><em>default='word'</em>) – <p>Whether the feature should be made of word or character n-grams.
+Option ‘char_wb’ creates character n-grams only from text inside
+word boundaries; n-grams at the edges of words are padded with space.</p>
+<p>If a callable is passed it is used to extract the sequence of features
+out of the raw, unprocessed input.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 0.21: </span>Since v0.21, if <code class="docutils literal notranslate"><span class="pre">input</span></code> is <code class="docutils literal notranslate"><span class="pre">'filename'</span></code> or <code class="docutils literal notranslate"><span class="pre">'file'</span></code>, the data
+is first read from the file and then passed to the given callable
+analyzer.</p>
+</div>
+</p></li>
+<li><p><strong>stop_words</strong> (<em>{'english'}</em><em>, </em><em>list</em><em>, </em><em>default=None</em>) – <p>If a string, it is passed to _check_stop_list and the appropriate stop
+list is returned. ‘english’ is currently the only supported string
+value.
+There are several known issues with ‘english’ and you should
+consider an alternative (see <span class="xref std std-ref">stop_words</span>).</p>
+<p>If a list, that list is assumed to contain stop words, all of which
+will be removed from the resulting tokens.
+Only applies if <code class="docutils literal notranslate"><span class="pre">analyzer</span> <span class="pre">==</span> <span class="pre">'word'</span></code>.</p>
+<p>If None, no stop words will be used. max_df can be set to a value
+in the range [0.7, 1.0) to automatically detect and filter stop
+words based on intra corpus document frequency of terms.</p>
+</p></li>
+<li><p><strong>token_pattern</strong> (<em>str</em><em>, </em><em>default=r&quot;</em><em>(</em><em>?u</em><em>)</em><em>\b\w\w+\b&quot;</em>) – <p>Regular expression denoting what constitutes a “token”, only used
+if <code class="docutils literal notranslate"><span class="pre">analyzer</span> <span class="pre">==</span> <span class="pre">'word'</span></code>. The default regexp selects tokens of 2
+or more alphanumeric characters (punctuation is completely ignored
+and always treated as a token separator).</p>
+<p>If there is a capturing group in token_pattern then the
+captured group content, not the entire match, becomes the token.
+At most one capturing group is permitted.</p>
+</p></li>
+<li><p><strong>ngram_range</strong> (<em>tuple</em><em> (</em><em>min_n</em><em>, </em><em>max_n</em><em>)</em><em>, </em><em>default=</em><em>(</em><em>1</em><em>, </em><em>1</em><em>)</em>) – The lower and upper boundary of the range of n-values for different
+n-grams to be extracted. All values of n such that min_n &lt;= n &lt;= max_n
+will be used. For example an <code class="docutils literal notranslate"><span class="pre">ngram_range</span></code> of <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">1)</span></code> means only
+unigrams, <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span></code> means unigrams and bigrams, and <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">2)</span></code> means
+only bigrams.
+Only applies if <code class="docutils literal notranslate"><span class="pre">analyzer</span></code> is not callable.</p></li>
+<li><p><strong>max_df</strong> (<em>float</em><em> or </em><em>int</em><em>, </em><em>default=1.0</em>) – When building the vocabulary ignore terms that have a document
+frequency strictly higher than the given threshold (corpus-specific
+stop words).
+If float in range [0.0, 1.0], the parameter represents a proportion of
+documents, integer absolute counts.
+This parameter is ignored if vocabulary is not None.</p></li>
+<li><p><strong>min_df</strong> (<em>float</em><em> or </em><em>int</em><em>, </em><em>default=1</em>) – When building the vocabulary ignore terms that have a document
+frequency strictly lower than the given threshold. This value is also
+called cut-off in the literature.
+If float in range of [0.0, 1.0], the parameter represents a proportion
+of documents, integer absolute counts.
+This parameter is ignored if vocabulary is not None.</p></li>
+<li><p><strong>max_features</strong> (<em>int</em><em>, </em><em>default=None</em>) – <p>If not None, build a vocabulary that only consider the top
+max_features ordered by term frequency across the corpus.</p>
+<p>This parameter is ignored if vocabulary is not None.</p>
+</p></li>
+<li><p><strong>vocabulary</strong> (<em>Mapping</em><em> or </em><em>iterable</em><em>, </em><em>default=None</em>) – Either a Mapping (e.g., a dict) where keys are terms and values are
+indices in the feature matrix, or an iterable over terms. If not
+given, a vocabulary is determined from the input documents.</p></li>
+<li><p><strong>binary</strong> (<em>bool</em><em>, </em><em>default=False</em>) – If True, all non-zero term counts are set to 1. This does not mean
+outputs will have only 0/1 values, only that the tf term in tf-idf
+is binary. (Set idf and normalization to False to get 0/1 outputs).</p></li>
+<li><p><strong>dtype</strong> (<em>dtype</em><em>, </em><em>default=float64</em>) – Type of the matrix returned by fit_transform() or transform().</p></li>
+<li><p><strong>norm</strong> (<em>{'l1'</em><em>, </em><em>'l2'}</em><em>, </em><em>default='l2'</em>) – <p>Each output row will have unit norm, either:</p>
+<ul>
+<li><p>’l2’: Sum of squares of vector elements is 1. The cosine
+similarity between two vectors is their dot product when l2 norm has
+been applied.</p></li>
+<li><p>’l1’: Sum of absolute values of vector elements is 1.
+See <code class="xref py py-func docutils literal notranslate"><span class="pre">preprocessing.normalize()</span></code>.</p></li>
+</ul>
+</p></li>
+<li><p><strong>use_idf</strong> (<em>bool</em><em>, </em><em>default=True</em>) – Enable inverse-document-frequency reweighting. If False, idf(t) = 1.</p></li>
+<li><p><strong>smooth_idf</strong> (<em>bool</em><em>, </em><em>default=True</em>) – Smooth idf weights by adding one to document frequencies, as if an
+extra document was seen containing every term in the collection
+exactly once. Prevents zero divisions.</p></li>
+<li><p><strong>sublinear_tf</strong> (<em>bool</em><em>, </em><em>default=False</em>) – Apply sublinear tf scaling, i.e. replace tf with 1 + log(tf).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.vocabulary_">
+<span class="sig-name descname"><span class="pre">vocabulary_</span></span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.vocabulary_" title="Link to this definition"></a></dt>
+<dd><p>A mapping of terms to feature indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.fixed_vocabulary_">
+<span class="sig-name descname"><span class="pre">fixed_vocabulary_</span></span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.fixed_vocabulary_" title="Link to this definition"></a></dt>
+<dd><p>True if a fixed vocabulary of term to indices mapping
+is provided by the user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.idf_">
+<span class="sig-name descname"><span class="pre">idf_</span></span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.idf_" title="Link to this definition"></a></dt>
+<dd><p>The inverse document frequency (IDF) vector; only defined
+if <code class="docutils literal notranslate"><span class="pre">use_idf</span></code> is True.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of shape (n_features,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.stop_words_">
+<span class="sig-name descname"><span class="pre">stop_words_</span></span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.stop_words_" title="Link to this definition"></a></dt>
+<dd><p>Terms that were ignored because they either:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>occurred in too many documents (<cite>max_df</cite>)</p></li>
+<li><p>occurred in too few documents (<cite>min_df</cite>)</p></li>
+<li><p>were cut off by feature selection (<cite>max_features</cite>).</p></li>
+</ul>
+</div></blockquote>
+<p>This is only available if no vocabulary was given.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">CountVectorizer</span></code></dt><dd><p>Transforms text into a sparse matrix of n-gram counts.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">TfidfTransformer</span></code></dt><dd><p>Performs the TF-IDF transformation from a provided matrix of counts.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">stop_words_</span></code> attribute can get large and increase the model size
+when pickling. This attribute is provided only for introspection and can
+be safely removed using delattr or set to None before pickling.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span>
+<span class="gp">... </span>    <span class="s1">&#39;This is the first document.&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;This document is the second document.&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;And this is the third one.&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;Is this the first document?&#39;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+<span class="go">array([&#39;and&#39;, &#39;document&#39;, &#39;first&#39;, &#39;is&#39;, &#39;one&#39;, &#39;second&#39;, &#39;the&#39;, &#39;third&#39;,</span>
+<span class="go">       &#39;this&#39;], ...)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(4, 9)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.build_analyzer">
+<span class="sig-name descname"><span class="pre">build_analyzer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.build_analyzer" title="Link to this definition"></a></dt>
+<dd><p>Return a callable to process input data.</p>
+<p>The callable handles that handles preprocessing, tokenization, and
+n-grams generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>analyzer</strong> – A function to handle preprocessing, tokenization
+and n-grams generation.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>callable</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.build_preprocessor">
+<span class="sig-name descname"><span class="pre">build_preprocessor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.build_preprocessor" title="Link to this definition"></a></dt>
+<dd><p>Return a function to preprocess the text before tokenization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>preprocessor</strong> – A function to preprocess the text before tokenization.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>callable</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.build_tokenizer">
+<span class="sig-name descname"><span class="pre">build_tokenizer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.build_tokenizer" title="Link to this definition"></a></dt>
+<dd><p>Return a function that splits a string into a sequence of tokens.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tokenizer</strong> – A function to split a string into a sequence of tokens.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>callable</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.decode" title="Link to this definition"></a></dt>
+<dd><p>Decode the input into a string of unicode symbols.</p>
+<p>The decoding strategy depends on the vectorizer parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>doc</strong> (<em>bytes</em><em> or </em><em>str</em>) – The string to decode.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>doc</strong> – A string of unicode symbols.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_documents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.fit" title="Link to this definition"></a></dt>
+<dd><p>Learn vocabulary and idf from training set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>raw_documents</strong> (<em>iterable</em>) – An iterable which generates either str, unicode or file objects.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – This parameter is not needed to compute tfidf.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – Fitted vectorizer.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.fit_transform">
+<span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_documents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.fit_transform" title="Link to this definition"></a></dt>
+<dd><p>Learn vocabulary and idf, return document-term matrix.</p>
+<p>This is equivalent to fit followed by transform, but more efficiently
+implemented.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>raw_documents</strong> (<em>iterable</em>) – An iterable which generates either str, unicode or file objects.</p></li>
+<li><p><strong>y</strong> (<em>None</em>) – This parameter is ignored.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>X</strong> – Tf-idf-weighted document-term matrix.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>sparse matrix of (n_samples, n_features)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.get_feature_names">
+<span class="sig-name descname"><span class="pre">get_feature_names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.get_feature_names" title="Link to this definition"></a></dt>
+<dd><p>DEPRECATED: get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.</p>
+<p>Array mapping from feature integer indices to feature name.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>feature_names<span class="classifier">list</span></dt><dd><p>A list of feature names.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.get_feature_names_out">
+<span class="sig-name descname"><span class="pre">get_feature_names_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.get_feature_names_out" title="Link to this definition"></a></dt>
+<dd><p>Get output feature names for transformation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>input_features</strong> (<em>array-like</em><em> of </em><em>str</em><em> or </em><em>None</em><em>, </em><em>default=None</em>) – Not used, present here for API consistency by convention.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>feature_names_out</strong> – Transformed feature names.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray of str objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.get_params">
+<span class="sig-name descname"><span class="pre">get_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.get_params" title="Link to this definition"></a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deep</strong> (<em>bool</em><em>, </em><em>default=True</em>) – If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>params</strong> – Parameter names mapped to their values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.get_stop_words">
+<span class="sig-name descname"><span class="pre">get_stop_words</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.get_stop_words" title="Link to this definition"></a></dt>
+<dd><p>Build or fetch the effective stop words list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stop_words</strong> – A list of stop words.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">idf_</span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Inverse document frequency vector, only defined if <cite>use_idf=True</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray of shape (n_features,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.inverse_transform">
+<span class="sig-name descname"><span class="pre">inverse_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.inverse_transform" title="Link to this definition"></a></dt>
+<dd><p>Return terms per document with nonzero entries in X.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>{array-like</em><em>, </em><em>sparse matrix}</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>, </em><em>n_features</em><em>)</em>) – Document-term matrix.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>X_inv</strong> – List of arrays of terms.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of arrays of shape (n_samples,)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.set_params" title="Link to this definition"></a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as <code class="xref py py-class docutils literal notranslate"><span class="pre">Pipeline</span></code>). The latter have
+parameters of the form <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></code> so that it’s
+possible to update each component of a nested object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**params</strong> (<em>dict</em>) – Estimator parameters.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – Estimator instance.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>estimator instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.TfidfVectorizer.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_documents</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.TfidfVectorizer.transform" title="Link to this definition"></a></dt>
+<dd><p>Transform documents to document-term matrix.</p>
+<p>Uses the vocabulary and document frequencies (df) learned by fit (or
+fit_transform).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw_documents</strong> (<em>iterable</em>) – An iterable which generates either str, unicode or file objects.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>X</strong> – Tf-idf-weighted document-term matrix.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>sparse matrix of (n_samples, n_features)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.calculate_centroid">
+<span class="sig-prename descclassname"><span class="pre">src.models.chitchat_classification_multicorpus.</span></span><span class="sig-name descname"><span class="pre">calculate_centroid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_chosen</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="src.models.train_retriever.html#src.models.train_retriever.SentenceTransformer" title="sentence_transformers.SentenceTransformer.SentenceTransformer"><span class="pre">SentenceTransformer</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.calculate_centroid" title="Link to this definition"></a></dt>
+<dd><p>Calculates the centroid of embeddings for given data using a specified model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pd.DataFrame</em>) – The data for which to calculate embeddings.</p></li>
+<li><p><strong>model_chosen</strong> (<a class="reference internal" href="src.inference.retriever_batch_inference.html#src.inference.retriever_batch_inference.SentenceTransformer" title="src.inference.retriever_batch_inference.SentenceTransformer"><em>SentenceTransformer</em></a>) – The model to use for embedding the data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The calculated centroid of the embeddings.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.load_json">
+<span class="sig-prename descclassname"><span class="pre">src.models.chitchat_classification_multicorpus.</span></span><span class="sig-name descname"><span class="pre">load_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.load_json" title="Link to this definition"></a></dt>
+<dd><p>Load JSON data from a specified file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – The path to the JSON file to be loaded.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The data loaded from the JSON file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.main">
+<span class="sig-prename descclassname"><span class="pre">src.models.chitchat_classification_multicorpus.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.main" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.plot_tsne_distribution_modified">
+<span class="sig-prename descclassname"><span class="pre">src.models.chitchat_classification_multicorpus.</span></span><span class="sig-name descname"><span class="pre">plot_tsne_distribution_modified</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="src.models.train_retriever.html#src.models.train_retriever.SentenceTransformer" title="sentence_transformers.SentenceTransformer.SentenceTransformer"><span class="pre">SentenceTransformer</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c2_accuracy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">embed_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.plot_tsne_distribution_modified" title="Link to this definition"></a></dt>
+<dd><p>Plots a t-SNE distribution of the combined train and test datasets using embeddings from a specified model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lib_name</strong> (<em>str</em>) – The library name associated with the data.</p></li>
+<li><p><strong>train_data</strong> (<em>pd.DataFrame</em>) – The training data containing questions.</p></li>
+<li><p><strong>test_data</strong> (<em>pd.DataFrame</em>) – The testing data containing questions.</p></li>
+<li><p><strong>model</strong> (<a class="reference internal" href="src.inference.retriever_batch_inference.html#src.inference.retriever_batch_inference.SentenceTransformer" title="src.inference.retriever_batch_inference.SentenceTransformer"><em>SentenceTransformer</em></a>) – The model used to generate embeddings.</p></li>
+<li><p><strong>labels</strong> (<em>list</em>) – The labels for different sources in the dataset.</p></li>
+<li><p><strong>c2_accuracy</strong> (<em>float</em>) – The classification accuracy for 2 clusters.</p></li>
+<li><p><strong>embed_method</strong> (<em>str</em>) – The embedding method used, either ‘st_untrained’ or ‘st_trained’.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.predict_by_similarity">
+<span class="sig-prename descclassname"><span class="pre">src.models.chitchat_classification_multicorpus.</span></span><span class="sig-name descname"><span class="pre">predict_by_similarity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_query_vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centroids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.predict_by_similarity" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.process_chitchat">
+<span class="sig-prename descclassname"><span class="pre">src.models.chitchat_classification_multicorpus.</span></span><span class="sig-name descname"><span class="pre">process_chitchat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.process_chitchat" title="Link to this definition"></a></dt>
+<dd><p>Processes chitchat data from various TSV files, combines them into a single DataFrame, and saves to a CSV file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.process_multi_libraries">
+<span class="sig-prename descclassname"><span class="pre">src.models.chitchat_classification_multicorpus.</span></span><span class="sig-name descname"><span class="pre">process_multi_libraries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">libraries</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.process_multi_libraries" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.process_topicalchat">
+<span class="sig-prename descclassname"><span class="pre">src.models.chitchat_classification_multicorpus.</span></span><span class="sig-name descname"><span class="pre">process_topicalchat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.process_topicalchat" title="Link to this definition"></a></dt>
+<dd><p>Processes the TopicalChat dataset, extracting questions and saving them to a CSV file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.models.chitchat_classification_multicorpus.sampledata_combine">
+<span class="sig-prename descclassname"><span class="pre">src.models.chitchat_classification_multicorpus.</span></span><span class="sig-name descname"><span class="pre">sampledata_combine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_data3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_count_data1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_count_data2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_count_data3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_count_data1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_count_data2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_count_data3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">500</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.models.chitchat_classification_multicorpus.sampledata_combine" title="Link to this definition"></a></dt>
+<dd><p>Combines sampled data into train and test datasets and saves them as CSV files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data1</strong> (<em>pd.DataFrame</em>) – First dataset to sample for training.</p></li>
+<li><p><strong>data2</strong> (<em>pd.DataFrame</em>) – Second dataset to sample for training.</p></li>
+<li><p><strong>data3</strong> (<em>pd.DataFrame</em>) – Third dataset used entirely for training.</p></li>
+<li><p><strong>test_data3</strong> (<em>pd.DataFrame</em>) – Dataset used entirely for testing.</p></li>
+<li><p><strong>train_count_data1</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of samples to take from data1 for training.</p></li>
+<li><p><strong>train_count_data2</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of samples to take from data2 for training.</p></li>
+<li><p><strong>train_count_data3</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of samples to take from data3 for training.</p></li>
+<li><p><strong>test_count_data1</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of samples to take from remaining data1 for testing.</p></li>
+<li><p><strong>test_count_data2</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of samples to take from remaining data2 for testing.</p></li>
+<li><p><strong>test_count_data3</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of samples to take from test_data3 for testing.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, BioMANIA Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

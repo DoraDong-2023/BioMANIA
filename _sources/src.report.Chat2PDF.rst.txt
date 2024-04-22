@@ -1,0 +1,4 @@
+.. automodule:: src.report.Chat2PDF
+   :members:
+   :undoc-members:
+   :show-inheritance:

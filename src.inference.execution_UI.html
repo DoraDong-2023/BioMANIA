@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Params &mdash; BioMANIA 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=01f34227"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/BioMANIA.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">AnnData</span></code></a><ul>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.T"><code class="docutils literal notranslate"><span class="pre">AnnData.T</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.X"><code class="docutils literal notranslate"><span class="pre">AnnData.X</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.chunk_X"><code class="docutils literal notranslate"><span class="pre">AnnData.chunk_X()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.chunked_X"><code class="docutils literal notranslate"><span class="pre">AnnData.chunked_X()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.concatenate"><code class="docutils literal notranslate"><span class="pre">AnnData.concatenate()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.copy"><code class="docutils literal notranslate"><span class="pre">AnnData.copy()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.filename"><code class="docutils literal notranslate"><span class="pre">AnnData.filename</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.is_view"><code class="docutils literal notranslate"><span class="pre">AnnData.is_view</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.isbacked"><code class="docutils literal notranslate"><span class="pre">AnnData.isbacked</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.layers"><code class="docutils literal notranslate"><span class="pre">AnnData.layers</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.n_obs"><code class="docutils literal notranslate"><span class="pre">AnnData.n_obs</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.n_vars"><code class="docutils literal notranslate"><span class="pre">AnnData.n_vars</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.obs"><code class="docutils literal notranslate"><span class="pre">AnnData.obs</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.obs_keys"><code class="docutils literal notranslate"><span class="pre">AnnData.obs_keys()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.obs_names"><code class="docutils literal notranslate"><span class="pre">AnnData.obs_names</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.obs_names_make_unique"><code class="docutils literal notranslate"><span class="pre">AnnData.obs_names_make_unique()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.obs_vector"><code class="docutils literal notranslate"><span class="pre">AnnData.obs_vector()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.obsm"><code class="docutils literal notranslate"><span class="pre">AnnData.obsm</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.obsm_keys"><code class="docutils literal notranslate"><span class="pre">AnnData.obsm_keys()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.obsp"><code class="docutils literal notranslate"><span class="pre">AnnData.obsp</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.raw"><code class="docutils literal notranslate"><span class="pre">AnnData.raw</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.rename_categories"><code class="docutils literal notranslate"><span class="pre">AnnData.rename_categories()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.shape"><code class="docutils literal notranslate"><span class="pre">AnnData.shape</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.strings_to_categoricals"><code class="docutils literal notranslate"><span class="pre">AnnData.strings_to_categoricals()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.to_df"><code class="docutils literal notranslate"><span class="pre">AnnData.to_df()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.to_memory"><code class="docutils literal notranslate"><span class="pre">AnnData.to_memory()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.transpose"><code class="docutils literal notranslate"><span class="pre">AnnData.transpose()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.uns"><code class="docutils literal notranslate"><span class="pre">AnnData.uns</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.uns_keys"><code class="docutils literal notranslate"><span class="pre">AnnData.uns_keys()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.var"><code class="docutils literal notranslate"><span class="pre">AnnData.var</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.var_keys"><code class="docutils literal notranslate"><span class="pre">AnnData.var_keys()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.var_names"><code class="docutils literal notranslate"><span class="pre">AnnData.var_names</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.var_names_make_unique"><code class="docutils literal notranslate"><span class="pre">AnnData.var_names_make_unique()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.var_vector"><code class="docutils literal notranslate"><span class="pre">AnnData.var_vector()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.varm"><code class="docutils literal notranslate"><span class="pre">AnnData.varm</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.varm_keys"><code class="docutils literal notranslate"><span class="pre">AnnData.varm_keys()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.varp"><code class="docutils literal notranslate"><span class="pre">AnnData.varp</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.write"><code class="docutils literal notranslate"><span class="pre">AnnData.write()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.write_csvs"><code class="docutils literal notranslate"><span class="pre">AnnData.write_csvs()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.write_h5ad"><code class="docutils literal notranslate"><span class="pre">AnnData.write_h5ad()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.write_loom"><code class="docutils literal notranslate"><span class="pre">AnnData.write_loom()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.AnnData.write_zarr"><code class="docutils literal notranslate"><span class="pre">AnnData.write_zarr()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor"><code class="docutils literal notranslate"><span class="pre">CodeExecutor</span></code></a><ul>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.execute_api_call"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.execute_api_call()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.execute_code_past_success"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.execute_code_past_success()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.execute_one_pass"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.execute_one_pass()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.filter_picklable_variables"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.filter_picklable_variables()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.format_arguments"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.format_arguments()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.format_value"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.format_value()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.generate_execution_code"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.generate_execution_code()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.generate_execution_code_for_one_api"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.generate_execution_code_for_one_api()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.get_import_code"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.get_import_code()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.get_max_result_from_variable_list"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.get_max_result_from_variable_list()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.is_picklable"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.is_picklable()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.is_str_at_first_level"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.is_str_at_first_level()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.load_environment"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.load_environment()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.load_object"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.load_object()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.load_variables_to_json"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.load_variables_to_json()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.makeup_for_missing_parameters"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.makeup_for_missing_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.makeup_for_missing_single_parameter"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.makeup_for_missing_single_parameter()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.makeup_for_missing_single_parameter_type_special"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.makeup_for_missing_single_parameter_type_special()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.save_environment"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.save_environment()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.save_object"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.save_object()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.save_special_objects"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.save_special_objects()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.save_variables_to_json"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.save_variables_to_json()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.select_parameters"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.select_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.CodeExecutor.split_tuple_variable"><code class="docutils literal notranslate"><span class="pre">CodeExecutor.split_tuple_variable()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.inference.execution_UI.load_json"><code class="docutils literal notranslate"><span class="pre">load_json()</span></code></a></li>
+<li><a class="reference internal" href="#src.inference.execution_UI.save_json"><code class="docutils literal notranslate"><span class="pre">save_json()</span></code></a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BioMANIA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Params</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/batmen-lab/BioMANIA/blob/main/docs/source/src.inference.execution_UI.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <dl class="py class" id="module-src.inference.execution_UI">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.inference.execution_UI.</span></span><span class="sig-name descname"><span class="pre">AnnData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">np.ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">sparse.spmatrix</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">pd.DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pd.DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obsm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">np.ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">np.ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">np.ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">sparse.spmatrix</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">np.dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">type</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filemode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'r'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'r+'</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asview</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obsp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">np.ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">np.ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Mapping</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oidx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Index1D</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vidx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Index1D</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.AnnData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An annotated data matrix.</p>
+<figure class="align-right">
+<a class="dark-light reference internal image-reference" href="../_static/img/anndata_schema.svg"><img alt="../_static/img/anndata_schema.svg" class="dark-light" src="../_static/img/anndata_schema.svg" width="260px" /></a>
+</figure>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code> stores a data matrix <a class="reference internal" href="#src.inference.execution_UI.AnnData.X" title="src.inference.execution_UI.AnnData.X"><code class="xref py py-attr docutils literal notranslate"><span class="pre">X</span></code></a> together with annotations
+of observations <a class="reference internal" href="#src.inference.execution_UI.AnnData.obs" title="src.inference.execution_UI.AnnData.obs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obs</span></code></a> (<a class="reference internal" href="#src.inference.execution_UI.AnnData.obsm" title="src.inference.execution_UI.AnnData.obsm"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obsm</span></code></a>, <a class="reference internal" href="#src.inference.execution_UI.AnnData.obsp" title="src.inference.execution_UI.AnnData.obsp"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obsp</span></code></a>),
+variables <a class="reference internal" href="#src.inference.execution_UI.AnnData.var" title="src.inference.execution_UI.AnnData.var"><code class="xref py py-attr docutils literal notranslate"><span class="pre">var</span></code></a> (<a class="reference internal" href="#src.inference.execution_UI.AnnData.varm" title="src.inference.execution_UI.AnnData.varm"><code class="xref py py-attr docutils literal notranslate"><span class="pre">varm</span></code></a>, <a class="reference internal" href="#src.inference.execution_UI.AnnData.varp" title="src.inference.execution_UI.AnnData.varp"><code class="xref py py-attr docutils literal notranslate"><span class="pre">varp</span></code></a>),
+and unstructured annotations <a class="reference internal" href="#src.inference.execution_UI.AnnData.uns" title="src.inference.execution_UI.AnnData.uns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">uns</span></code></a>.</p>
+<p>An <code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code> object <cite>adata</cite> can be sliced like a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>,
+for instance <cite>adata_subset = adata[:, list_of_variable_names]</cite>.
+<code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code>’s basic structure is similar to R’s ExpressionSet
+<span id="id1">[Huber15]</span>. If setting an <cite>.h5ad</cite>-formatted HDF5 backing file <cite>.filename</cite>,
+data remains on the disk but is automatically loaded into memory if needed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – A #observations × #variables data matrix. A view of the data is used if the
+data type matches, otherwise, a copy is made.</p></li>
+<li><p><strong>obs</strong> – Key-indexed one-dimensional observations annotation of length #observations.</p></li>
+<li><p><strong>var</strong> – Key-indexed one-dimensional variables annotation of length #variables.</p></li>
+<li><p><strong>uns</strong> – Key-indexed unstructured annotation.</p></li>
+<li><p><strong>obsm</strong> – Key-indexed multi-dimensional observations annotation of length #observations.
+If passing a <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, it needs to have a structured datatype.</p></li>
+<li><p><strong>varm</strong> – Key-indexed multi-dimensional variables annotation of length #variables.
+If passing a <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, it needs to have a structured datatype.</p></li>
+<li><p><strong>layers</strong> – Key-indexed multi-dimensional arrays aligned to dimensions of <cite>X</cite>.</p></li>
+<li><p><strong>shape</strong> – Shape tuple (#observations, #variables). Can only be provided if <cite>X</cite> is <cite>None</cite>.</p></li>
+<li><p><strong>filename</strong> – Name of backing file. See <code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.File</span></code>.</p></li>
+<li><p><strong>filemode</strong> – Open mode of backing file. See <code class="xref py py-class docutils literal notranslate"><span class="pre">h5py.File</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_h5ad</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">read_csv</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">read_excel</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">read_hdf</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">read_loom</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">read_zarr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">read_mtx</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">read_text</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">read_umi_tools</span></code></p>
+</div>
+<p class="rubric">Notes</p>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code> stores observations (samples) of variables/features
+in the rows of a matrix.
+This is the convention of the modern classics of statistics <span id="id2">[Hastie09]</span>
+and machine learning <span id="id3">[Murphy12]</span>,
+the convention of dataframes both in R and Python and the established statistics
+and machine learning packages in Python (<a class="reference external" href="http://www.statsmodels.org/stable/index.html">statsmodels</a>, <a class="reference external" href="http://scikit-learn.org/">scikit-learn</a>).</p>
+<p>Single dimensional annotations of the observation and variables are stored
+in the <a class="reference internal" href="#src.inference.execution_UI.AnnData.obs" title="src.inference.execution_UI.AnnData.obs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obs</span></code></a> and <a class="reference internal" href="#src.inference.execution_UI.AnnData.var" title="src.inference.execution_UI.AnnData.var"><code class="xref py py-attr docutils literal notranslate"><span class="pre">var</span></code></a> attributes as <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>s.
+This is intended for metrics calculated over their axes.
+Multi-dimensional annotations are stored in <a class="reference internal" href="#src.inference.execution_UI.AnnData.obsm" title="src.inference.execution_UI.AnnData.obsm"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obsm</span></code></a> and <a class="reference internal" href="#src.inference.execution_UI.AnnData.varm" title="src.inference.execution_UI.AnnData.varm"><code class="xref py py-attr docutils literal notranslate"><span class="pre">varm</span></code></a>,
+which are aligned to the objects observation and variable dimensions respectively.
+Square matrices representing graphs are stored in <a class="reference internal" href="#src.inference.execution_UI.AnnData.obsp" title="src.inference.execution_UI.AnnData.obsp"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obsp</span></code></a> and <a class="reference internal" href="#src.inference.execution_UI.AnnData.varp" title="src.inference.execution_UI.AnnData.varp"><code class="xref py py-attr docutils literal notranslate"><span class="pre">varp</span></code></a>,
+with both of their own dimensions aligned to their associated axis.
+Additional measurements across both observations and variables are stored in
+<a class="reference internal" href="#src.inference.execution_UI.AnnData.layers" title="src.inference.execution_UI.AnnData.layers"><code class="xref py py-attr docutils literal notranslate"><span class="pre">layers</span></code></a>.</p>
+<p>Indexing into an AnnData object can be performed by relative position
+with numeric indices (like pandas’ <code class="xref py py-meth docutils literal notranslate"><span class="pre">iloc()</span></code>),
+or by labels (like <code class="xref py py-meth docutils literal notranslate"><span class="pre">loc()</span></code>).
+To avoid ambiguity with numeric indexing into observations or variables,
+indexes of the AnnData object are converted to strings by the constructor.</p>
+<p>Subsetting an AnnData object by indexing into it will also subset its elements
+according to the dimensions they were aligned to.
+This means an operation like <cite>adata[list_of_obs, :]</cite> will also subset <a class="reference internal" href="#src.inference.execution_UI.AnnData.obs" title="src.inference.execution_UI.AnnData.obs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obs</span></code></a>,
+<a class="reference internal" href="#src.inference.execution_UI.AnnData.obsm" title="src.inference.execution_UI.AnnData.obsm"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obsm</span></code></a>, and <a class="reference internal" href="#src.inference.execution_UI.AnnData.layers" title="src.inference.execution_UI.AnnData.layers"><code class="xref py py-attr docutils literal notranslate"><span class="pre">layers</span></code></a>.</p>
+<p>Subsetting an AnnData object returns a view into the original object,
+meaning very little additional memory is used upon subsetting.
+This is achieved lazily, meaning that the constituent arrays are subset on access.
+Copying a view causes an equivalent “real” AnnData object to be generated.
+Attempting to modify a view (at any attribute except X) is handled
+in a copy-on-modify manner, meaning the object is initialized in place.
+Here’s an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">batch1</span> <span class="o">=</span> <span class="n">adata</span><span class="p">[</span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;batch&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;batch1&quot;</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">batch1</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># This makes batch1 a “real” AnnData object</span>
+</pre></div>
+</div>
+<p>At the end of this snippet: <cite>adata</cite> was not modified,
+and <cite>batch1</cite> is its own AnnData object with its own data.</p>
+<p>Similar to Bioconductor’s <cite>ExpressionSet</cite> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">scipy.sparse</span></code> matrices,
+subsetting an AnnData object retains the dimensionality of its constituent arrays.
+Therefore, unlike with the classes exposed by <code class="xref py py-mod docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code>,
+and <cite>xarray</cite>, there is no concept of a one dimensional AnnData object.
+AnnDatas always have two inherent dimensions, <a class="reference internal" href="#src.inference.execution_UI.AnnData.obs" title="src.inference.execution_UI.AnnData.obs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obs</span></code></a> and <a class="reference internal" href="#src.inference.execution_UI.AnnData.var" title="src.inference.execution_UI.AnnData.var"><code class="xref py py-attr docutils literal notranslate"><span class="pre">var</span></code></a>.
+Additionally, maintaining the dimensionality of the AnnData object allows for
+consistent handling of <code class="xref py py-mod docutils literal notranslate"><span class="pre">scipy.sparse</span></code> matrices and <code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code> arrays.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.T">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">T</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#src.inference.execution_UI.AnnData" title="anndata._core.anndata.AnnData"><span class="pre">AnnData</span></a></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.T" title="Link to this definition"></a></dt>
+<dd><p>Transpose whole object.</p>
+<p>Data matrix is transposed, observations and variables are interchanged.
+Ignores <cite>.raw</cite>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.X">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">X</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">spmatrix</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ArrayView</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.X" title="Link to this definition"></a></dt>
+<dd><p>Data matrix of shape <a class="reference internal" href="#src.inference.execution_UI.AnnData.n_obs" title="src.inference.execution_UI.AnnData.n_obs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">n_obs</span></code></a> × <a class="reference internal" href="#src.inference.execution_UI.AnnData.n_vars" title="src.inference.execution_UI.AnnData.n_vars"><code class="xref py py-attr docutils literal notranslate"><span class="pre">n_vars</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.chunk_X">
+<span class="sig-name descname"><span class="pre">chunk_X</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">select</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.AnnData.chunk_X" title="Link to this definition"></a></dt>
+<dd><p>Return a chunk of the data matrix <a class="reference internal" href="#src.inference.execution_UI.AnnData.X" title="src.inference.execution_UI.AnnData.X"><code class="xref py py-attr docutils literal notranslate"><span class="pre">X</span></code></a> with random or specified indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>select</strong> – <p>Depending on the type:</p>
+<dl class="simple">
+<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></dt><dd><p>A random chunk with <cite>select</cite> rows will be returned.</p>
+</dd>
+<dt><span class="xref std std-term">sequence</span> (e.g. a list, tuple or numpy array) of <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></dt><dd><p>A chunk with these indices will be returned.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>replace</strong> – If <cite>select</cite> is an integer then <cite>True</cite> means random sampling of
+indices with replacement, <cite>False</cite> without replacement.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.chunked_X">
+<span class="sig-name descname"><span class="pre">chunked_X</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chunk_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.AnnData.chunked_X" title="Link to this definition"></a></dt>
+<dd><p>Return an iterator over the rows of the data matrix <a class="reference internal" href="#src.inference.execution_UI.AnnData.X" title="src.inference.execution_UI.AnnData.X"><code class="xref py py-attr docutils literal notranslate"><span class="pre">X</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>chunk_size</strong> – Row size of a single chunk.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.concatenate">
+<span class="sig-name descname"><span class="pre">concatenate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">adatas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.inference.execution_UI.AnnData" title="anndata._core.anndata.AnnData"><span class="pre">AnnData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">join</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inner'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'batch'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_categories</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uns_merge</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_unique</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.inference.execution_UI.AnnData" title="anndata._core.anndata.AnnData"><span class="pre">AnnData</span></a></span></span><a class="headerlink" href="#src.inference.execution_UI.AnnData.concatenate" title="Link to this definition"></a></dt>
+<dd><p>Concatenate along the observations axis.</p>
+<p>The <a class="reference internal" href="#src.inference.execution_UI.AnnData.uns" title="src.inference.execution_UI.AnnData.uns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">uns</span></code></a>, <a class="reference internal" href="#src.inference.execution_UI.AnnData.varm" title="src.inference.execution_UI.AnnData.varm"><code class="xref py py-attr docutils literal notranslate"><span class="pre">varm</span></code></a> and <a class="reference internal" href="#src.inference.execution_UI.AnnData.obsm" title="src.inference.execution_UI.AnnData.obsm"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obsm</span></code></a> attributes are ignored.</p>
+<p>Currently, this works only in <cite>‘memory’</cite> mode.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more flexible and efficient concatenation, see: <code class="xref py py-func docutils literal notranslate"><span class="pre">concat()</span></code>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adatas</strong> – AnnData matrices to concatenate with. Each matrix is referred to as
+a “batch”.</p></li>
+<li><p><strong>join</strong> – Use intersection (<cite>‘inner’</cite>) or union (<cite>‘outer’</cite>) of variables.</p></li>
+<li><p><strong>batch_key</strong> – Add the batch annotation to <a class="reference internal" href="#src.inference.execution_UI.AnnData.obs" title="src.inference.execution_UI.AnnData.obs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obs</span></code></a> using this key.</p></li>
+<li><p><strong>batch_categories</strong> – Use these as categories for the batch annotation. By default, use increasing numbers.</p></li>
+<li><p><strong>uns_merge</strong> – <p>Strategy to use for merging entries of uns. These strategies are applied recusivley.
+Currently implemented strategies include:</p>
+<ul>
+<li><p><cite>None</cite>: The default. The concatenated object will just have an empty dict for <cite>uns</cite>.</p></li>
+<li><p><cite>”same”</cite>: Only entries which have the same value in all AnnData objects are kept.</p></li>
+<li><p><cite>”unique”</cite>: Only entries which have one unique value in all AnnData objects are kept.</p></li>
+<li><p><cite>”first”</cite>: The first non-missing value is used.</p></li>
+<li><p><cite>”only”</cite>: A value is included if only one of the AnnData objects has a value at this
+path.</p></li>
+</ul>
+</p></li>
+<li><p><strong>index_unique</strong> – Make the index unique by joining the existing index names with the
+batch category, using <cite>index_unique=’-’</cite>, for instance. Provide
+<cite>None</cite> to keep existing indices.</p></li>
+<li><p><strong>fill_value</strong> – <p>Scalar value to fill newly missing values in arrays with. Note: only applies to arrays
+and sparse matrices (not dataframes) and will only be used if <cite>join=”outer”</cite>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If not provided, the default value is <cite>0</cite> for sparse matrices and <cite>np.nan</cite>
+for numpy arrays. See the examples below for more information.</p>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The concatenated <code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code>, where <cite>adata.obs[batch_key]</cite>
+stores a categorical variable labeling the batch.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you use <cite>join=’outer’</cite> this fills 0s for sparse data when
+variables are absent in a batch. Use this with care. Dense data is
+filled with <cite>NaN</cite>. See the examples.</p>
+</div>
+<p class="rubric">Examples</p>
+<p>Joining on intersection of variables.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adata1</span> <span class="o">=</span> <span class="n">AnnData</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]),</span>
+<span class="gp">... </span>    <span class="nb">dict</span><span class="p">(</span><span class="n">obs_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s1&#39;</span><span class="p">,</span> <span class="s1">&#39;s2&#39;</span><span class="p">],</span> <span class="n">anno1</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;c1&#39;</span><span class="p">,</span> <span class="s1">&#39;c2&#39;</span><span class="p">]),</span>
+<span class="gp">... </span>    <span class="nb">dict</span><span class="p">(</span><span class="n">var_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="n">annoA</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata2</span> <span class="o">=</span> <span class="n">AnnData</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]),</span>
+<span class="gp">... </span>    <span class="nb">dict</span><span class="p">(</span><span class="n">obs_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s3&#39;</span><span class="p">,</span> <span class="s1">&#39;s4&#39;</span><span class="p">],</span> <span class="n">anno1</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;c3&#39;</span><span class="p">,</span> <span class="s1">&#39;c4&#39;</span><span class="p">]),</span>
+<span class="gp">... </span>    <span class="nb">dict</span><span class="p">(</span><span class="n">var_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">annoA</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata3</span> <span class="o">=</span> <span class="n">AnnData</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]),</span>
+<span class="gp">... </span>    <span class="nb">dict</span><span class="p">(</span><span class="n">obs_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s1&#39;</span><span class="p">,</span> <span class="s1">&#39;s2&#39;</span><span class="p">],</span> <span class="n">anno2</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d3&#39;</span><span class="p">,</span> <span class="s1">&#39;d4&#39;</span><span class="p">]),</span>
+<span class="gp">... </span>    <span class="nb">dict</span><span class="p">(</span><span class="n">var_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="n">annoA</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">annoB</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span> <span class="o">=</span> <span class="n">adata1</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">adata2</span><span class="p">,</span> <span class="n">adata3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span>
+<span class="go">AnnData object with n_obs × n_vars = 6 × 2</span>
+<span class="go">    obs: &#39;anno1&#39;, &#39;anno2&#39;, &#39;batch&#39;</span>
+<span class="go">    var: &#39;annoA-0&#39;, &#39;annoA-1&#39;, &#39;annoA-2&#39;, &#39;annoB-2&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span><span class="o">.</span><span class="n">X</span>
+<span class="go">array([[2, 3],</span>
+<span class="go">       [5, 6],</span>
+<span class="go">       [3, 2],</span>
+<span class="go">       [6, 5],</span>
+<span class="go">       [3, 2],</span>
+<span class="go">       [6, 5]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span><span class="o">.</span><span class="n">obs</span>
+<span class="go">     anno1 anno2 batch</span>
+<span class="go">s1-0    c1   NaN     0</span>
+<span class="go">s2-0    c2   NaN     0</span>
+<span class="go">s3-1    c3   NaN     1</span>
+<span class="go">s4-1    c4   NaN     1</span>
+<span class="go">s1-2   NaN    d3     2</span>
+<span class="go">s2-2   NaN    d4     2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span><span class="o">.</span><span class="n">var</span><span class="o">.</span><span class="n">T</span>
+<span class="go">         b  c</span>
+<span class="go">annoA-0  1  2</span>
+<span class="go">annoA-1  2  1</span>
+<span class="go">annoA-2  3  2</span>
+<span class="go">annoB-2  2  1</span>
+</pre></div>
+</div>
+<p>Joining on the union of variables.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">outer</span> <span class="o">=</span> <span class="n">adata1</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">adata2</span><span class="p">,</span> <span class="n">adata3</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">outer</span>
+<span class="go">AnnData object with n_obs × n_vars = 6 × 4</span>
+<span class="go">    obs: &#39;anno1&#39;, &#39;anno2&#39;, &#39;batch&#39;</span>
+<span class="go">    var: &#39;annoA-0&#39;, &#39;annoA-1&#39;, &#39;annoA-2&#39;, &#39;annoB-2&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">outer</span><span class="o">.</span><span class="n">var</span><span class="o">.</span><span class="n">T</span>
+<span class="go">           a    b    c    d</span>
+<span class="go">annoA-0  0.0  1.0  2.0  NaN</span>
+<span class="go">annoA-1  NaN  2.0  1.0  0.0</span>
+<span class="go">annoA-2  NaN  3.0  2.0  0.0</span>
+<span class="go">annoB-2  NaN  2.0  1.0  0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">outer</span><span class="o">.</span><span class="n">var_names</span>
+<span class="go">Index([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;], dtype=&#39;object&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">outer</span><span class="o">.</span><span class="n">X</span>
+<span class="go">array([[ 1.,  2.,  3., nan],</span>
+<span class="go">       [ 4.,  5.,  6., nan],</span>
+<span class="go">       [nan,  3.,  2.,  1.],</span>
+<span class="go">       [nan,  6.,  5.,  4.],</span>
+<span class="go">       [nan,  3.,  2.,  1.],</span>
+<span class="go">       [nan,  6.,  5.,  4.]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">outer</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([nan, 25., 23., nan])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">outer</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">outer</span><span class="o">.</span><span class="n">var_names</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xdf</span>
+<span class="go">     a    b    c    d</span>
+<span class="go">0  1.0  2.0  3.0  NaN</span>
+<span class="go">1  4.0  5.0  6.0  NaN</span>
+<span class="go">2  NaN  3.0  2.0  1.0</span>
+<span class="go">3  NaN  6.0  5.0  4.0</span>
+<span class="go">4  NaN  3.0  2.0  1.0</span>
+<span class="go">5  NaN  6.0  5.0  4.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Xdf</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="go">a     5.0</span>
+<span class="go">b    25.0</span>
+<span class="go">c    23.0</span>
+<span class="go">d    10.0</span>
+<span class="go">dtype: float64</span>
+</pre></div>
+</div>
+<p>One way to deal with missing values is to use masked arrays:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ma</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">outer</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">outer</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">outer</span><span class="o">.</span><span class="n">X</span>
+<span class="go">masked_array(</span>
+<span class="go">  data=[[1.0, 2.0, 3.0, --],</span>
+<span class="go">        [4.0, 5.0, 6.0, --],</span>
+<span class="go">        [--, 3.0, 2.0, 1.0],</span>
+<span class="go">        [--, 6.0, 5.0, 4.0],</span>
+<span class="go">        [--, 3.0, 2.0, 1.0],</span>
+<span class="go">        [--, 6.0, 5.0, 4.0]],</span>
+<span class="go">  mask=[[False, False, False,  True],</span>
+<span class="go">        [False, False, False,  True],</span>
+<span class="go">        [ True, False, False, False],</span>
+<span class="go">        [ True, False, False, False],</span>
+<span class="go">        [ True, False, False, False],</span>
+<span class="go">        [ True, False, False, False]],</span>
+<span class="go">  fill_value=1e+20)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">outer</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
+<span class="go">array([ 5., 25., 23., 10.])</span>
+</pre></div>
+</div>
+<p>The masked array is not saved but has to be reinstantiated after saving.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">outer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;./test.h5ad&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anndata</span> <span class="kn">import</span> <span class="n">read_h5ad</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">outer</span> <span class="o">=</span> <span class="n">read_h5ad</span><span class="p">(</span><span class="s1">&#39;./test.h5ad&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">outer</span><span class="o">.</span><span class="n">X</span>
+<span class="go">array([[ 1.,  2.,  3., nan],</span>
+<span class="go">       [ 4.,  5.,  6., nan],</span>
+<span class="go">       [nan,  3.,  2.,  1.],</span>
+<span class="go">       [nan,  6.,  5.,  4.],</span>
+<span class="go">       [nan,  3.,  2.,  1.],</span>
+<span class="go">       [nan,  6.,  5.,  4.]])</span>
+</pre></div>
+</div>
+<p>For sparse data, everything behaves similarly,
+except that for <cite>join=’outer’</cite>, zeros are added.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata1</span> <span class="o">=</span> <span class="n">AnnData</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">csr_matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="nb">dict</span><span class="p">(</span><span class="n">obs_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s1&#39;</span><span class="p">,</span> <span class="s1">&#39;s2&#39;</span><span class="p">],</span> <span class="n">anno1</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;c1&#39;</span><span class="p">,</span> <span class="s1">&#39;c2&#39;</span><span class="p">]),</span>
+<span class="gp">... </span>    <span class="nb">dict</span><span class="p">(</span><span class="n">var_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]),</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata2</span> <span class="o">=</span> <span class="n">AnnData</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">csr_matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="nb">dict</span><span class="p">(</span><span class="n">obs_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s3&#39;</span><span class="p">,</span> <span class="s1">&#39;s4&#39;</span><span class="p">],</span> <span class="n">anno1</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;c3&#39;</span><span class="p">,</span> <span class="s1">&#39;c4&#39;</span><span class="p">]),</span>
+<span class="gp">... </span>    <span class="nb">dict</span><span class="p">(</span><span class="n">var_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]),</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata3</span> <span class="o">=</span> <span class="n">AnnData</span><span class="p">(</span>
+<span class="gp">... </span><span class="n">csr_matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="nb">dict</span><span class="p">(</span><span class="n">obs_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s5&#39;</span><span class="p">,</span> <span class="s1">&#39;s6&#39;</span><span class="p">],</span> <span class="n">anno2</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d3&#39;</span><span class="p">,</span> <span class="s1">&#39;d4&#39;</span><span class="p">]),</span>
+<span class="gp">... </span>    <span class="nb">dict</span><span class="p">(</span><span class="n">var_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]),</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span> <span class="o">=</span> <span class="n">adata1</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">adata2</span><span class="p">,</span> <span class="n">adata3</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span><span class="o">.</span><span class="n">var_names</span>
+<span class="go">Index([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;], dtype=&#39;object&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="go">array([[0., 2., 3., 0.],</span>
+<span class="go">       [0., 5., 6., 0.],</span>
+<span class="go">       [0., 3., 2., 0.],</span>
+<span class="go">       [0., 6., 5., 0.],</span>
+<span class="go">       [0., 0., 2., 1.],</span>
+<span class="go">       [0., 6., 5., 0.]], dtype=float32)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.inference.execution_UI.AnnData" title="src.inference.execution_UI.AnnData"><span class="pre">AnnData</span></a></span></span><a class="headerlink" href="#src.inference.execution_UI.AnnData.copy" title="Link to this definition"></a></dt>
+<dd><p>Full copy, optionally on disk.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.filename">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filename</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="src.models.inference_classification.html#src.models.inference_classification.Path" title="pathlib.Path"><span class="pre">Path</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.filename" title="Link to this definition"></a></dt>
+<dd><p>Change to backing mode by setting the filename of a <cite>.h5ad</cite> file.</p>
+<ul class="simple">
+<li><p>Setting the filename writes the stored data to disk.</p></li>
+<li><p>Setting the filename when the filename was previously another name
+moves the backing file from the previous file to the new file.
+If you want to copy the previous file, use <cite>copy(filename=’new_filename’)</cite>.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.is_view">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_view</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.is_view" title="Link to this definition"></a></dt>
+<dd><p><cite>True</cite> if object is view of another AnnData object, <cite>False</cite> otherwise.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.isbacked">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isbacked</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.isbacked" title="Link to this definition"></a></dt>
+<dd><p><cite>True</cite> if object is backed on disk, <cite>False</cite> otherwise.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.layers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">layers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Layers</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">LayersView</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.layers" title="Link to this definition"></a></dt>
+<dd><p>Dictionary-like object with values of the same dimensions as <a class="reference internal" href="#src.inference.execution_UI.AnnData.X" title="src.inference.execution_UI.AnnData.X"><code class="xref py py-attr docutils literal notranslate"><span class="pre">X</span></code></a>.</p>
+<p>Layers in AnnData are inspired by loompy’s <span class="xref std std-ref">loomlayers</span>.</p>
+<p>Return the layer named <cite>“unspliced”</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s2">&quot;unspliced&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Create or replace the <cite>“spliced”</cite> layer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s2">&quot;spliced&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>Assign the 10th column of layer <cite>“spliced”</cite> to the variable a:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s2">&quot;spliced&quot;</span><span class="p">][:,</span> <span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Delete the <cite>“spliced”</cite> layer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="s2">&quot;spliced&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Return layers’ names:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.n_obs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_obs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.n_obs" title="Link to this definition"></a></dt>
+<dd><p>Number of observations.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.n_vars">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_vars</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.n_vars" title="Link to this definition"></a></dt>
+<dd><p>Number of variables/features.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.obs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">obs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.obs" title="Link to this definition"></a></dt>
+<dd><p>One-dimensional annotation of observations (<cite>pd.DataFrame</cite>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.obs_keys">
+<span class="sig-name descname"><span class="pre">obs_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.inference.execution_UI.AnnData.obs_keys" title="Link to this definition"></a></dt>
+<dd><p>List keys of observation annotation <a class="reference internal" href="#src.inference.execution_UI.AnnData.obs" title="src.inference.execution_UI.AnnData.obs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obs</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.obs_names">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">obs_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Index</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.obs_names" title="Link to this definition"></a></dt>
+<dd><p>Names of observations (alias for <cite>.obs.index</cite>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.obs_names_make_unique">
+<span class="sig-name descname"><span class="pre">obs_names_make_unique</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">join</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.AnnData.obs_names_make_unique" title="Link to this definition"></a></dt>
+<dd><p>Makes the index unique by appending a number string to each duplicate index element:
+‘1’, ‘2’, etc.</p>
+<p>If a tentative name created by the algorithm already exists in the index, it tries
+the next integer in the sequence.</p>
+<p>The first occurrence of a non-unique value is ignored.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>join</strong> – The connecting string between name and integer.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anndata</span> <span class="kn">import</span> <span class="n">AnnData</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span> <span class="o">=</span> <span class="n">AnnData</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">var</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span><span class="o">.</span><span class="n">var_names</span>
+<span class="go">Index([&#39;a&#39;, &#39;a&#39;, &#39;b&#39;], dtype=&#39;object&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span><span class="o">.</span><span class="n">var_names_make_unique</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span><span class="o">.</span><span class="n">var_names</span>
+<span class="go">Index([&#39;a&#39;, &#39;a-1&#39;, &#39;b&#39;], dtype=&#39;object&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.obs_vector">
+<span class="sig-name descname"><span class="pre">obs_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#src.inference.execution_UI.AnnData.obs_vector" title="Link to this definition"></a></dt>
+<dd><p>Convenience function for returning a 1 dimensional ndarray of values
+from <a class="reference internal" href="#src.inference.execution_UI.AnnData.X" title="src.inference.execution_UI.AnnData.X"><code class="xref py py-attr docutils literal notranslate"><span class="pre">X</span></code></a>, <a class="reference internal" href="#src.inference.execution_UI.AnnData.layers" title="src.inference.execution_UI.AnnData.layers"><code class="xref py py-attr docutils literal notranslate"><span class="pre">layers</span></code></a><cite>[k]</cite>, or <a class="reference internal" href="#src.inference.execution_UI.AnnData.obs" title="src.inference.execution_UI.AnnData.obs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obs</span></code></a>.</p>
+<p>Made for convenience, not performance.
+Intentionally permissive about arguments, for easy iterative use.</p>
+<section id="params">
+<h1>Params<a class="headerlink" href="#params" title="Link to this heading"></a></h1>
+<dl class="simple">
+<dt>k</dt><dd><p>Key to use. Should be in <a class="reference internal" href="#src.inference.execution_UI.AnnData.var_names" title="src.inference.execution_UI.AnnData.var_names"><code class="xref py py-attr docutils literal notranslate"><span class="pre">var_names</span></code></a> or <a class="reference internal" href="#src.inference.execution_UI.AnnData.obs" title="src.inference.execution_UI.AnnData.obs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obs</span></code></a><cite>.columns</cite>.</p>
+</dd>
+<dt>layer</dt><dd><p>What layer values should be returned from. If <cite>None</cite>, <a class="reference internal" href="#src.inference.execution_UI.AnnData.X" title="src.inference.execution_UI.AnnData.X"><code class="xref py py-attr docutils literal notranslate"><span class="pre">X</span></code></a> is used.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><em>A one dimensional ndarray, with values for each obs in the same order</em></p></li>
+<li><p>as <a class="reference internal" href="#src.inference.execution_UI.AnnData.obs_names" title="src.inference.execution_UI.AnnData.obs_names"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obs_names</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.obsm">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">obsm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">AxisArrays</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AxisArraysView</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.obsm" title="Link to this definition"></a></dt>
+<dd><p>Multi-dimensional annotation of observations
+(mutable structured <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>).</p>
+<p>Stores for each key a two or higher-dimensional <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>
+of length <cite>n_obs</cite>.
+Is sliced with <cite>data</cite> and <cite>obs</cite> but behaves otherwise like a <span class="xref std std-term">mapping</span>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.obsm_keys">
+<span class="sig-name descname"><span class="pre">obsm_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.inference.execution_UI.AnnData.obsm_keys" title="Link to this definition"></a></dt>
+<dd><p>List keys of observation annotation <a class="reference internal" href="#src.inference.execution_UI.AnnData.obsm" title="src.inference.execution_UI.AnnData.obsm"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obsm</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.obsp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">obsp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PairwiseArrays</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PairwiseArraysView</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.obsp" title="Link to this definition"></a></dt>
+<dd><p>Pairwise annotation of observations,
+a mutable mapping with array-like values.</p>
+<p>Stores for each key a two or higher-dimensional <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>
+whose first two dimensions are of length <cite>n_obs</cite>.
+Is sliced with <cite>data</cite> and <cite>obs</cite> but behaves otherwise like a <span class="xref std std-term">mapping</span>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.raw">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">raw</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Raw</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.raw" title="Link to this definition"></a></dt>
+<dd><p>Store raw version of <a class="reference internal" href="#src.inference.execution_UI.AnnData.X" title="src.inference.execution_UI.AnnData.X"><code class="xref py py-attr docutils literal notranslate"><span class="pre">X</span></code></a> and <a class="reference internal" href="#src.inference.execution_UI.AnnData.var" title="src.inference.execution_UI.AnnData.var"><code class="xref py py-attr docutils literal notranslate"><span class="pre">var</span></code></a> as <cite>.raw.X</cite> and <cite>.raw.var</cite>.</p>
+<p>The <a class="reference internal" href="#src.inference.execution_UI.AnnData.raw" title="src.inference.execution_UI.AnnData.raw"><code class="xref py py-attr docutils literal notranslate"><span class="pre">raw</span></code></a> attribute is initialized with the current content
+of an object by setting:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">raw</span> <span class="o">=</span> <span class="n">adata</span>
+</pre></div>
+</div>
+<p>Its content can be deleted:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">raw</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="c1"># or</span>
+<span class="k">del</span> <span class="n">adata</span><span class="o">.</span><span class="n">raw</span>
+</pre></div>
+</div>
+<p>Upon slicing an AnnData object along the obs (row) axis, <a class="reference internal" href="#src.inference.execution_UI.AnnData.raw" title="src.inference.execution_UI.AnnData.raw"><code class="xref py py-attr docutils literal notranslate"><span class="pre">raw</span></code></a>
+is also sliced. Slicing an AnnData object along the vars (columns) axis
+leaves <a class="reference internal" href="#src.inference.execution_UI.AnnData.raw" title="src.inference.execution_UI.AnnData.raw"><code class="xref py py-attr docutils literal notranslate"><span class="pre">raw</span></code></a> unaffected. Note that you can call:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adata</span><span class="o">.</span><span class="n">raw</span><span class="p">[:,</span> <span class="s1">&#39;orig_variable_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">X</span>
+</pre></div>
+</div>
+<p>to retrieve the data associated with a variable that might have been
+filtered out or “compressed away” in <a class="reference internal" href="#src.inference.execution_UI.AnnData.X" title="src.inference.execution_UI.AnnData.X"><code class="xref py py-attr docutils literal notranslate"><span class="pre">X</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.rename_categories">
+<span class="sig-name descname"><span class="pre">rename_categories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.AnnData.rename_categories" title="Link to this definition"></a></dt>
+<dd><p>Rename categories of annotation <cite>key</cite> in <a class="reference internal" href="#src.inference.execution_UI.AnnData.obs" title="src.inference.execution_UI.AnnData.obs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obs</span></code></a>, <a class="reference internal" href="#src.inference.execution_UI.AnnData.var" title="src.inference.execution_UI.AnnData.var"><code class="xref py py-attr docutils literal notranslate"><span class="pre">var</span></code></a>,
+and <a class="reference internal" href="#src.inference.execution_UI.AnnData.uns" title="src.inference.execution_UI.AnnData.uns"><code class="xref py py-attr docutils literal notranslate"><span class="pre">uns</span></code></a>.</p>
+<p>Only supports passing a list/array-like <cite>categories</cite> argument.</p>
+<p>Besides calling <cite>self.obs[key].cat.categories = categories</cite> –
+similar for <a class="reference internal" href="#src.inference.execution_UI.AnnData.var" title="src.inference.execution_UI.AnnData.var"><code class="xref py py-attr docutils literal notranslate"><span class="pre">var</span></code></a> - this also renames categories in unstructured
+annotation that uses the categorical annotation <cite>key</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – Key for observations or variables annotation.</p></li>
+<li><p><strong>categories</strong> – New categories, the same number as the old categories.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.shape">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.shape" title="Link to this definition"></a></dt>
+<dd><p>Shape of data matrix (<a class="reference internal" href="#src.inference.execution_UI.AnnData.n_obs" title="src.inference.execution_UI.AnnData.n_obs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">n_obs</span></code></a>, <a class="reference internal" href="#src.inference.execution_UI.AnnData.n_vars" title="src.inference.execution_UI.AnnData.n_vars"><code class="xref py py-attr docutils literal notranslate"><span class="pre">n_vars</span></code></a>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.strings_to_categoricals">
+<span class="sig-name descname"><span class="pre">strings_to_categoricals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.AnnData.strings_to_categoricals" title="Link to this definition"></a></dt>
+<dd><p>Transform string annotations to categoricals.</p>
+<p>Only affects string annotations that lead to less categories than the
+total number of observations.</p>
+<section id="id4">
+<h1>Params<a class="headerlink" href="#id4" title="Link to this heading"></a></h1>
+<dl class="simple">
+<dt>df</dt><dd><p>If <cite>df</cite> is <cite>None</cite>, modifies both <a class="reference internal" href="#src.inference.execution_UI.AnnData.obs" title="src.inference.execution_UI.AnnData.obs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obs</span></code></a> and <a class="reference internal" href="#src.inference.execution_UI.AnnData.var" title="src.inference.execution_UI.AnnData.var"><code class="xref py py-attr docutils literal notranslate"><span class="pre">var</span></code></a>,
+otherwise modifies <cite>df</cite> inplace.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Turns the view of an <code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code> into an actual
+<code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code>.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.to_df">
+<span class="sig-name descname"><span class="pre">to_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#src.inference.execution_UI.AnnData.to_df" title="Link to this definition"></a></dt>
+<dd><p>Generate shallow <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<p>The data matrix <a class="reference internal" href="#src.inference.execution_UI.AnnData.X" title="src.inference.execution_UI.AnnData.X"><code class="xref py py-attr docutils literal notranslate"><span class="pre">X</span></code></a> is returned as
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>, where <a class="reference internal" href="#src.inference.execution_UI.AnnData.obs_names" title="src.inference.execution_UI.AnnData.obs_names"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obs_names</span></code></a> initializes the
+index, and <a class="reference internal" href="#src.inference.execution_UI.AnnData.var_names" title="src.inference.execution_UI.AnnData.var_names"><code class="xref py py-attr docutils literal notranslate"><span class="pre">var_names</span></code></a> the columns.</p>
+<ul class="simple">
+<li><p>No annotations are maintained in the returned object.</p></li>
+<li><p>The data matrix is densified in case it is sparse.</p></li>
+</ul>
+<section id="id5">
+<h1>Params<a class="headerlink" href="#id5" title="Link to this heading"></a></h1>
+<dl class="simple">
+<dt>layer</dt><dd><p>Key for <cite>.layers</cite>.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">rtype<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pandas DataFrame of specified data matrix.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.to_memory">
+<span class="sig-name descname"><span class="pre">to_memory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.inference.execution_UI.AnnData" title="anndata._core.anndata.AnnData"><span class="pre">AnnData</span></a></span></span><a class="headerlink" href="#src.inference.execution_UI.AnnData.to_memory" title="Link to this definition"></a></dt>
+<dd><p>Return a new AnnData object with all backed arrays loaded into memory.</p>
+<section id="id6">
+<h1>Params<a class="headerlink" href="#id6" title="Link to this heading"></a></h1>
+<blockquote>
+<div><dl class="simple">
+<dt>copy:</dt><dd><p>Whether the arrays that are already in-memory should be copied.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p class="rubric">Example</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">anndata</span>
+<span class="n">backed</span> <span class="o">=</span> <span class="n">anndata</span><span class="o">.</span><span class="n">read_h5ad</span><span class="p">(</span><span class="s2">&quot;file.h5ad&quot;</span><span class="p">,</span> <span class="n">backed</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">mem</span> <span class="o">=</span> <span class="n">backed</span><span class="p">[</span><span class="n">backed</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">to_memory</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.transpose">
+<span class="sig-name descname"><span class="pre">transpose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.inference.execution_UI.AnnData" title="anndata._core.anndata.AnnData"><span class="pre">AnnData</span></a></span></span><a class="headerlink" href="#src.inference.execution_UI.AnnData.transpose" title="Link to this definition"></a></dt>
+<dd><p>Transpose whole object.</p>
+<p>Data matrix is transposed, observations and variables are interchanged.
+Ignores <cite>.raw</cite>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.uns">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">uns</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MutableMapping</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.uns" title="Link to this definition"></a></dt>
+<dd><p>Unstructured annotation (ordered dictionary).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.uns_keys">
+<span class="sig-name descname"><span class="pre">uns_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.inference.execution_UI.AnnData.uns_keys" title="Link to this definition"></a></dt>
+<dd><p>List keys of unstructured annotation.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.var">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">var</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.var" title="Link to this definition"></a></dt>
+<dd><p>One-dimensional annotation of variables/ features (<cite>pd.DataFrame</cite>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.var_keys">
+<span class="sig-name descname"><span class="pre">var_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.inference.execution_UI.AnnData.var_keys" title="Link to this definition"></a></dt>
+<dd><p>List keys of variable annotation <a class="reference internal" href="#src.inference.execution_UI.AnnData.var" title="src.inference.execution_UI.AnnData.var"><code class="xref py py-attr docutils literal notranslate"><span class="pre">var</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.var_names">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">var_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Index</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.var_names" title="Link to this definition"></a></dt>
+<dd><p>Names of variables (alias for <cite>.var.index</cite>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.var_names_make_unique">
+<span class="sig-name descname"><span class="pre">var_names_make_unique</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">join</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.AnnData.var_names_make_unique" title="Link to this definition"></a></dt>
+<dd><p>Makes the index unique by appending a number string to each duplicate index element:
+‘1’, ‘2’, etc.</p>
+<p>If a tentative name created by the algorithm already exists in the index, it tries
+the next integer in the sequence.</p>
+<p>The first occurrence of a non-unique value is ignored.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>join</strong> – The connecting string between name and integer.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">anndata</span> <span class="kn">import</span> <span class="n">AnnData</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span> <span class="o">=</span> <span class="n">AnnData</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">var</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span><span class="o">.</span><span class="n">var_names</span>
+<span class="go">Index([&#39;a&#39;, &#39;a&#39;, &#39;b&#39;], dtype=&#39;object&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span><span class="o">.</span><span class="n">var_names_make_unique</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adata</span><span class="o">.</span><span class="n">var_names</span>
+<span class="go">Index([&#39;a&#39;, &#39;a-1&#39;, &#39;b&#39;], dtype=&#39;object&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.var_vector">
+<span class="sig-name descname"><span class="pre">var_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#src.inference.execution_UI.AnnData.var_vector" title="Link to this definition"></a></dt>
+<dd><p>Convenience function for returning a 1 dimensional ndarray of values
+from <a class="reference internal" href="#src.inference.execution_UI.AnnData.X" title="src.inference.execution_UI.AnnData.X"><code class="xref py py-attr docutils literal notranslate"><span class="pre">X</span></code></a>, <a class="reference internal" href="#src.inference.execution_UI.AnnData.layers" title="src.inference.execution_UI.AnnData.layers"><code class="xref py py-attr docutils literal notranslate"><span class="pre">layers</span></code></a><cite>[k]</cite>, or <a class="reference internal" href="#src.inference.execution_UI.AnnData.obs" title="src.inference.execution_UI.AnnData.obs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obs</span></code></a>.</p>
+<p>Made for convenience, not performance. Intentionally permissive about
+arguments, for easy iterative use.</p>
+<section id="id7">
+<h1>Params<a class="headerlink" href="#id7" title="Link to this heading"></a></h1>
+<dl class="simple">
+<dt>k</dt><dd><p>Key to use. Should be in <a class="reference internal" href="#src.inference.execution_UI.AnnData.obs_names" title="src.inference.execution_UI.AnnData.obs_names"><code class="xref py py-attr docutils literal notranslate"><span class="pre">obs_names</span></code></a> or <a class="reference internal" href="#src.inference.execution_UI.AnnData.var" title="src.inference.execution_UI.AnnData.var"><code class="xref py py-attr docutils literal notranslate"><span class="pre">var</span></code></a><cite>.columns</cite>.</p>
+</dd>
+<dt>layer</dt><dd><p>What layer values should be returned from. If <cite>None</cite>, <a class="reference internal" href="#src.inference.execution_UI.AnnData.X" title="src.inference.execution_UI.AnnData.X"><code class="xref py py-attr docutils literal notranslate"><span class="pre">X</span></code></a> is used.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><em>A one dimensional ndarray, with values for each var in the same order</em></p></li>
+<li><p>as <a class="reference internal" href="#src.inference.execution_UI.AnnData.var_names" title="src.inference.execution_UI.AnnData.var_names"><code class="xref py py-attr docutils literal notranslate"><span class="pre">var_names</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.varm">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">varm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">AxisArrays</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AxisArraysView</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.varm" title="Link to this definition"></a></dt>
+<dd><p>Multi-dimensional annotation of variables/features
+(mutable structured <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>).</p>
+<p>Stores for each key a two or higher-dimensional <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>
+of length <cite>n_vars</cite>.
+Is sliced with <cite>data</cite> and <cite>var</cite> but behaves otherwise like a <span class="xref std std-term">mapping</span>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.varm_keys">
+<span class="sig-name descname"><span class="pre">varm_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.inference.execution_UI.AnnData.varm_keys" title="Link to this definition"></a></dt>
+<dd><p>List keys of variable annotation <a class="reference internal" href="#src.inference.execution_UI.AnnData.varm" title="src.inference.execution_UI.AnnData.varm"><code class="xref py py-attr docutils literal notranslate"><span class="pre">varm</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.varp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">varp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PairwiseArrays</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PairwiseArraysView</span></em><a class="headerlink" href="#src.inference.execution_UI.AnnData.varp" title="Link to this definition"></a></dt>
+<dd><p>Pairwise annotation of variables/features,
+a mutable mapping with array-like values.</p>
+<p>Stores for each key a two or higher-dimensional <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>
+whose first two dimensions are of length <cite>n_var</cite>.
+Is sliced with <cite>data</cite> and <cite>var</cite> but behaves otherwise like a <span class="xref std std-term">mapping</span>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'gzip'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'lzf'</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression_opts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_dense</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.AnnData.write" title="Link to this definition"></a></dt>
+<dd><p>Write <cite>.h5ad</cite>-formatted hdf5 file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Setting compression to <cite>‘gzip’</cite> can save disk space
+but will slow down writing and subsequent reading.
+Prior to v0.6.16, this was the default for parameter <cite>compression</cite>.</p>
+</div>
+<p>Generally, if you have sparse data that are stored as a dense matrix,
+you can dramatically improve performance and reduce disk space
+by converting to a <code class="xref py py-class docutils literal notranslate"><span class="pre">csr_matrix</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> – Filename of data file. Defaults to backing file.</p></li>
+<li><p><strong>compression</strong> – <p>For [<cite>lzf</cite>, <cite>gzip</cite>], see the h5py <span class="xref std std-ref">dataset_compression</span>.</p>
+<p>Alternative compression filters such as <cite>zstd</cite> can be passed
+from the <span class="xref std std-doc">hdf5plugin</span> library.
+Experimental.</p>
+<p>Usage example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hdf5plugin</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">write_h5ad</span><span class="p">(</span>
+    <span class="n">filename</span><span class="p">,</span>
+    <span class="n">compression</span><span class="o">=</span><span class="n">hdf5plugin</span><span class="o">.</span><span class="n">FILTERS</span><span class="p">[</span><span class="s2">&quot;zstd&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Datasets written with hdf5plugin-provided compressors
+cannot be opened without first loading the hdf5plugin
+library using <cite>import hdf5plugin</cite>. When using alternative
+compression filters such as <cite>zstd</cite>, consider writing to
+<cite>zarr</cite> format instead of <cite>h5ad</cite>, as the <cite>zarr</cite> library
+provides a more transparent compression pipeline.</p>
+</div>
+</p></li>
+<li><p><strong>compression_opts</strong> – <p>For [<cite>lzf</cite>, <cite>gzip</cite>], see the h5py <span class="xref std std-ref">dataset_compression</span>.</p>
+<p>Alternative compression filters such as <cite>zstd</cite> can be configured
+using helpers from the <span class="xref std std-doc">hdf5plugin</span>
+library. Experimental.</p>
+<p>Usage example (setting <cite>zstd</cite> compression level to 5):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hdf5plugin</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">write_h5ad</span><span class="p">(</span>
+    <span class="n">filename</span><span class="p">,</span>
+    <span class="n">compression</span><span class="o">=</span><span class="n">hdf5plugin</span><span class="o">.</span><span class="n">FILTERS</span><span class="p">[</span><span class="s2">&quot;zstd&quot;</span><span class="p">],</span>
+    <span class="n">compression_opts</span><span class="o">=</span><span class="n">hdf5plugin</span><span class="o">.</span><span class="n">Zstd</span><span class="p">(</span><span class="n">clevel</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">filter_options</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</p></li>
+<li><p><strong>as_dense</strong> – Sparse arrays in AnnData object to write as dense. Currently only
+supports <cite>X</cite> and <cite>raw/X</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.write_csvs">
+<span class="sig-name descname"><span class="pre">write_csvs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dirname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">','</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.AnnData.write_csvs" title="Link to this definition"></a></dt>
+<dd><p>Write annotation to <cite>.csv</cite> files.</p>
+<p>It is not possible to recover the full <code class="xref py py-class docutils literal notranslate"><span class="pre">AnnData</span></code> from
+these files. Use <a class="reference internal" href="#src.inference.execution_UI.AnnData.write" title="src.inference.execution_UI.AnnData.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> for this.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dirname</strong> – Name of directory to which to export.</p></li>
+<li><p><strong>skip_data</strong> – Skip the data matrix <a class="reference internal" href="#src.inference.execution_UI.AnnData.X" title="src.inference.execution_UI.AnnData.X"><code class="xref py py-attr docutils literal notranslate"><span class="pre">X</span></code></a>.</p></li>
+<li><p><strong>sep</strong> – Separator for the data.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.write_h5ad">
+<span class="sig-name descname"><span class="pre">write_h5ad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PathLike</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'gzip'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'lzf'</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression_opts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_dense</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.AnnData.write_h5ad" title="Link to this definition"></a></dt>
+<dd><p>Write <cite>.h5ad</cite>-formatted hdf5 file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Setting compression to <cite>‘gzip’</cite> can save disk space
+but will slow down writing and subsequent reading.
+Prior to v0.6.16, this was the default for parameter <cite>compression</cite>.</p>
+</div>
+<p>Generally, if you have sparse data that are stored as a dense matrix,
+you can dramatically improve performance and reduce disk space
+by converting to a <code class="xref py py-class docutils literal notranslate"><span class="pre">csr_matrix</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">adata</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> – Filename of data file. Defaults to backing file.</p></li>
+<li><p><strong>compression</strong> – <p>For [<cite>lzf</cite>, <cite>gzip</cite>], see the h5py <span class="xref std std-ref">dataset_compression</span>.</p>
+<p>Alternative compression filters such as <cite>zstd</cite> can be passed
+from the <span class="xref std std-doc">hdf5plugin</span> library.
+Experimental.</p>
+<p>Usage example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hdf5plugin</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">write_h5ad</span><span class="p">(</span>
+    <span class="n">filename</span><span class="p">,</span>
+    <span class="n">compression</span><span class="o">=</span><span class="n">hdf5plugin</span><span class="o">.</span><span class="n">FILTERS</span><span class="p">[</span><span class="s2">&quot;zstd&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Datasets written with hdf5plugin-provided compressors
+cannot be opened without first loading the hdf5plugin
+library using <cite>import hdf5plugin</cite>. When using alternative
+compression filters such as <cite>zstd</cite>, consider writing to
+<cite>zarr</cite> format instead of <cite>h5ad</cite>, as the <cite>zarr</cite> library
+provides a more transparent compression pipeline.</p>
+</div>
+</p></li>
+<li><p><strong>compression_opts</strong> – <p>For [<cite>lzf</cite>, <cite>gzip</cite>], see the h5py <span class="xref std std-ref">dataset_compression</span>.</p>
+<p>Alternative compression filters such as <cite>zstd</cite> can be configured
+using helpers from the <span class="xref std std-doc">hdf5plugin</span>
+library. Experimental.</p>
+<p>Usage example (setting <cite>zstd</cite> compression level to 5):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hdf5plugin</span>
+<span class="n">adata</span><span class="o">.</span><span class="n">write_h5ad</span><span class="p">(</span>
+    <span class="n">filename</span><span class="p">,</span>
+    <span class="n">compression</span><span class="o">=</span><span class="n">hdf5plugin</span><span class="o">.</span><span class="n">FILTERS</span><span class="p">[</span><span class="s2">&quot;zstd&quot;</span><span class="p">],</span>
+    <span class="n">compression_opts</span><span class="o">=</span><span class="n">hdf5plugin</span><span class="o">.</span><span class="n">Zstd</span><span class="p">(</span><span class="n">clevel</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">filter_options</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</p></li>
+<li><p><strong>as_dense</strong> – Sparse arrays in AnnData object to write as dense. Currently only
+supports <cite>X</cite> and <cite>raw/X</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.write_loom">
+<span class="sig-name descname"><span class="pre">write_loom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_obsm_varm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.AnnData.write_loom" title="Link to this definition"></a></dt>
+<dd><p>Write <cite>.loom</cite>-formatted hdf5 file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> – The filename.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.AnnData.write_zarr">
+<span class="sig-name descname"><span class="pre">write_zarr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">store</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MutableMapping</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.AnnData.write_zarr" title="Link to this definition"></a></dt>
+<dd><p>Write a hierarchical Zarr array store.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>store</strong> – The filename, a <code class="xref py py-class docutils literal notranslate"><span class="pre">MutableMapping</span></code>, or a Zarr storage class.</p></li>
+<li><p><strong>chunks</strong> – Chunk shape.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.inference.execution_UI.</span></span><span class="sig-name descname"><span class="pre">CodeExecutor</span></span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.execute_api_call">
+<span class="sig-name descname"><span class="pre">execute_api_call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_call_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.execute_api_call" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.execute_code_past_success">
+<span class="sig-name descname"><span class="pre">execute_code_past_success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'import'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.execute_code_past_success" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.execute_one_pass">
+<span class="sig-name descname"><span class="pre">execute_one_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.execute_one_pass" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.filter_picklable_variables">
+<span class="sig-name descname"><span class="pre">filter_picklable_variables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.filter_picklable_variables" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.format_arguments">
+<span class="sig-name descname"><span class="pre">format_arguments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selected_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.format_arguments" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.format_value">
+<span class="sig-name descname"><span class="pre">format_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.format_value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.generate_execution_code">
+<span class="sig-name descname"><span class="pre">generate_execution_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_params_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.generate_execution_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.generate_execution_code_for_one_api">
+<span class="sig-name descname"><span class="pre">generate_execution_code_for_one_api</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selected_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_selected_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">single_class_API</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.generate_execution_code_for_one_api" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.get_import_code">
+<span class="sig-name descname"><span class="pre">get_import_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.get_import_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.get_max_result_from_variable_list">
+<span class="sig-name descname"><span class="pre">get_max_result_from_variable_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result_name_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.get_max_result_from_variable_list" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.is_picklable">
+<span class="sig-name descname"><span class="pre">is_picklable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.is_picklable" title="Link to this definition"></a></dt>
+<dd><p>Check if an object is picklable, with a special case for AnnData.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.is_str_at_first_level">
+<span class="sig-name descname"><span class="pre">is_str_at_first_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.is_str_at_first_level" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.load_environment">
+<span class="sig-name descname"><span class="pre">load_environment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.load_environment" title="Link to this definition"></a></dt>
+<dd><p>Load environment, with special handling for AnnData objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.load_object">
+<span class="sig-name descname"><span class="pre">load_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.load_object" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.load_variables_to_json">
+<span class="sig-name descname"><span class="pre">load_variables_to_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.load_variables_to_json" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.makeup_for_missing_parameters">
+<span class="sig-name descname"><span class="pre">makeup_for_missing_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_input</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.makeup_for_missing_parameters" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.makeup_for_missing_single_parameter">
+<span class="sig-name descname"><span class="pre">makeup_for_missing_single_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_name_to_update</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_spec_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'&#64;'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.makeup_for_missing_single_parameter" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.makeup_for_missing_single_parameter_type_special">
+<span class="sig-name descname"><span class="pre">makeup_for_missing_single_parameter_type_special</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_name_to_update</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_input</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.makeup_for_missing_single_parameter_type_special" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.save_environment">
+<span class="sig-name descname"><span class="pre">save_environment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.save_environment" title="Link to this definition"></a></dt>
+<dd><p>Save environment, with special handling for AnnData objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.save_object">
+<span class="sig-name descname"><span class="pre">save_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.save_object" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.save_special_objects">
+<span class="sig-name descname"><span class="pre">save_special_objects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.save_special_objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.save_variables_to_json">
+<span class="sig-name descname"><span class="pre">save_variables_to_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.save_variables_to_json" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.select_parameters">
+<span class="sig-name descname"><span class="pre">select_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.select_parameters" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.inference.execution_UI.CodeExecutor.split_tuple_variable">
+<span class="sig-name descname"><span class="pre">split_tuple_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">last_code_status</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.inference.execution_UI.CodeExecutor.split_tuple_variable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.execution_UI.load_json">
+<span class="sig-prename descclassname"><span class="pre">src.inference.execution_UI.</span></span><span class="sig-name descname"><span class="pre">load_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#src.inference.execution_UI.load_json" title="Link to this definition"></a></dt>
+<dd><p>Load JSON data from a specified file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – The path to the JSON file to be loaded.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The data loaded from the JSON file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.inference.execution_UI.save_json">
+<span class="sig-prename descclassname"><span class="pre">src.inference.execution_UI.</span></span><span class="sig-name descname"><span class="pre">save_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.inference.execution_UI.save_json" title="Link to this definition"></a></dt>
+<dd><p>Save results to a JSON file with indentation of 4 spaces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_path</strong> (<em>str</em>) – Path to the output file.</p></li>
+<li><p><strong>results</strong> (<em>dict</em>) – Dictionary containing the results to be saved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">save_json</span><span class="p">(</span><span class="s1">&#39;output.json&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, BioMANIA Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

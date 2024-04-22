@@ -1,0 +1,4 @@
+.. automodule:: src.models.lit_llama.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

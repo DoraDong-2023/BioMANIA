@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; BioMANIA 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=01f34227"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/BioMANIA.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">LLM_model()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.LLM_response"><code class="docutils literal notranslate"><span class="pre">LLM_response()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.Pool"><code class="docutils literal notranslate"><span class="pre">Pool()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.apply_unknown_code_blocks"><code class="docutils literal notranslate"><span class="pre">apply_unknown_code_blocks()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.build_prompt_for_composite_docstring"><code class="docutils literal notranslate"><span class="pre">build_prompt_for_composite_docstring()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.build_prompt_for_composite_name"><code class="docutils literal notranslate"><span class="pre">build_prompt_for_composite_name()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.chain"><code class="docutils literal notranslate"><span class="pre">chain</span></code></a><ul>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.chain.from_iterable"><code class="docutils literal notranslate"><span class="pre">chain.from_iterable()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.classify_code_blocks"><code class="docutils literal notranslate"><span class="pre">classify_code_blocks()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.collect_imports"><code class="docutils literal notranslate"><span class="pre">collect_imports()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a><ul>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.astimezone"><code class="docutils literal notranslate"><span class="pre">datetime.astimezone()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.combine"><code class="docutils literal notranslate"><span class="pre">datetime.combine()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.ctime"><code class="docutils literal notranslate"><span class="pre">datetime.ctime()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.date"><code class="docutils literal notranslate"><span class="pre">datetime.date()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.day"><code class="docutils literal notranslate"><span class="pre">datetime.day</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.dst"><code class="docutils literal notranslate"><span class="pre">datetime.dst()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.fold"><code class="docutils literal notranslate"><span class="pre">datetime.fold</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.fromisocalendar"><code class="docutils literal notranslate"><span class="pre">datetime.fromisocalendar()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.fromisoformat"><code class="docutils literal notranslate"><span class="pre">datetime.fromisoformat()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.fromordinal"><code class="docutils literal notranslate"><span class="pre">datetime.fromordinal()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.fromtimestamp"><code class="docutils literal notranslate"><span class="pre">datetime.fromtimestamp()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.hour"><code class="docutils literal notranslate"><span class="pre">datetime.hour</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.isocalendar"><code class="docutils literal notranslate"><span class="pre">datetime.isocalendar()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.isoformat"><code class="docutils literal notranslate"><span class="pre">datetime.isoformat()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.isoweekday"><code class="docutils literal notranslate"><span class="pre">datetime.isoweekday()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.max"><code class="docutils literal notranslate"><span class="pre">datetime.max</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.microsecond"><code class="docutils literal notranslate"><span class="pre">datetime.microsecond</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.min"><code class="docutils literal notranslate"><span class="pre">datetime.min</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.minute"><code class="docutils literal notranslate"><span class="pre">datetime.minute</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.month"><code class="docutils literal notranslate"><span class="pre">datetime.month</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.now"><code class="docutils literal notranslate"><span class="pre">datetime.now()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.replace"><code class="docutils literal notranslate"><span class="pre">datetime.replace()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.resolution"><code class="docutils literal notranslate"><span class="pre">datetime.resolution</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.second"><code class="docutils literal notranslate"><span class="pre">datetime.second</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.strftime"><code class="docutils literal notranslate"><span class="pre">datetime.strftime()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.strptime"><code class="docutils literal notranslate"><span class="pre">datetime.strptime()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.time"><code class="docutils literal notranslate"><span class="pre">datetime.time()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.timestamp"><code class="docutils literal notranslate"><span class="pre">datetime.timestamp()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.timetuple"><code class="docutils literal notranslate"><span class="pre">datetime.timetuple()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.timetz"><code class="docutils literal notranslate"><span class="pre">datetime.timetz()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.today"><code class="docutils literal notranslate"><span class="pre">datetime.today()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.toordinal"><code class="docutils literal notranslate"><span class="pre">datetime.toordinal()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.tzinfo"><code class="docutils literal notranslate"><span class="pre">datetime.tzinfo</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.tzname"><code class="docutils literal notranslate"><span class="pre">datetime.tzname()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.utcfromtimestamp"><code class="docutils literal notranslate"><span class="pre">datetime.utcfromtimestamp()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.utcnow"><code class="docutils literal notranslate"><span class="pre">datetime.utcnow()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.utcoffset"><code class="docutils literal notranslate"><span class="pre">datetime.utcoffset()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.utctimetuple"><code class="docutils literal notranslate"><span class="pre">datetime.utctimetuple()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.weekday"><code class="docutils literal notranslate"><span class="pre">datetime.weekday()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.year"><code class="docutils literal notranslate"><span class="pre">datetime.year</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.extract_api_calls"><code class="docutils literal notranslate"><span class="pre">extract_api_calls()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.extract_function_name"><code class="docutils literal notranslate"><span class="pre">extract_function_name()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.extract_imports"><code class="docutils literal notranslate"><span class="pre">extract_imports()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.filter_line"><code class="docutils literal notranslate"><span class="pre">filter_line()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.find_api_calls"><code class="docutils literal notranslate"><span class="pre">find_api_calls()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.generate_api_calling_simple"><code class="docutils literal notranslate"><span class="pre">generate_api_calling_simple()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.generate_api_callings"><code class="docutils literal notranslate"><span class="pre">generate_api_callings()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.get_all_variable_from_cheatsheet"><code class="docutils literal notranslate"><span class="pre">get_all_variable_from_cheatsheet()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.get_final_API_from_docstring"><code class="docutils literal notranslate"><span class="pre">get_final_API_from_docstring()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.get_html_description"><code class="docutils literal notranslate"><span class="pre">get_html_description()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.individual_tut"><code class="docutils literal notranslate"><span class="pre">individual_tut()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.insert_docstring"><code class="docutils literal notranslate"><span class="pre">insert_docstring()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.load_json"><code class="docutils literal notranslate"><span class="pre">load_json()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.main_convert_tutorial_to_py"><code class="docutils literal notranslate"><span class="pre">main_convert_tutorial_to_py()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.main_get_API_composite"><code class="docutils literal notranslate"><span class="pre">main_get_API_composite()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.main_get_LLM_docstring"><code class="docutils literal notranslate"><span class="pre">main_get_LLM_docstring()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.merge_jsons"><code class="docutils literal notranslate"><span class="pre">merge_jsons()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.process_docstring_with_LLM"><code class="docutils literal notranslate"><span class="pre">process_docstring_with_LLM()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.process_name_with_LLM"><code class="docutils literal notranslate"><span class="pre">process_name_with_LLM()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.put_docstring_into_code"><code class="docutils literal notranslate"><span class="pre">put_docstring_into_code()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.rearrange_code_blocks"><code class="docutils literal notranslate"><span class="pre">rearrange_code_blocks()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.save_json"><code class="docutils literal notranslate"><span class="pre">save_json()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.save_list_code"><code class="docutils literal notranslate"><span class="pre">save_list_code()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.separate_code_blocks"><code class="docutils literal notranslate"><span class="pre">separate_code_blocks()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.separate_nodes"><code class="docutils literal notranslate"><span class="pre">separate_nodes()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.wrap_function"><code class="docutils literal notranslate"><span class="pre">wrap_function()</span></code></a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BioMANIA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/batmen-lab/BioMANIA/blob/main/docs/source/src.dataloader.get_API_composite_from_tutorial.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <dl class="py function" id="module-src.dataloader.get_API_composite_from_tutorial">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.LLM_model">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">LLM_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.LLM_model" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.LLM_response">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">LLM_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">llm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chat_prompt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gpt-3.5-turbo-0125'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.LLM_response" title="Link to this definition"></a></dt>
+<dd><p>get response from LLM</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.Pool">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">Pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">processes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxtasksperchild</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.Pool" title="Link to this definition"></a></dt>
+<dd><p>Returns a process pool object</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.apply_unknown_code_blocks">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">apply_unknown_code_blocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">classified_blocks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.apply_unknown_code_blocks" title="Link to this definition"></a></dt>
+<dd><p>Process blocks of code that are classified as ‘unknown’ to determine if they can be applied to known function definitions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>classified_blocks</strong> (<em>list</em>) – A list of dictionaries containing classified code blocks.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The list of code blocks after processing unknown types.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.build_prompt_for_composite_docstring">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">build_prompt_for_composite_docstring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">API_description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func_inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func_outputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description_text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.build_prompt_for_composite_docstring" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.build_prompt_for_composite_name">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">build_prompt_for_composite_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub_API_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">llm_docstring</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.build_prompt_for_composite_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.chain">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">chain</span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.chain" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>chain(<a href="#id1"><span class="problematic" id="id2">*</span></a>iterables) –&gt; chain object</p>
+<p>Return a chain object whose .__next__() method returns elements from the
+first iterable until it is exhausted, then elements from the next
+iterable, until all of the iterables are exhausted.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.chain.from_iterable">
+<span class="sig-name descname"><span class="pre">from_iterable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.chain.from_iterable" title="Link to this definition"></a></dt>
+<dd><p>Alternative chain() constructor taking a single iterable argument that evaluates lazily.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.classify_code_blocks">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">classify_code_blocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code_blocks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_code_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.classify_code_blocks" title="Link to this definition"></a></dt>
+<dd><p>Classifies code blocks into different types such as import, unknown, or definition based on their content.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code_blocks</strong> (<em>list</em>) – A list of code blocks (strings) to be classified.</p></li>
+<li><p><strong>pre_code_list</strong> (<em>list</em>) – A list of pre-existing code elements to consider during classification.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of dictionaries, each containing the classified code block and its type.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.collect_imports">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">collect_imports</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.collect_imports" title="Link to this definition"></a></dt>
+<dd><p>Separates import statements from other statements in a block of code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> (<em>str</em>) – The block of code to analyze.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing the import part and the non-import part of the code.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">datetime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">hour</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">minute</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">second</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">microsecond</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">tzinfo</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#src.dataloader.get_API_composite_from_tutorial.datetime.date" title="src.dataloader.get_API_composite_from_tutorial.datetime.date"><code class="xref py py-class docutils literal notranslate"><span class="pre">date</span></code></a></p>
+<p>The year, month and day arguments are required. tzinfo may be None, or an
+instance of a tzinfo subclass. The remaining arguments may be ints.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.astimezone">
+<span class="sig-name descname"><span class="pre">astimezone</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.astimezone" title="Link to this definition"></a></dt>
+<dd><p>tz -&gt; convert to local time in new timezone tz</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.combine">
+<span class="sig-name descname"><span class="pre">combine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.combine" title="Link to this definition"></a></dt>
+<dd><p>date, time -&gt; datetime with same date and time fields</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.ctime">
+<span class="sig-name descname"><span class="pre">ctime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.ctime" title="Link to this definition"></a></dt>
+<dd><p>Return ctime() style string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.date">
+<span class="sig-name descname"><span class="pre">date</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.date" title="Link to this definition"></a></dt>
+<dd><p>Return date object with same year, month and day.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.day">
+<span class="sig-name descname"><span class="pre">day</span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.day" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.dst">
+<span class="sig-name descname"><span class="pre">dst</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.dst" title="Link to this definition"></a></dt>
+<dd><p>Return self.tzinfo.dst(self).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.fold">
+<span class="sig-name descname"><span class="pre">fold</span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.fold" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.fromisocalendar">
+<span class="sig-name descname"><span class="pre">fromisocalendar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.fromisocalendar" title="Link to this definition"></a></dt>
+<dd><p>int, int, int -&gt; Construct a date from the ISO year, week number and weekday.</p>
+<p>This is the inverse of the date.isocalendar() function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.fromisoformat">
+<span class="sig-name descname"><span class="pre">fromisoformat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.fromisoformat" title="Link to this definition"></a></dt>
+<dd><p>string -&gt; datetime from datetime.isoformat() output</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.fromordinal">
+<span class="sig-name descname"><span class="pre">fromordinal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.fromordinal" title="Link to this definition"></a></dt>
+<dd><p>int -&gt; date corresponding to a proleptic Gregorian ordinal.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.fromtimestamp">
+<span class="sig-name descname"><span class="pre">fromtimestamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.fromtimestamp" title="Link to this definition"></a></dt>
+<dd><p>timestamp[, tz] -&gt; tz’s local time from POSIX timestamp.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.hour">
+<span class="sig-name descname"><span class="pre">hour</span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.hour" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.isocalendar">
+<span class="sig-name descname"><span class="pre">isocalendar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.isocalendar" title="Link to this definition"></a></dt>
+<dd><p>Return a named tuple containing ISO year, week number, and weekday.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.isoformat">
+<span class="sig-name descname"><span class="pre">isoformat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.isoformat" title="Link to this definition"></a></dt>
+<dd><p>[sep] -&gt; string in ISO 8601 format, YYYY-MM-DDT[HH[:MM[:SS[.mmm[uuu]]]]][+HH:MM].
+sep is used to separate the year from the time, and defaults to ‘T’.
+The optional argument timespec specifies the number of additional terms
+of the time to include. Valid options are ‘auto’, ‘hours’, ‘minutes’,
+‘seconds’, ‘milliseconds’ and ‘microseconds’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.isoweekday">
+<span class="sig-name descname"><span class="pre">isoweekday</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.isoweekday" title="Link to this definition"></a></dt>
+<dd><p>Return the day of the week represented by the date.
+Monday == 1 … Sunday == 7</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.max">
+<span class="sig-name descname"><span class="pre">max</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">datetime.datetime(9999,</span> <span class="pre">12,</span> <span class="pre">31,</span> <span class="pre">23,</span> <span class="pre">59,</span> <span class="pre">59,</span> <span class="pre">999999)</span></em><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.max" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.microsecond">
+<span class="sig-name descname"><span class="pre">microsecond</span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.microsecond" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.min">
+<span class="sig-name descname"><span class="pre">min</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">datetime.datetime(1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">0)</span></em><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.min" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.minute">
+<span class="sig-name descname"><span class="pre">minute</span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.minute" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.month">
+<span class="sig-name descname"><span class="pre">month</span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.month" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.now">
+<span class="sig-name descname"><span class="pre">now</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.now" title="Link to this definition"></a></dt>
+<dd><p>Returns new datetime object representing current time local to tz.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>tz</dt><dd><p>Timezone object.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>If no tz is specified, uses local timezone.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.replace">
+<span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.replace" title="Link to this definition"></a></dt>
+<dd><p>Return datetime with new specified fields.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.resolution">
+<span class="sig-name descname"><span class="pre">resolution</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">datetime.timedelta(microseconds=1)</span></em><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.resolution" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.second">
+<span class="sig-name descname"><span class="pre">second</span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.second" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.strftime">
+<span class="sig-name descname"><span class="pre">strftime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.strftime" title="Link to this definition"></a></dt>
+<dd><p>format -&gt; strftime() style string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.strptime">
+<span class="sig-name descname"><span class="pre">strptime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.strptime" title="Link to this definition"></a></dt>
+<dd><p>string, format -&gt; new datetime parsed from a string (like time.strptime()).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.time">
+<span class="sig-name descname"><span class="pre">time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.time" title="Link to this definition"></a></dt>
+<dd><p>Return time object with same time but with tzinfo=None.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.timestamp" title="Link to this definition"></a></dt>
+<dd><p>Return POSIX timestamp as float.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.timetuple">
+<span class="sig-name descname"><span class="pre">timetuple</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.timetuple" title="Link to this definition"></a></dt>
+<dd><p>Return time tuple, compatible with time.localtime().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.timetz">
+<span class="sig-name descname"><span class="pre">timetz</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.timetz" title="Link to this definition"></a></dt>
+<dd><p>Return time object with same time and tzinfo.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.today">
+<span class="sig-name descname"><span class="pre">today</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.today" title="Link to this definition"></a></dt>
+<dd><p>Current date or datetime:  same as self.__class__.fromtimestamp(time.time()).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.toordinal">
+<span class="sig-name descname"><span class="pre">toordinal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.toordinal" title="Link to this definition"></a></dt>
+<dd><p>Return proleptic Gregorian ordinal.  January 1 of year 1 is day 1.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.tzinfo">
+<span class="sig-name descname"><span class="pre">tzinfo</span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.tzinfo" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.tzname">
+<span class="sig-name descname"><span class="pre">tzname</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.tzname" title="Link to this definition"></a></dt>
+<dd><p>Return self.tzinfo.tzname(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.utcfromtimestamp">
+<span class="sig-name descname"><span class="pre">utcfromtimestamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.utcfromtimestamp" title="Link to this definition"></a></dt>
+<dd><p>Construct a naive UTC datetime from a POSIX timestamp.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.utcnow">
+<span class="sig-name descname"><span class="pre">utcnow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.utcnow" title="Link to this definition"></a></dt>
+<dd><p>Return a new datetime representing UTC day and time.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.utcoffset">
+<span class="sig-name descname"><span class="pre">utcoffset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.utcoffset" title="Link to this definition"></a></dt>
+<dd><p>Return self.tzinfo.utcoffset(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.utctimetuple">
+<span class="sig-name descname"><span class="pre">utctimetuple</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.utctimetuple" title="Link to this definition"></a></dt>
+<dd><p>Return UTC time tuple, compatible with time.localtime().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.weekday">
+<span class="sig-name descname"><span class="pre">weekday</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.weekday" title="Link to this definition"></a></dt>
+<dd><p>Return the day of the week represented by the date.
+Monday == 0 … Sunday == 6</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.datetime.year">
+<span class="sig-name descname"><span class="pre">year</span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.datetime.year" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.extract_api_calls">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">extract_api_calls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code_block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imports</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib_alias</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.extract_api_calls" title="Link to this definition"></a></dt>
+<dd><p>Extracts API calls from a block of code based on the specified library alias.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code_block</strong> (<em>str</em>) – The block of code from which to extract API calls.</p></li>
+<li><p><strong>imports</strong> (<em>dict</em>) – A dictionary of imports used to resolve API call paths.</p></li>
+<li><p><strong>lib_alias</strong> (<em>str</em>) – The library alias used to identify relevant API calls.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of fully qualified API call paths.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.extract_function_name">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">extract_function_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.extract_function_name" title="Link to this definition"></a></dt>
+<dd><p>Extract the function name from a block of code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> (<em>str</em>) – The block of code from which to extract the function name.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The name of the function if found; otherwise, None.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.extract_imports">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">extract_imports</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code_block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.extract_imports" title="Link to this definition"></a></dt>
+<dd><p>Extracts import statements from a block of code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code_block</strong> (<em>str</em>) – The block of code from which to extract imports.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary of imports with aliases as keys and full paths as values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.filter_line">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">filter_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code_block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.filter_line" title="Link to this definition"></a></dt>
+<dd><p>Filters out unwanted lines from a code block, such as print statements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code_block</strong> (<em>str</em>) – The code block to filter.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The filtered code block.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.find_api_calls">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">find_api_calls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imports</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib_alias</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.find_api_calls" title="Link to this definition"></a></dt>
+<dd><p>Recursively finds API calls in the AST node that correspond to the specified library alias.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> (<em>Any</em>) – The AST node to search for API calls.</p></li>
+<li><p><strong>imports</strong> (<em>dict</em>) – A dictionary of imports used to resolve API call paths.</p></li>
+<li><p><strong>lib_alias</strong> (<em>str</em>) – The library alias used to identify relevant API calls.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of fully qualified API call paths.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.generate_api_calling_simple">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">generate_api_calling_simple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.generate_api_calling_simple" title="Link to this definition"></a></dt>
+<dd><p>Generates a simple API calling structure based on the API name and its parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>api_name</strong> (<em>str</em>) – The name of the API to generate calling for.</p></li>
+<li><p><strong>parameters</strong> (<em>dict</em>) – The parameters of the API.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of strings representing simple API callings.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.generate_api_callings">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">generate_api_callings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basic_types</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['str',</span> <span class="pre">'int',</span> <span class="pre">'float',</span> <span class="pre">'bool',</span> <span class="pre">'list',</span> <span class="pre">'dict',</span> <span class="pre">'tuple',</span> <span class="pre">'set',</span> <span class="pre">'any',</span> <span class="pre">'List',</span> <span class="pre">'Dict']</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.generate_api_callings" title="Link to this definition"></a></dt>
+<dd><p>Generates API calling strings for each API in the results based on the parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<em>dict</em>) – The API results to process.</p></li>
+<li><p><strong>basic_types</strong> (<em>list</em><em>, </em><em>optional</em>) – A list of basic type strings used for filtering. Default includes common data types.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The results with updated API calling strings.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.get_all_variable_from_cheatsheet">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">get_all_variable_from_cheatsheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">LIB</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.get_all_variable_from_cheatsheet" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.get_final_API_from_docstring">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">get_final_API_from_docstring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modified_docstring</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.get_final_API_from_docstring" title="Link to this definition"></a></dt>
+<dd><p>Extracts API information from a modified docstring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>modified_docstring</strong> (<em>str</em>) – The docstring from which to extract API information.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing extracted API information such as parameters and return values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.get_html_description">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">get_html_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">combined_blocks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.get_html_description" title="Link to this definition"></a></dt>
+<dd><p>Retrieves a description from HTML blocks that match the given input code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>combined_blocks</strong> (<em>list</em>) – A list of combined code and text blocks from HTML.</p></li>
+<li><p><strong>input_code</strong> (<em>str</em>) – The input code to match against the combined blocks.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The description associated with the input code, if found; otherwise, an empty string.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.individual_tut">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">individual_tut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tut</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">html_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_folder_pyjson</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_code_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib_alias</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.individual_tut" title="Link to this definition"></a></dt>
+<dd><p>Processes individual tutorial files to extract and classify code blocks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tut</strong> (<em>str</em>) – The tutorial identifier.</p></li>
+<li><p><strong>html_dict</strong> (<em>dict</em>) – A dictionary containing HTML content.</p></li>
+<li><p><strong>output_folder_pyjson</strong> (<em>str</em>) – The output folder path for storing processed JSON data.</p></li>
+<li><p><strong>pre_code_list</strong> (<em>list</em>) – A list of pre-existing code to consider during processing.</p></li>
+<li><p><strong>lib_alias</strong> (<em>str</em>) – The library alias used to identify relevant code blocks.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of processed and classified code blocks.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.insert_docstring">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">insert_docstring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">docstring</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.insert_docstring" title="Link to this definition"></a></dt>
+<dd><p>Inserts a docstring into the source code just below the function or class definition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_code</strong> (<em>str</em>) – The source code into which the docstring will be inserted.</p></li>
+<li><p><strong>docstring</strong> (<em>str</em>) – The docstring to insert.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The source code with the docstring inserted.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.load_json">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">load_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.load_json" title="Link to this definition"></a></dt>
+<dd><p>Load JSON data from a specified file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – The path to the JSON file to be loaded.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The data loaded from the JSON file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.main_convert_tutorial_to_py">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">main_convert_tutorial_to_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">LIB_ANALYSIS_PATH</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subpath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Git_Tut'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ipynb'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_types</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['ipynb']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">execute</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="src.dataloader.utils.tutorial_loader_strategy.html#src.dataloader.utils.tutorial_loader_strategy.CodeLoaderContext" title="src.dataloader.utils.tutorial_loader_strategy.CodeLoaderContext"><span class="pre">CodeLoaderContext</span></a></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.main_convert_tutorial_to_py" title="Link to this definition"></a></dt>
+<dd><p>Main function to convert tutorial files to Python script and optionally execute them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>LIB_ANALYSIS_PATH</strong> (<em>str</em>) – The path to the library analysis directory.</p></li>
+<li><p><strong>subpath</strong> (<em>str</em><em>, </em><em>optional</em>) – The subpath within the library analysis directory. Default is ‘Git_Tut’.</p></li>
+<li><p><strong>strategy_type</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of files to convert. Default is ‘ipynb’.</p></li>
+<li><p><strong>file_types</strong> (<em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) – The types of files to convert. Default is [‘ipynb’].</p></li>
+<li><p><strong>execute</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to execute the converted Python scripts. Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An instance of CodeLoaderContext configured with the specified parameters.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="src.dataloader.utils.tutorial_loader_strategy.html#src.dataloader.utils.tutorial_loader_strategy.CodeLoaderContext" title="src.dataloader.utils.tutorial_loader_strategy.CodeLoaderContext">CodeLoaderContext</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.main_get_API_composite">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">main_get_API_composite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib_analysis_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_folder_json</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib_alias</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.main_get_API_composite" title="Link to this definition"></a></dt>
+<dd><p>Main function to process tutorial files and extract unique code blocks for API composition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lib_analysis_path</strong> (<em>str</em>) – The path to the library analysis directory.</p></li>
+<li><p><strong>output_folder_json</strong> (<em>str</em>) – The output folder for storing JSON data.</p></li>
+<li><p><strong>lib_alias</strong> (<em>str</em>) – The library alias used during processing.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of unique code blocks extracted from the tutorials.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.main_get_LLM_docstring">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">main_get_LLM_docstring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unique_code_blocks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LIB</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.main_get_LLM_docstring" title="Link to this definition"></a></dt>
+<dd><p>Processes unique code blocks to generate enhanced docstrings using a language model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>unique_code_blocks</strong> (<em>list</em>) – A list of unique code blocks to process.</p></li>
+<li><p><strong>LIB</strong> (<em>str</em>) – The library for which the docstrings are being generated.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.merge_jsons">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">merge_jsons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_dicts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.merge_jsons" title="Link to this definition"></a></dt>
+<dd><p>Merges multiple dictionaries into a single dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>list_of_dicts</strong> (<em>list</em>) – A list of dictionaries to be merged.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The resulting dictionary after merging.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.process_docstring_with_LLM">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">process_docstring_with_LLM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">llm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">API_description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func_inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func_outputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.process_docstring_with_LLM" title="Link to this definition"></a></dt>
+<dd><p>Processes a docstring using a language model to modify or enhance it based on the provided API description and inputs/outputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>llm</strong> (<em>Any</em>) – The language model to use.</p></li>
+<li><p><strong>tokenizer</strong> (<em>Any</em>) – The tokenizer for the language model.</p></li>
+<li><p><strong>API_description</strong> (<em>str</em>) – The description of the API to include in the prompt.</p></li>
+<li><p><strong>func_inputs</strong> (<em>list</em>) – A list of function input descriptions.</p></li>
+<li><p><strong>func_outputs</strong> (<em>list</em>) – A list of function output descriptions.</p></li>
+<li><p><strong>description_text</strong> (<em>str</em><em>, </em><em>optional</em>) – Additional description text to include in the prompt. Default is empty.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The modified or generated docstring.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.process_name_with_LLM">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">process_name_with_LLM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">llm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub_API_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">llm_docstring</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.process_name_with_LLM" title="Link to this definition"></a></dt>
+<dd><p>Processes API names using a language model to generate a function name based on the docstring and API details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>llm</strong> (<em>Any</em>) – The language model to use.</p></li>
+<li><p><strong>tokenizer</strong> (<em>Any</em>) – The tokenizer for the language model.</p></li>
+<li><p><strong>sub_API_names</strong> (<em>str</em>) – A comma-separated string of sub-API names to include in the prompt.</p></li>
+<li><p><strong>llm_docstring</strong> (<em>str</em>) – The docstring to use as context in the prompt.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The generated function name.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.put_docstring_into_code">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">put_docstring_into_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modified_docstring</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_function_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.put_docstring_into_code" title="Link to this definition"></a></dt>
+<dd><p>Inserts a modified docstring into a piece of code and optionally renames the function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> (<em>str</em>) – The original code block.</p></li>
+<li><p><strong>modified_docstring</strong> (<em>str</em>) – The modified docstring to insert.</p></li>
+<li><p><strong>new_function_name</strong> (<em>str</em>) – The new name for the function, if renaming is desired.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The code with the modified docstring inserted and function renamed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.rearrange_code_blocks">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">rearrange_code_blocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code_blocks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.rearrange_code_blocks" title="Link to this definition"></a></dt>
+<dd><p>Rearranges code blocks by separating import statements from other code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code_blocks</strong> (<em>list</em>) – A list of code blocks to rearrange.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new list of code blocks, starting with all imports followed by other statements.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.save_json">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">save_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.save_json" title="Link to this definition"></a></dt>
+<dd><p>Save results to a JSON file with indentation of 4 spaces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_path</strong> (<em>str</em>) – Path to the output file.</p></li>
+<li><p><strong>results</strong> (<em>dict</em>) – Dictionary containing the results to be saved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">save_json</span><span class="p">(</span><span class="s1">&#39;output.json&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.save_list_code">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">save_list_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.save_list_code" title="Link to this definition"></a></dt>
+<dd><p>Saves a list of strings to a file, each string on a new line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>json_list</strong> (<em>list</em>) – A list of strings to be saved.</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – The path to the file where the list will be saved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.separate_code_blocks">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">separate_code_blocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code_blocks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.separate_code_blocks" title="Link to this definition"></a></dt>
+<dd><p>Separates complex code blocks into simpler, independent blocks using AST parsing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code_blocks</strong> (<em>list</em>) – A list of complex code blocks to separate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of simpler, independent code blocks.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.separate_nodes">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">separate_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.separate_nodes" title="Link to this definition"></a></dt>
+<dd><p>Separates nodes into distinct code blocks based on control structures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>nodes</strong> (<em>list</em>) – A list of AST nodes.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of separated code blocks.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.get_API_composite_from_tutorial.wrap_function">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.get_API_composite_from_tutorial.</span></span><span class="sig-name descname"><span class="pre">wrap_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_nodes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_nodes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrapper_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.dataloader.get_API_composite_from_tutorial.wrap_function" title="Link to this definition"></a></dt>
+<dd><p>Wraps a given code block into a function with specified inputs and outputs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> (<em>str</em>) – The code block to wrap.</p></li>
+<li><p><strong>input_nodes</strong> (<em>list</em>) – A list of input variable names.</p></li>
+<li><p><strong>output_nodes</strong> (<em>list</em>) – A list of output variable names.</p></li>
+<li><p><strong>wrapper_name</strong> (<em>str</em>) – The name of the function wrapper.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing the wrapped function code and the function call string.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, BioMANIA Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

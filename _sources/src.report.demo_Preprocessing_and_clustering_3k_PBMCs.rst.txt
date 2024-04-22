@@ -1,0 +1,4 @@
+.. automodule:: src.report.demo_Preprocessing_and_clustering_3k_PBMCs
+   :members:
+   :undoc-members:
+   :show-inheritance:

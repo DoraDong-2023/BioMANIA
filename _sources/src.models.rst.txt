@@ -1,0 +1,34 @@
+src.models package
+==================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.models.lit_llama
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.models.api_evaluator
+   src.models.chitchat_classification
+   src.models.chitchat_classification_multicorpus
+   src.models.data_classification
+   src.models.generate
+   src.models.inference_classification
+   src.models.model
+   src.models.train_classification
+   src.models.train_retriever
+
+Module contents
+---------------
+
+.. automodule:: src.models
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,4 @@
+.. automodule:: src.models.lit_llama.packed_dataset
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,4 @@
+.. automodule:: src.report.PNG2report
+   :members:
+   :undoc-members:
+   :show-inheritance:

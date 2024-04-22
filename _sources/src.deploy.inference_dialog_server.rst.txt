@@ -1,0 +1,4 @@
+.. automodule:: src.deploy.inference_dialog_server
+   :members:
+   :undoc-members:
+   :show-inheritance:

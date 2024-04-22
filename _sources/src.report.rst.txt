@@ -1,0 +1,22 @@
+src.report package
+==================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.report.Chat2PDF
+   src.report.Chat2Py
+   src.report.Chat2jupyter
+   src.report.PNG2report
+   src.report.demo_Preprocessing_and_clustering_3k_PBMCs
+
+Module contents
+---------------
+
+.. automodule:: src.report
+   :members:
+   :undoc-members:
+   :show-inheritance:

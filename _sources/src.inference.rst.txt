@@ -1,0 +1,22 @@
+src.inference package
+=====================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.inference.execution_UI
+   src.inference.retriever_batch_inference
+   src.inference.retriever_bm25_inference
+   src.inference.retriever_finetune_inference
+   src.inference.utils
+
+Module contents
+---------------
+
+.. automodule:: src.inference
+   :members:
+   :undoc-members:
+   :show-inheritance:

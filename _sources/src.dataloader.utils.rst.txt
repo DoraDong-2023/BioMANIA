@@ -1,0 +1,23 @@
+src.dataloader.utils package
+============================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.dataloader.utils.code_analyzer
+   src.dataloader.utils.code_download_strategy
+   src.dataloader.utils.extract_filter_from_function
+   src.dataloader.utils.generate_prompt
+   src.dataloader.utils.other_download
+   src.dataloader.utils.tutorial_loader_strategy
+
+Module contents
+---------------
+
+.. automodule:: src.dataloader.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

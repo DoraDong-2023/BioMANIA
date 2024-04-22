@@ -1,0 +1,21 @@
+src.deploy package
+==================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.deploy.ServerEventCallback
+   src.deploy.inference_dialog_server
+   src.deploy.preprocess_data_service
+   src.deploy.utils
+
+Module contents
+---------------
+
+.. automodule:: src.deploy
+   :members:
+   :undoc-members:
+   :show-inheritance:

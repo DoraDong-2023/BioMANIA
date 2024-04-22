@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; BioMANIA 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=01f34227"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/BioMANIA.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">BytesIO</span></code></a><ul>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.close"><code class="docutils literal notranslate"><span class="pre">BytesIO.close()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.closed"><code class="docutils literal notranslate"><span class="pre">BytesIO.closed</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.detach"><code class="docutils literal notranslate"><span class="pre">BytesIO.detach()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.fileno"><code class="docutils literal notranslate"><span class="pre">BytesIO.fileno()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.flush"><code class="docutils literal notranslate"><span class="pre">BytesIO.flush()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.getbuffer"><code class="docutils literal notranslate"><span class="pre">BytesIO.getbuffer()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.getvalue"><code class="docutils literal notranslate"><span class="pre">BytesIO.getvalue()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.isatty"><code class="docutils literal notranslate"><span class="pre">BytesIO.isatty()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.read"><code class="docutils literal notranslate"><span class="pre">BytesIO.read()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.read1"><code class="docutils literal notranslate"><span class="pre">BytesIO.read1()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.readable"><code class="docutils literal notranslate"><span class="pre">BytesIO.readable()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.readinto"><code class="docutils literal notranslate"><span class="pre">BytesIO.readinto()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.readinto1"><code class="docutils literal notranslate"><span class="pre">BytesIO.readinto1()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.readline"><code class="docutils literal notranslate"><span class="pre">BytesIO.readline()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.readlines"><code class="docutils literal notranslate"><span class="pre">BytesIO.readlines()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.seek"><code class="docutils literal notranslate"><span class="pre">BytesIO.seek()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.seekable"><code class="docutils literal notranslate"><span class="pre">BytesIO.seekable()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.tell"><code class="docutils literal notranslate"><span class="pre">BytesIO.tell()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.truncate"><code class="docutils literal notranslate"><span class="pre">BytesIO.truncate()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.writable"><code class="docutils literal notranslate"><span class="pre">BytesIO.writable()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.write"><code class="docutils literal notranslate"><span class="pre">BytesIO.write()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.BytesIO.writelines"><code class="docutils literal notranslate"><span class="pre">BytesIO.writelines()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.draw_markdown_text"><code class="docutils literal notranslate"><span class="pre">draw_markdown_text()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.load_json"><code class="docutils literal notranslate"><span class="pre">load_json()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.simpleSplit"><code class="docutils literal notranslate"><span class="pre">simpleSplit()</span></code></a></li>
+<li><a class="reference internal" href="#src.report.Chat2PDF.visualize_text_from_conversation"><code class="docutils literal notranslate"><span class="pre">visualize_text_from_conversation()</span></code></a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BioMANIA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/batmen-lab/BioMANIA/blob/main/docs/source/src.report.Chat2PDF.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <dl class="py class" id="module-src.report.Chat2PDF">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.report.Chat2PDF.</span></span><span class="sig-name descname"><span class="pre">BytesIO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_bytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">b''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_BufferedIOBase</span></code></p>
+<p>Buffered I/O implementation using an in-memory bytes buffer.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.close" title="Link to this definition"></a></dt>
+<dd><p>Disable all I/O operations.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.closed">
+<span class="sig-name descname"><span class="pre">closed</span></span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.closed" title="Link to this definition"></a></dt>
+<dd><p>True if the file is closed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.detach">
+<span class="sig-name descname"><span class="pre">detach</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.detach" title="Link to this definition"></a></dt>
+<dd><p>Disconnect this buffer from its underlying raw stream and return it.</p>
+<p>After the raw stream has been detached, the buffer is in an unusable
+state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.fileno">
+<span class="sig-name descname"><span class="pre">fileno</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.fileno" title="Link to this definition"></a></dt>
+<dd><p>Returns underlying file descriptor if one exists.</p>
+<p>OSError is raised if the IO object does not use a file descriptor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.flush">
+<span class="sig-name descname"><span class="pre">flush</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.flush" title="Link to this definition"></a></dt>
+<dd><p>Does nothing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.getbuffer">
+<span class="sig-name descname"><span class="pre">getbuffer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.getbuffer" title="Link to this definition"></a></dt>
+<dd><p>Get a read-write view over the contents of the BytesIO object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.getvalue">
+<span class="sig-name descname"><span class="pre">getvalue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.getvalue" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the entire contents of the BytesIO object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.isatty">
+<span class="sig-name descname"><span class="pre">isatty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.isatty" title="Link to this definition"></a></dt>
+<dd><p>Always returns False.</p>
+<p>BytesIO objects are not connected to a TTY-like device.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.read" title="Link to this definition"></a></dt>
+<dd><p>Read at most size bytes, returned as a bytes object.</p>
+<p>If the size argument is negative, read until EOF is reached.
+Return an empty bytes object at EOF.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.read1">
+<span class="sig-name descname"><span class="pre">read1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.read1" title="Link to this definition"></a></dt>
+<dd><p>Read at most size bytes, returned as a bytes object.</p>
+<p>If the size argument is negative or omitted, read until EOF is reached.
+Return an empty bytes object at EOF.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.readable">
+<span class="sig-name descname"><span class="pre">readable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.readable" title="Link to this definition"></a></dt>
+<dd><p>Returns True if the IO object can be read.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.readinto">
+<span class="sig-name descname"><span class="pre">readinto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buffer</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.readinto" title="Link to this definition"></a></dt>
+<dd><p>Read bytes into buffer.</p>
+<p>Returns number of bytes read (0 for EOF), or None if the object
+is set not to block and has no data to read.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.readinto1">
+<span class="sig-name descname"><span class="pre">readinto1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buffer</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.readinto1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.readline">
+<span class="sig-name descname"><span class="pre">readline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.readline" title="Link to this definition"></a></dt>
+<dd><p>Next line from the file, as a bytes object.</p>
+<p>Retain newline.  A non-negative size argument limits the maximum
+number of bytes to return (an incomplete line may be returned then).
+Return an empty bytes object at EOF.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.readlines">
+<span class="sig-name descname"><span class="pre">readlines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.readlines" title="Link to this definition"></a></dt>
+<dd><p>List of bytes objects, each a line from the file.</p>
+<p>Call readline() repeatedly and return a list of the lines so read.
+The optional size argument, if given, is an approximate bound on the
+total number of bytes in the lines returned.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.seek">
+<span class="sig-name descname"><span class="pre">seek</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">whence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.seek" title="Link to this definition"></a></dt>
+<dd><p>Change stream position.</p>
+<dl class="simple">
+<dt>Seek to byte offset pos relative to position indicated by whence:</dt><dd><p>0  Start of stream (the default).  pos should be &gt;= 0;
+1  Current position - pos may be negative;
+2  End of stream - pos usually negative.</p>
+</dd>
+</dl>
+<p>Returns the new absolute position.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.seekable">
+<span class="sig-name descname"><span class="pre">seekable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.seekable" title="Link to this definition"></a></dt>
+<dd><p>Returns True if the IO object can be seeked.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.tell">
+<span class="sig-name descname"><span class="pre">tell</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.tell" title="Link to this definition"></a></dt>
+<dd><p>Current file position, an integer.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.truncate">
+<span class="sig-name descname"><span class="pre">truncate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.truncate" title="Link to this definition"></a></dt>
+<dd><p>Truncate the file to at most size bytes.</p>
+<p>Size defaults to the current file position, as returned by tell().
+The current file position is unchanged.  Returns the new size.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.writable">
+<span class="sig-name descname"><span class="pre">writable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.writable" title="Link to this definition"></a></dt>
+<dd><p>Returns True if the IO object can be written.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.write" title="Link to this definition"></a></dt>
+<dd><p>Write bytes to file.</p>
+<p>Return the number of bytes written.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.BytesIO.writelines">
+<span class="sig-name descname"><span class="pre">writelines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.BytesIO.writelines" title="Link to this definition"></a></dt>
+<dd><p>Write lines to the file.</p>
+<p>Note that newlines are not added.  lines can be any iterable object
+producing bytes-like objects. This is equivalent to calling write() for
+each element.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.draw_markdown_text">
+<span class="sig-prename descclassname"><span class="pre">src.report.Chat2PDF.</span></span><span class="sig-name descname"><span class="pre">draw_markdown_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Helvetica'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leading</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">440</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.draw_markdown_text" title="Link to this definition"></a></dt>
+<dd><p>Draw text with markdown style and handle line breaks based on max_width.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.load_json">
+<span class="sig-prename descclassname"><span class="pre">src.report.Chat2PDF.</span></span><span class="sig-name descname"><span class="pre">load_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#src.report.Chat2PDF.load_json" title="Link to this definition"></a></dt>
+<dd><p>Load JSON data from a specified file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – The path to the JSON file to be loaded.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The data loaded from the JSON file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.simpleSplit">
+<span class="sig-prename descclassname"><span class="pre">src.report.Chat2PDF.</span></span><span class="sig-name descname"><span class="pre">simpleSplit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontSize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxWidth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.simpleSplit" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.report.Chat2PDF.visualize_text_from_conversation">
+<span class="sig-prename descclassname"><span class="pre">src.report.Chat2PDF.</span></span><span class="sig-name descname"><span class="pre">visualize_text_from_conversation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conversation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.report.Chat2PDF.visualize_text_from_conversation" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, BioMANIA Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

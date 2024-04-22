@@ -1,0 +1,4 @@
+.. automodule:: src.dataloader.extract_function_from_sourcecode
+   :members:
+   :undoc-members:
+   :show-inheritance:

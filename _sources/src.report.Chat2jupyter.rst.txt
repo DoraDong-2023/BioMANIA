@@ -1,0 +1,4 @@
+.. automodule:: src.report.Chat2jupyter
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,21 @@
+src.prompt package
+==================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.prompt.composite
+   src.prompt.instruction
+   src.prompt.parameters
+   src.prompt.summary
+
+Module contents
+---------------
+
+.. automodule:: src.prompt
+   :members:
+   :undoc-members:
+   :show-inheritance:

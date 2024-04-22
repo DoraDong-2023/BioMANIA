@@ -1,0 +1,4 @@
+.. automodule:: src.deploy.ServerEventCallback
+   :members:
+   :undoc-members:
+   :show-inheritance:

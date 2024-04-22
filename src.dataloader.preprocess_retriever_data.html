@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; BioMANIA 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=01f34227"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/BioMANIA.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">LLM_model()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.LLM_response"><code class="docutils literal notranslate"><span class="pre">LLM_response()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.ToolRetriever"><code class="docutils literal notranslate"><span class="pre">ToolRetriever</span></code></a><ul>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.ToolRetriever.build_and_merge_corpus"><code class="docutils literal notranslate"><span class="pre">ToolRetriever.build_and_merge_corpus()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.ToolRetriever.build_shuffle_data"><code class="docutils literal notranslate"><span class="pre">ToolRetriever.build_shuffle_data()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.ToolRetriever.retrieve_similar_queries"><code class="docutils literal notranslate"><span class="pre">ToolRetriever.retrieve_similar_queries()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.ToolRetriever.retrieving"><code class="docutils literal notranslate"><span class="pre">ToolRetriever.retrieving()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.async_LLM_response"><code class="docutils literal notranslate"><span class="pre">async_LLM_response()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.create_corpus_from_json"><code class="docutils literal notranslate"><span class="pre">create_corpus_from_json()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.filter_and_update_query_id"><code class="docutils literal notranslate"><span class="pre">filter_and_update_query_id()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.get_all_path"><code class="docutils literal notranslate"><span class="pre">get_all_path()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.get_ambiguous_pairs"><code class="docutils literal notranslate"><span class="pre">get_ambiguous_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.is_pair_in_merged_pairs"><code class="docutils literal notranslate"><span class="pre">is_pair_in_merged_pairs()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.json_to_docstring"><code class="docutils literal notranslate"><span class="pre">json_to_docstring()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.load_json"><code class="docutils literal notranslate"><span class="pre">load_json()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.make_instruction_generation_prompt"><code class="docutils literal notranslate"><span class="pre">make_instruction_generation_prompt()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.parse_content_list"><code class="docutils literal notranslate"><span class="pre">parse_content_list()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.parse_json_response"><code class="docutils literal notranslate"><span class="pre">parse_json_response()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.parse_unformatted_jsons"><code class="docutils literal notranslate"><span class="pre">parse_unformatted_jsons()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.preprocess_fake_test_data"><code class="docutils literal notranslate"><span class="pre">preprocess_fake_test_data()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.preprocess_instruction_d"><code class="docutils literal notranslate"><span class="pre">preprocess_instruction_d()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.preprocess_json_string"><code class="docutils literal notranslate"><span class="pre">preprocess_json_string()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.preprocess_retriever_data"><code class="docutils literal notranslate"><span class="pre">preprocess_retriever_data()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.preprocess_retriever_data_shuffle"><code class="docutils literal notranslate"><span class="pre">preprocess_retriever_data_shuffle()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.process_parameters"><code class="docutils literal notranslate"><span class="pre">process_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.process_prompt_async"><code class="docutils literal notranslate"><span class="pre">process_prompt_async()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.process_retrieval_desc"><code class="docutils literal notranslate"><span class="pre">process_retrieval_desc()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.save_json"><code class="docutils literal notranslate"><span class="pre">save_json()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.shuffle"><code class="docutils literal notranslate"><span class="pre">shuffle()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio</span></code></a><ul>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.as_completed"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.as_completed()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.clear"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.clear()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.close"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.close()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.display"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.display()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.external_write_mode"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.external_write_mode()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.format_dict"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.format_dict</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.format_interval"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.format_interval()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.format_meter"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.format_meter()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.format_num"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.format_num()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.format_sizeof"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.format_sizeof()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.gather"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.gather()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.get_lock"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.get_lock()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.monitor"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.monitor</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.monitor_interval"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.monitor_interval</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.moveto"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.moveto()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.pandas"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.pandas()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.refresh"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.refresh()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.reset"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.reset()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.send"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.send()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.set_description"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.set_description()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.set_description_str"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.set_description_str()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.set_lock"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.set_lock()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.set_postfix"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.set_postfix()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.set_postfix_str"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.set_postfix_str()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.status_printer"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.status_printer()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.unpause"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.unpause()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.update"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.update()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.wrapattr"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.wrapattr()</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.write"><code class="docutils literal notranslate"><span class="pre">tqdm_asyncio.write()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.tqdm_normal"><code class="docutils literal notranslate"><span class="pre">tqdm_normal</span></code></a></li>
+<li><a class="reference internal" href="#src.dataloader.preprocess_retriever_data.unify_response_format"><code class="docutils literal notranslate"><span class="pre">unify_response_format()</span></code></a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BioMANIA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/batmen-lab/BioMANIA/blob/main/docs/source/src.dataloader.preprocess_retriever_data.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <dl class="py function" id="module-src.dataloader.preprocess_retriever_data">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.LLM_model">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">LLM_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.LLM_model" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.LLM_response">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">LLM_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">llm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chat_prompt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gpt-3.5-turbo-0125'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.LLM_response" title="Link to this definition"></a></dt>
+<dd><p>get response from LLM</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.ToolRetriever">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">ToolRetriever</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">LIB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corpus_tsv_path=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_path=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_corpus_tsv_path='./data/standard_process/base/retriever_train_data/corpus.tsv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_base=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle_data=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_func=&lt;function</span> <span class="pre">process_retrieval_document_query_version&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_seq_length=256</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.ToolRetriever" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.ToolRetriever.build_and_merge_corpus">
+<span class="sig-name descname"><span class="pre">build_and_merge_corpus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">add_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.ToolRetriever.build_and_merge_corpus" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.ToolRetriever.build_shuffle_data">
+<span class="sig-name descname"><span class="pre">build_shuffle_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">LIB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.ToolRetriever.build_shuffle_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.ToolRetriever.retrieve_similar_queries">
+<span class="sig-name descname"><span class="pre">retrieve_similar_queries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shot_k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.ToolRetriever.retrieve_similar_queries" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.ToolRetriever.retrieving">
+<span class="sig-name descname"><span class="pre">retrieving</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.ToolRetriever.retrieving" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.async_LLM_response">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">async_LLM_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">llm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">GPT_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.async_LLM_response" title="Link to this definition"></a></dt>
+<dd><p>Asynchronously sends a prompt to a language model and awaits the response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>llm</strong> (<em>Any</em>) – The language learning model.</p></li>
+<li><p><strong>tokenizer</strong> (<em>Any</em>) – The tokenizer for processing text.</p></li>
+<li><p><strong>prompt</strong> (<em>str</em>) – The prompt to send to the language model.</p></li>
+<li><p><strong>GPT_model</strong> (<em>str</em>) – The specific GPT model version to use.</p></li>
+<li><p><strong>history</strong> (<em>list</em><em>, </em><em>optional</em>) – Previous interactions with the language model, if applicable.</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>) – Additional keyword arguments for the language model interaction.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing the model’s response and the interaction history.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[str, list]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.create_corpus_from_json">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">create_corpus_from_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">API_init_json</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corpus_tsv_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.create_corpus_from_json" title="Link to this definition"></a></dt>
+<dd><p>Creates a corpus file from a JSON file detailing API information, saving it as a TSV.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>API_init_json</strong> (<em>dict</em>) – The JSON containing API information.</p></li>
+<li><p><strong>corpus_tsv_path</strong> (<em>str</em>) – The file path where the corpus will be saved as a TSV.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.filter_and_update_query_id">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">filter_and_update_query_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.filter_and_update_query_id" title="Link to this definition"></a></dt>
+<dd><p>Filters and updates the query IDs based on a list of API names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query_data</strong> (<em>list</em>) – A list of query data dictionaries.</p></li>
+<li><p><strong>api_list</strong> (<em>list</em><em>, </em><em>optional</em>) – A list of API names to filter by.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The filtered and updated list of query data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.get_all_path">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">get_all_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.get_all_path" title="Link to this definition"></a></dt>
+<dd><p>Retrieves all necessary file paths based on the library name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lib_name</strong> (<em>str</em>) – The name of the library for which paths are required.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing paths to API initialization, API composite, output directory, query file, annotated query file, and index file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple[str, str, str, str, str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.get_ambiguous_pairs">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">get_ambiguous_pairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">API_init_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./data/standard_process/scanpy/API_init.json'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.get_ambiguous_pairs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.is_pair_in_merged_pairs">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">is_pair_in_merged_pairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merged_pairs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.is_pair_in_merged_pairs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.json_to_docstring">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">json_to_docstring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.json_to_docstring" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.load_json">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">load_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.load_json" title="Link to this definition"></a></dt>
+<dd><p>Load JSON data from a specified file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – The path to the JSON file to be loaded.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The data loaded from the JSON file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.make_instruction_generation_prompt">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">make_instruction_generation_prompt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">API_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">docs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.make_instruction_generation_prompt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.parse_content_list">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">parse_content_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.parse_content_list" title="Link to this definition"></a></dt>
+<dd><p>Parses a list of content strings to handle various separators and formats.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>content_list</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – The list of content strings to parse.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The parsed list of strings.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.parse_json_response">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">parse_json_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.parse_json_response" title="Link to this definition"></a></dt>
+<dd><p>Parses a string response into JSON format and filters out valid JSON objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>response</strong> (<em>str</em>) – The response string containing JSON objects.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of valid JSON objects.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.parse_unformatted_jsons">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">parse_unformatted_jsons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.parse_unformatted_jsons" title="Link to this definition"></a></dt>
+<dd><p>Attempts to parse a string containing multiple JSON objects even if not properly formatted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>response</strong> (<em>str</em>) – The string containing potentially multiple unformatted JSON objects.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of dictionaries, each representing a parsed JSON object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.preprocess_fake_test_data">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">preprocess_fake_test_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">QUERY_FILE</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QUERY_ANNOTATE_FILE</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.preprocess_fake_test_data" title="Link to this definition"></a></dt>
+<dd><p>Prepares fake test data by processing existing query files and ensuring a certain level of diversity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>QUERY_FILE</strong> (<em>str</em>) – The file path to the original query data.</p></li>
+<li><p><strong>QUERY_ANNOTATE_FILE</strong> (<em>str</em>) – The file path where the annotated query data will be stored.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.preprocess_instruction_d">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">preprocess_instruction_d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desc_retriever</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">API_init</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QUERY_FILE</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LIB</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">GPT_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.preprocess_instruction_d" title="Link to this definition"></a></dt>
+<dd><p>Asynchronously processes instruction data using a descriptor retriever and a language model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>desc_retriever</strong> (<em>Any</em>) – The descriptor retriever for pulling similar API descriptions.</p></li>
+<li><p><strong>API_init</strong> (<em>dict</em>) – Initial API data loaded as a dictionary.</p></li>
+<li><p><strong>QUERY_FILE</strong> (<em>str</em>) – The file path where the query data will be stored.</p></li>
+<li><p><strong>LIB</strong> (<em>str</em>) – The library name being processed.</p></li>
+<li><p><strong>GPT_model</strong> (<em>str</em>) – The specific GPT model version to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.preprocess_json_string">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">preprocess_json_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.preprocess_json_string" title="Link to this definition"></a></dt>
+<dd><p>Preprocesses a JSON string, replacing single quotes with double quotes for JSON keys
+and ensuring internal single quotes within strings are preserved.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>response</strong> (<em>str</em>) – The JSON string to preprocess.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The preprocessed JSON string suitable for JSON parsing.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.preprocess_retriever_data">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">preprocess_retriever_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">OUTPUT_DIR</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QUERY_FILE</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QUERY_ANNOTATE_FILE</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">INDEX_FILE</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.preprocess_retriever_data" title="Link to this definition"></a></dt>
+<dd><p>Preprocesses the data for a retriever by splitting into training, validation, and testing sets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>OUTPUT_DIR</strong> (<em>str</em>) – The directory where processed files will be saved.</p></li>
+<li><p><strong>QUERY_FILE</strong> (<em>str</em>) – The file path to the original query data.</p></li>
+<li><p><strong>QUERY_ANNOTATE_FILE</strong> (<em>str</em>) – The file path to the annotated query data.</p></li>
+<li><p><strong>INDEX_FILE</strong> (<em>str</em>) – The file path to save indices of test and validation sets.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.preprocess_retriever_data_shuffle">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">preprocess_retriever_data_shuffle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">OUTPUT_DIR</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QUERY_FILE</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QUERY_ANNOTATE_FILE</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">INDEX_FILE</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_txt_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.preprocess_retriever_data_shuffle" title="Link to this definition"></a></dt>
+<dd><p>Preprocesses retriever data with shuffling to ensure diverse training and testing sets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>OUTPUT_DIR</strong> (<em>str</em>) – The directory where processed files will be saved.</p></li>
+<li><p><strong>QUERY_FILE</strong> (<em>str</em>) – The file path to the original query data.</p></li>
+<li><p><strong>QUERY_ANNOTATE_FILE</strong> (<em>str</em>) – The file path to the annotated query data.</p></li>
+<li><p><strong>INDEX_FILE</strong> (<em>str</em>) – The file path to save indices of test and validation sets.</p></li>
+<li><p><strong>api_txt_path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The path to a text file containing API names, optional.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.process_parameters">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">process_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">6</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.process_parameters" title="Link to this definition"></a></dt>
+<dd><p>Processes and sorts parameters based on their optionality and limits the number of parameters returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parameters</strong> (<em>dict</em>) – The dictionary of parameters to process.</p></li>
+<li><p><strong>max_parameters</strong> (<em>int</em><em>, </em><em>optional</em>) – The maximum number of parameters to return, default is 6.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The processed and sorted dictionary of parameters.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.process_prompt_async">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">process_prompt_async</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desc_retriever</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">API_init</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">llm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tmp_docstring</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="src.models.chitchat_classification.html#src.models.chitchat_classification.tqdm" title="tqdm.std.tqdm"><span class="pre">tqdm</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">similar_api_same_desc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">similar_api_same_funcname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">GPT_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.process_prompt_async" title="Link to this definition"></a></dt>
+<dd><p>Processes a prompt asynchronously by preparing the prompt, sending it to a language model, and processing the response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>desc_retriever</strong> (<em>Any</em>) – The descriptor retriever for pulling similar API descriptions.</p></li>
+<li><p><strong>API_init</strong> (<em>dict</em>) – Initial API data loaded as a dictionary.</p></li>
+<li><p><strong>api_name</strong> (<em>str</em>) – The name of the API being processed.</p></li>
+<li><p><strong>api</strong> (<em>dict</em>) – The API data dictionary.</p></li>
+<li><p><strong>llm</strong> (<em>Any</em>) – The language learning model.</p></li>
+<li><p><strong>tokenizer</strong> (<em>Any</em>) – The tokenizer for processing text.</p></li>
+<li><p><strong>tmp_docstring</strong> (<em>str</em>) – The temporary docstring prepared for the prompt.</p></li>
+<li><p><strong>progress</strong> (<em>tqdm_normal</em>) – The progress bar instance for tracking progress.</p></li>
+<li><p><strong>similar_api_same_desc</strong> (<em>dict</em>) – A dictionary of similar API descriptions.</p></li>
+<li><p><strong>similar_api_same_funcname</strong> (<em>dict</em>) – A dictionary of similar API function names.</p></li>
+<li><p><strong>GPT_model</strong> (<em>str</em>) – The specific GPT model version to use.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of dictionaries containing the processed results from the language model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.process_retrieval_desc">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">process_retrieval_desc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">documents_df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.process_retrieval_desc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.save_json">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">save_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.save_json" title="Link to this definition"></a></dt>
+<dd><p>Save results to a JSON file with indentation of 4 spaces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_path</strong> (<em>str</em>) – Path to the output file.</p></li>
+<li><p><strong>results</strong> (<em>dict</em>) – Dictionary containing the results to be saved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">save_json</span><span class="p">(</span><span class="s1">&#39;output.json&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.shuffle">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">shuffle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">arrays</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.shuffle" title="Link to this definition"></a></dt>
+<dd><p>Shuffle arrays or sparse matrices in a consistent way.</p>
+<p>This is a convenience alias to <code class="docutils literal notranslate"><span class="pre">resample(*arrays,</span> <span class="pre">replace=False)</span></code> to do
+random permutations of the collections.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*arrays</strong> (<em>sequence</em><em> of </em><em>indexable data-structures</em>) – Indexable data-structures can be arrays, lists, dataframes or scipy
+sparse matrices with consistent first dimension.</p></li>
+<li><p><strong>random_state</strong> (<em>int</em><em>, </em><em>RandomState instance</em><em> or </em><em>None</em><em>, </em><em>default=None</em>) – Determines random number generation for shuffling
+the data.
+Pass an int for reproducible results across multiple function calls.
+See <span class="xref std std-term">Glossary</span>.</p></li>
+<li><p><strong>n_samples</strong> (<em>int</em><em>, </em><em>default=None</em>) – Number of samples to generate. If left to None this is
+automatically set to the first dimension of the arrays.  It should
+not be larger than the length of arrays.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>shuffled_arrays</strong> – Sequence of shuffled copies of the collections. The original arrays
+are not impacted.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>sequence of indexable data-structures</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>It is possible to mix sparse and dense arrays in the same run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">coo_matrix</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_sparse</span> <span class="o">=</span> <span class="n">coo_matrix</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">shuffle</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">X_sparse</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">X_sparse</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span>
+<span class="go">array([[0., 0.],</span>
+<span class="go">       [2., 1.],</span>
+<span class="go">       [1., 0.]])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_sparse</span>
+<span class="go">&lt;3x2 sparse matrix of type &#39;&lt;... &#39;numpy.float64&#39;&gt;&#39;</span>
+<span class="go">    with 3 stored elements in Compressed Sparse Row format&gt;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_sparse</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="go">array([[0., 0.],</span>
+<span class="go">       [2., 1.],</span>
+<span class="go">       [1., 0.]])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">array([2, 1, 0])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shuffle</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([0, 1])</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">resample</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">tqdm_asyncio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">_</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">__</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="src.models.chitchat_classification.html#src.models.chitchat_classification.tqdm" title="tqdm.std.tqdm"><code class="xref py py-class docutils literal notranslate"><span class="pre">tqdm</span></code></a></p>
+<p>Asynchronous-friendly version of tqdm.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.as_completed">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">as_completed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tqdm_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.as_completed" title="Link to this definition"></a></dt>
+<dd><p>Wrapper for <cite>asyncio.as_completed</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nolock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.clear" title="Link to this definition"></a></dt>
+<dd><p>Clear current bar display.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.close" title="Link to this definition"></a></dt>
+<dd><p>Cleanup and (if leave=False) close the progressbar.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.display" title="Link to this definition"></a></dt>
+<dd><p>Use <cite>self.sp</cite> to display <cite>msg</cite> in the specified <cite>pos</cite>.</p>
+<p>Consider overloading this function when inheriting to use e.g.:
+<cite>self.some_frontend(**self.format_dict)</cite> instead of <cite>self.sp</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> (str, optional. What to display (default: <cite>repr(self)</cite>).)</p></li>
+<li><p><strong>pos</strong> (int, optional. Position to <cite>moveto</cite>) – (default: <cite>abs(self.pos)</cite>).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.external_write_mode">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">external_write_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nolock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.external_write_mode" title="Link to this definition"></a></dt>
+<dd><p>Disable tqdm within context and refresh tqdm when exits.
+Useful when writing to standard output stream</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.format_dict">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">format_dict</span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.format_dict" title="Link to this definition"></a></dt>
+<dd><p>Public API for read-only member access.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.format_interval">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">format_interval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.format_interval" title="Link to this definition"></a></dt>
+<dd><p>Formats a number of seconds as a clock time, [H:]MM:SS</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>t</strong> (<em>int</em>) – Number of seconds.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>out</strong> – [H:]MM:SS</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.format_meter">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">format_meter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elapsed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascii</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'it'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postfix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_divisor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">extra_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.format_meter" title="Link to this definition"></a></dt>
+<dd><p>Return a string-based progress bar given some parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em><em> or </em><em>float</em>) – Number of finished iterations.</p></li>
+<li><p><strong>total</strong> (<em>int</em><em> or </em><em>float</em>) – The expected total number of iterations. If meaningless (None),
+only basic progress statistics are displayed (no ETA).</p></li>
+<li><p><strong>elapsed</strong> (<em>float</em>) – Number of seconds passed since start.</p></li>
+<li><p><strong>ncols</strong> (<em>int</em><em>, </em><em>optional</em>) – The width of the entire output message. If specified,
+dynamically resizes <cite>{bar}</cite> to stay within this bound
+[default: None]. If <cite>0</cite>, will not print any bar (only stats).
+The fallback is <cite>{bar:10}</cite>.</p></li>
+<li><p><strong>prefix</strong> (<em>str</em><em>, </em><em>optional</em>) – Prefix message (included in total width) [default: ‘’].
+Use as {desc} in bar_format string.</p></li>
+<li><p><strong>ascii</strong> (<em>bool</em><em>, </em><em>optional</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – If not set, use unicode (smooth blocks) to fill the meter
+[default: False]. The fallback is to use ASCII characters
+“ 123456789#”.</p></li>
+<li><p><strong>unit</strong> (<em>str</em><em>, </em><em>optional</em>) – The iteration unit [default: ‘it’].</p></li>
+<li><p><strong>unit_scale</strong> (<em>bool</em><em> or </em><em>int</em><em> or </em><em>float</em><em>, </em><em>optional</em>) – If 1 or True, the number of iterations will be printed with an
+appropriate SI metric prefix (k = 10^3, M = 10^6, etc.)
+[default: False]. If any other non-zero number, will scale
+<cite>total</cite> and <cite>n</cite>.</p></li>
+<li><p><strong>rate</strong> (<em>float</em><em>, </em><em>optional</em>) – Manual override for iteration rate.
+If [default: None], uses n/elapsed.</p></li>
+<li><p><strong>bar_format</strong> (<em>str</em><em>, </em><em>optional</em>) – <p>Specify a custom bar string formatting. May impact performance.
+[default: ‘{l_bar}{bar}{r_bar}’], where
+l_bar=’{desc}: {percentage:3.0f}%|’ and
+r_bar=’| {n_fmt}/{total_fmt} [{elapsed}&lt;{remaining}, ‘</p>
+<blockquote>
+<div><p>’{rate_fmt}{postfix}]’</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Possible vars: l_bar, bar, r_bar, n, n_fmt, total, total_fmt,</dt><dd><p>percentage, elapsed, elapsed_s, ncols, nrows, desc, unit,
+rate, rate_fmt, rate_noinv, rate_noinv_fmt,
+rate_inv, rate_inv_fmt, postfix, unit_divisor,
+remaining, remaining_s, eta.</p>
+</dd>
+</dl>
+<p>Note that a trailing “: “ is automatically removed after {desc}
+if the latter is empty.</p>
+</p></li>
+<li><p><strong>postfix</strong> (<a href="#id1"><span class="problematic" id="id2">*</span></a>, optional) – Similar to <cite>prefix</cite>, but placed at the end
+(e.g. for additional stats).
+Note: postfix is usually a string (not a dict) for this method,
+and will if possible be set to postfix = ‘, ‘ + postfix.
+However other types are supported (#382).</p></li>
+<li><p><strong>unit_divisor</strong> (<em>float</em><em>, </em><em>optional</em>) – [default: 1000], ignored unless <cite>unit_scale</cite> is True.</p></li>
+<li><p><strong>initial</strong> (<em>int</em><em> or </em><em>float</em><em>, </em><em>optional</em>) – The initial counter value [default: 0].</p></li>
+<li><p><strong>colour</strong> (<em>str</em><em>, </em><em>optional</em>) – Bar colour (e.g. ‘green’, ‘#00ff00’).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>out</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Formatted meter and stats, ready to display.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.format_num">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">format_num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.format_num" title="Link to this definition"></a></dt>
+<dd><p>Intelligent scientific notation (.3g).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em><em> or </em><em>float</em><em> or </em><em>Numeric</em>) – A Number.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>out</strong> – Formatted number.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.format_sizeof">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">format_sizeof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divisor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.format_sizeof" title="Link to this definition"></a></dt>
+<dd><p>Formats a number (greater than unity) with SI Order of Magnitude
+prefixes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num</strong> (<em>float</em>) – Number ( &gt;= 1) to format.</p></li>
+<li><p><strong>suffix</strong> (<em>str</em><em>, </em><em>optional</em>) – Post-postfix [default: ‘’].</p></li>
+<li><p><strong>divisor</strong> (<em>float</em><em>, </em><em>optional</em>) – Divisor between prefixes [default: 1000].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>out</strong> – Number with Order of Magnitude SI unit postfix.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.gather">
+<em class="property"><span class="pre">async</span><span class="w"> </span><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gather</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tqdm_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.gather" title="Link to this definition"></a></dt>
+<dd><p>Wrapper for <cite>asyncio.gather</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.get_lock">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_lock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.get_lock" title="Link to this definition"></a></dt>
+<dd><p>Get the global lock. Construct it if it does not exist.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.monitor">
+<span class="sig-name descname"><span class="pre">monitor</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.monitor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.monitor_interval">
+<span class="sig-name descname"><span class="pre">monitor_interval</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.monitor_interval" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.moveto">
+<span class="sig-name descname"><span class="pre">moveto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.moveto" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.pandas">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pandas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tqdm_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.pandas" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Registers the current <cite>tqdm</cite> class with</dt><dd><p>pandas.core.
+( frame.DataFrame
+| series.Series
+| groupby.(generic.)DataFrameGroupBy
+| groupby.(generic.)SeriesGroupBy
+).progress_apply</p>
+</dd>
+</dl>
+<p>A new instance will be created every time <cite>progress_apply</cite> is called,
+and each instance will automatically <cite>close()</cite> upon completion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tqdm_kwargs</strong> (<em>arguments for the tqdm instance</em>)</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">tqdm.gui</span> <span class="kn">import</span> <span class="n">tqdm</span> <span class="k">as</span> <span class="n">tqdm_gui</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">100000</span><span class="p">,</span> <span class="mi">6</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tqdm</span><span class="o">.</span><span class="n">pandas</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>  <span class="c1"># can use tqdm_gui, optional kwargs, etc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Now you can use `progress_apply` instead of `apply`</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">progress_apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<p>&lt;<a class="reference external" href="https://stackoverflow.com/questions/18603270/">https://stackoverflow.com/questions/18603270/</a>        progress-indicator-during-pandas-operations-python&gt;</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nolock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.refresh" title="Link to this definition"></a></dt>
+<dd><p>Force refresh the display of this bar.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nolock</strong> (<em>bool</em><em>, </em><em>optional</em>) – If <cite>True</cite>, does not lock.
+If [default: <cite>False</cite>]: calls <cite>acquire()</cite> on internal lock.</p></li>
+<li><p><strong>lock_args</strong> (<em>tuple</em><em>, </em><em>optional</em>) – Passed to internal lock’s <cite>acquire()</cite>.
+If specified, will only <cite>display()</cite> if <cite>acquire()</cite> returns <cite>True</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.reset" title="Link to this definition"></a></dt>
+<dd><p>Resets to 0 iterations for repeated use.</p>
+<p>Consider combining with <cite>leave=True</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>total</strong> (<em>int</em><em> or </em><em>float</em><em>, </em><em>optional. Total to use for the new bar.</em>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.send" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.set_description">
+<span class="sig-name descname"><span class="pre">set_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.set_description" title="Link to this definition"></a></dt>
+<dd><p>Set/modify description of the progress bar.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>desc</strong> (<em>str</em><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>refresh</strong> (<em>bool</em><em>, </em><em>optional</em>) – Forces refresh [default: True].</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.set_description_str">
+<span class="sig-name descname"><span class="pre">set_description_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.set_description_str" title="Link to this definition"></a></dt>
+<dd><p>Set/modify description without ‘: ‘ appended.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.set_lock">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_lock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lock</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.set_lock" title="Link to this definition"></a></dt>
+<dd><p>Set the global lock.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.set_postfix">
+<span class="sig-name descname"><span class="pre">set_postfix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ordered_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.set_postfix" title="Link to this definition"></a></dt>
+<dd><p>Set/modify postfix (additional stats)
+with automatic formatting based on datatype.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ordered_dict</strong> (<em>dict</em><em> or </em><a class="reference internal" href="src.gpt.get_summarize_tutorial.html#src.gpt.get_summarize_tutorial.OrderedDict" title="src.gpt.get_summarize_tutorial.OrderedDict"><em>OrderedDict</em></a><em>, </em><em>optional</em>)</p></li>
+<li><p><strong>refresh</strong> (<em>bool</em><em>, </em><em>optional</em>) – Forces refresh [default: True].</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em><em>, </em><em>optional</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.set_postfix_str">
+<span class="sig-name descname"><span class="pre">set_postfix_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.set_postfix_str" title="Link to this definition"></a></dt>
+<dd><p>Postfix without dictionary expansion, similar to prefix handling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.status_printer">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">status_printer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.status_printer" title="Link to this definition"></a></dt>
+<dd><p>Manage the printing and in-place updating of a line of characters.
+Note that if the string is longer than a line, then in-place
+updating may not work (it will print a new line at each refresh).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.unpause">
+<span class="sig-name descname"><span class="pre">unpause</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.unpause" title="Link to this definition"></a></dt>
+<dd><p>Restart tqdm timer from last print time.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.update" title="Link to this definition"></a></dt>
+<dd><p>Manually update the progress bar, useful for streams
+such as reading files.
+E.g.:
+&gt;&gt;&gt; t = tqdm(total=filesize) # Initialise
+&gt;&gt;&gt; for current_buffer in stream:
+…    …
+…    t.update(len(current_buffer))
+&gt;&gt;&gt; t.close()
+The last line is highly recommended, but possibly not necessary if
+<cite>t.update()</cite> will be called in such a way that <cite>filesize</cite> will be
+exactly reached and printed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em><em> or </em><em>float</em><em>, </em><em>optional</em>) – Increment to add to the internal counter of iterations
+[default: 1]. If using float, consider specifying <cite>{n:.3f}</cite>
+or similar in <cite>bar_format</cite>, or specifying <cite>unit_scale</cite>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>out</strong> – True if a <cite>display()</cite> was triggered.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.wrapattr">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wrapattr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">tqdm_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.wrapattr" title="Link to this definition"></a></dt>
+<dd><p>stream  : file-like object.
+method  : str, “read” or “write”. The result of <cite>read()</cite> and</p>
+<blockquote>
+<div><p>the first argument of <cite>write()</cite> should have a <cite>len()</cite>.</p>
+</div></blockquote>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">wrapattr</span><span class="p">(</span><span class="n">file_obj</span><span class="p">,</span> <span class="s2">&quot;read&quot;</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="n">file_obj</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">chunk</span> <span class="o">=</span> <span class="n">fobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">chunk</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">break</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_asyncio.write">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\n'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nolock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_asyncio.write" title="Link to this definition"></a></dt>
+<dd><p>Print a message via tqdm (without overlap with bars).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.tqdm_normal">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">tqdm_normal</span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.tqdm_normal" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="src.models.chitchat_classification.html#src.models.chitchat_classification.tqdm" title="tqdm.std.tqdm"><code class="xref py py-class docutils literal notranslate"><span class="pre">tqdm</span></code></a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.dataloader.preprocess_retriever_data.unify_response_format">
+<span class="sig-prename descclassname"><span class="pre">src.dataloader.preprocess_retriever_data.</span></span><span class="sig-name descname"><span class="pre">unify_response_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#src.dataloader.preprocess_retriever_data.unify_response_format" title="Link to this definition"></a></dt>
+<dd><p>Converts a JSON-like response string into a unified list of dictionaries.
+Handles cases where the response may not be properly formatted as valid JSON.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>response</strong> (<em>str</em>) – The JSON-like response string to process.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of dictionaries representing the parsed JSON objects.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, BioMANIA Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

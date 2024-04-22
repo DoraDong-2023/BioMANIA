@@ -1,0 +1,20 @@
+src.configs package
+===================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   src.configs.Base_cheatsheet
+   src.configs.Lib_cheatsheet
+   src.configs.model_config
+
+Module contents
+---------------
+
+.. automodule:: src.configs
+   :members:
+   :undoc-members:
+   :show-inheritance:

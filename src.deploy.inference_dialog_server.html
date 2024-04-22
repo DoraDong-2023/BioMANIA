@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; BioMANIA 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=01f34227"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/BioMANIA.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a><ul>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.check_and_insert_class_apis"><code class="docutils literal notranslate"><span class="pre">Model.check_and_insert_class_apis()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.clear_globals_with_prefix"><code class="docutils literal notranslate"><span class="pre">Model.clear_globals_with_prefix()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.extract_parameters"><code class="docutils literal notranslate"><span class="pre">Model.extract_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.generate_file_loading_code"><code class="docutils literal notranslate"><span class="pre">Model.generate_file_loading_code()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.get_last_execute_code"><code class="docutils literal notranslate"><span class="pre">Model.get_last_execute_code()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.get_queue"><code class="docutils literal notranslate"><span class="pre">Model.get_queue()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.get_success_code_with_val"><code class="docutils literal notranslate"><span class="pre">Model.get_success_code_with_val()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.hide_streams"><code class="docutils literal notranslate"><span class="pre">Model.hide_streams()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.initialize_executor"><code class="docutils literal notranslate"><span class="pre">Model.initialize_executor()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.install_lib"><code class="docutils literal notranslate"><span class="pre">Model.install_lib()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.install_lib_full"><code class="docutils literal notranslate"><span class="pre">Model.install_lib_full()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.install_lib_simple"><code class="docutils literal notranslate"><span class="pre">Model.install_lib_simple()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.load_bert_model"><code class="docutils literal notranslate"><span class="pre">Model.load_bert_model()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.load_composite_code"><code class="docutils literal notranslate"><span class="pre">Model.load_composite_code()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.load_data"><code class="docutils literal notranslate"><span class="pre">Model.load_data()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.load_llm_model"><code class="docutils literal notranslate"><span class="pre">Model.load_llm_model()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.load_state"><code class="docutils literal notranslate"><span class="pre">Model.load_state()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.loading_data"><code class="docutils literal notranslate"><span class="pre">Model.loading_data()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.modify_code_add_tmp"><code class="docutils literal notranslate"><span class="pre">Model.modify_code_add_tmp()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.process_api_info"><code class="docutils literal notranslate"><span class="pre">Model.process_api_info()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.reset_lib"><code class="docutils literal notranslate"><span class="pre">Model.reset_lib()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.restore_streams"><code class="docutils literal notranslate"><span class="pre">Model.restore_streams()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.retrieve_names"><code class="docutils literal notranslate"><span class="pre">Model.retrieve_names()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.run_pipeline"><code class="docutils literal notranslate"><span class="pre">Model.run_pipeline()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.run_pipeline_after_ambiguous"><code class="docutils literal notranslate"><span class="pre">Model.run_pipeline_after_ambiguous()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.run_pipeline_after_doublechecking_API_selection"><code class="docutils literal notranslate"><span class="pre">Model.run_pipeline_after_doublechecking_API_selection()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.run_pipeline_after_doublechecking_execution_code"><code class="docutils literal notranslate"><span class="pre">Model.run_pipeline_after_doublechecking_execution_code()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.run_pipeline_after_entering_params"><code class="docutils literal notranslate"><span class="pre">Model.run_pipeline_after_entering_params()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.run_pipeline_after_fixing_API_selection"><code class="docutils literal notranslate"><span class="pre">Model.run_pipeline_after_fixing_API_selection()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.run_pipeline_after_select_special_params"><code class="docutils literal notranslate"><span class="pre">Model.run_pipeline_after_select_special_params()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.run_pipeline_execution_code_list"><code class="docutils literal notranslate"><span class="pre">Model.run_pipeline_execution_code_list()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.run_select_basic_params"><code class="docutils literal notranslate"><span class="pre">Model.run_select_basic_params()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.run_select_special_params"><code class="docutils literal notranslate"><span class="pre">Model.run_select_special_params()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.save_state"><code class="docutils literal notranslate"><span class="pre">Model.save_state()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.split_params"><code class="docutils literal notranslate"><span class="pre">Model.split_params()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.Model.update_image_file_list"><code class="docutils literal notranslate"><span class="pre">Model.update_image_file_list()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.convert_bool_values"><code class="docutils literal notranslate"><span class="pre">convert_bool_values()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.correct_bool_values"><code class="docutils literal notranslate"><span class="pre">correct_bool_values()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.download_data"><code class="docutils literal notranslate"><span class="pre">download_data()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.download_file_from_google_drive"><code class="docutils literal notranslate"><span class="pre">download_file_from_google_drive()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.generate_api_calling"><code class="docutils literal notranslate"><span class="pre">generate_api_calling()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.handle_keyboard_interrupt"><code class="docutils literal notranslate"><span class="pre">handle_keyboard_interrupt()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.infer"><code class="docutils literal notranslate"><span class="pre">infer()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.save_decoded_file"><code class="docutils literal notranslate"><span class="pre">save_decoded_file()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.set_api_key"><code class="docutils literal notranslate"><span class="pre">set_api_key()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.stop_generation"><code class="docutils literal notranslate"><span class="pre">stop_generation()</span></code></a></li>
+<li><a class="reference internal" href="#src.deploy.inference_dialog_server.stream"><code class="docutils literal notranslate"><span class="pre">stream()</span></code></a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BioMANIA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/batmen-lab/BioMANIA/blob/main/docs/source/src.deploy.inference_dialog_server.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <dl class="py class" id="module-src.deploy.inference_dialog_server">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.deploy.inference_dialog_server.</span></span><span class="sig-name descname"><span class="pre">Model</span></span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.check_and_insert_class_apis">
+<span class="sig-name descname"><span class="pre">check_and_insert_class_apis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.check_and_insert_class_apis" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.clear_globals_with_prefix">
+<span class="sig-name descname"><span class="pre">clear_globals_with_prefix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.clear_globals_with_prefix" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.extract_parameters">
+<span class="sig-name descname"><span class="pre">extract_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_name_json</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.extract_parameters" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.generate_file_loading_code">
+<span class="sig-name descname"><span class="pre">generate_file_loading_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.generate_file_loading_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.get_last_execute_code">
+<span class="sig-name descname"><span class="pre">get_last_execute_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.get_last_execute_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.get_queue">
+<span class="sig-name descname"><span class="pre">get_queue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.get_queue" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.get_success_code_with_val">
+<span class="sig-name descname"><span class="pre">get_success_code_with_val</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.get_success_code_with_val" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.hide_streams">
+<span class="sig-name descname"><span class="pre">hide_streams</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.hide_streams" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.initialize_executor">
+<span class="sig-name descname"><span class="pre">initialize_executor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.initialize_executor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.install_lib">
+<span class="sig-name descname"><span class="pre">install_lib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib_alias</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_html</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">github_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.install_lib" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.install_lib_full">
+<span class="sig-name descname"><span class="pre">install_lib_full</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib_alias</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_html</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">github_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.install_lib_full" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.install_lib_simple">
+<span class="sig-name descname"><span class="pre">install_lib_simple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib_alias</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_html</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">github_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.install_lib_simple" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.load_bert_model">
+<span class="sig-name descname"><span class="pre">load_bert_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'unfinetuned_bert'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.load_bert_model" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.load_composite_code">
+<span class="sig-name descname"><span class="pre">load_composite_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.load_composite_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">API_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.load_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.load_llm_model">
+<span class="sig-name descname"><span class="pre">load_llm_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.load_llm_model" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.load_state">
+<span class="sig-name descname"><span class="pre">load_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.load_state" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.loading_data">
+<span class="sig-name descname"><span class="pre">loading_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.loading_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.modify_code_add_tmp">
+<span class="sig-name descname"><span class="pre">modify_code_add_tmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_tmp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tmp'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.modify_code_add_tmp" title="Link to this definition"></a></dt>
+<dd><p>sometimes author make ‘return’ information wrong
+we want to make up for it automatically by adding <cite>tmp</cite></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.process_api_info">
+<span class="sig-name descname"><span class="pre">process_api_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">single_api_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.process_api_info" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.reset_lib">
+<span class="sig-name descname"><span class="pre">reset_lib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lib_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.reset_lib" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.restore_streams">
+<span class="sig-name descname"><span class="pre">restore_streams</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.restore_streams" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.retrieve_names">
+<span class="sig-name descname"><span class="pre">retrieve_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.retrieve_names" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.run_pipeline">
+<span class="sig-name descname"><span class="pre">run_pipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lib</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conversation_started</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.run_pipeline" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.run_pipeline_after_ambiguous">
+<span class="sig-name descname"><span class="pre">run_pipeline_after_ambiguous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_input</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.run_pipeline_after_ambiguous" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.run_pipeline_after_doublechecking_API_selection">
+<span class="sig-name descname"><span class="pre">run_pipeline_after_doublechecking_API_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_input</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.run_pipeline_after_doublechecking_API_selection" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.run_pipeline_after_doublechecking_execution_code">
+<span class="sig-name descname"><span class="pre">run_pipeline_after_doublechecking_execution_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_input</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.run_pipeline_after_doublechecking_execution_code" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.run_pipeline_after_entering_params">
+<span class="sig-name descname"><span class="pre">run_pipeline_after_entering_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_input</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.run_pipeline_after_entering_params" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.run_pipeline_after_fixing_API_selection">
+<span class="sig-name descname"><span class="pre">run_pipeline_after_fixing_API_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_input</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.run_pipeline_after_fixing_API_selection" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.run_pipeline_after_select_special_params">
+<span class="sig-name descname"><span class="pre">run_pipeline_after_select_special_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_input</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.run_pipeline_after_select_special_params" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.run_pipeline_execution_code_list">
+<span class="sig-name descname"><span class="pre">run_pipeline_execution_code_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">execution_code_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.run_pipeline_execution_code_list" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.run_select_basic_params">
+<span class="sig-name descname"><span class="pre">run_select_basic_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_input</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.run_select_basic_params" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.run_select_special_params">
+<span class="sig-name descname"><span class="pre">run_select_special_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_input</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.run_select_special_params" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.save_state">
+<span class="sig-name descname"><span class="pre">save_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.save_state" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.split_params">
+<span class="sig-name descname"><span class="pre">split_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selected_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.split_params" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.Model.update_image_file_list">
+<span class="sig-name descname"><span class="pre">update_image_file_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.Model.update_image_file_list" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.convert_bool_values">
+<span class="sig-prename descclassname"><span class="pre">src.deploy.inference_dialog_server.</span></span><span class="sig-name descname"><span class="pre">convert_bool_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optional_param</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.convert_bool_values" title="Link to this definition"></a></dt>
+<dd><p>Convert ‘true’ and ‘false’ in the ‘optional’ and ‘optional_value’ fields
+to ‘True’ and ‘False’ respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>optional_param</strong> – The dictionary containing the optional parameters.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The modified dictionary with converted boolean values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.correct_bool_values">
+<span class="sig-prename descclassname"><span class="pre">src.deploy.inference_dialog_server.</span></span><span class="sig-name descname"><span class="pre">correct_bool_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optional_param</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.correct_bool_values" title="Link to this definition"></a></dt>
+<dd><p>Convert boolean values from lowercase (true, false) to uppercase (True, False).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>optional_param</strong> – The dictionary containing the optional parameters.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The modified dictionary with corrected boolean values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.download_data">
+<span class="sig-prename descclassname"><span class="pre">src.deploy.inference_dialog_server.</span></span><span class="sig-name descname"><span class="pre">download_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tmp'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.download_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.download_file_from_google_drive">
+<span class="sig-prename descclassname"><span class="pre">src.deploy.inference_dialog_server.</span></span><span class="sig-name descname"><span class="pre">download_file_from_google_drive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./tmp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'output.zip'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.download_file_from_google_drive" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.generate_api_calling">
+<span class="sig-prename descclassname"><span class="pre">src.deploy.inference_dialog_server.</span></span><span class="sig-name descname"><span class="pre">generate_api_calling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_details</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">returned_content_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.generate_api_calling" title="Link to this definition"></a></dt>
+<dd><p>Generates an API call and formats output based on provided API details and returned content string.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.handle_keyboard_interrupt">
+<span class="sig-prename descclassname"><span class="pre">src.deploy.inference_dialog_server.</span></span><span class="sig-name descname"><span class="pre">handle_keyboard_interrupt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.handle_keyboard_interrupt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.infer">
+<span class="sig-prename descclassname"><span class="pre">src.deploy.inference_dialog_server.</span></span><span class="sig-name descname"><span class="pre">infer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centroids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.infer" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.save_decoded_file">
+<span class="sig-prename descclassname"><span class="pre">src.deploy.inference_dialog_server.</span></span><span class="sig-name descname"><span class="pre">save_decoded_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.save_decoded_file" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.set_api_key">
+<span class="sig-prename descclassname"><span class="pre">src.deploy.inference_dialog_server.</span></span><span class="sig-name descname"><span class="pre">set_api_key</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.set_api_key" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.stop_generation">
+<span class="sig-prename descclassname"><span class="pre">src.deploy.inference_dialog_server.</span></span><span class="sig-name descname"><span class="pre">stop_generation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.stop_generation" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.deploy.inference_dialog_server.stream">
+<span class="sig-prename descclassname"><span class="pre">src.deploy.inference_dialog_server.</span></span><span class="sig-name descname"><span class="pre">stream</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.deploy.inference_dialog_server.stream" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, BioMANIA Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
