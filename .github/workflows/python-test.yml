@@ -18,6 +18,15 @@ jobs:
       with:
         python-version: '3.10.5'
 
+    - name: List directories
+      run: |
+        echo "Current directory:"
+        pwd
+        echo "List of files in current directory:"
+        ls -la
+        echo "List of files in src directory:"
+        ls -la src/
+    
     - name: Cache pip packages
       uses: actions/cache@v2
       with:
@@ -28,16 +37,6 @@ jobs:
 
     - name: Install dependencies
       run: pip install -r requirements.txt
-
-    - name: List directories
-      run: |
-        echo "Current directory:"
-        pwd
-        echo "List of files in current directory:"
-        ls -la
-        echo "List of files in src directory:"
-        ls -la src/
-    
 
     - name: Run pytest
       run: pytest tests
