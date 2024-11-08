@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -6,18 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>&lt;no title&gt; &mdash; BioMANIA 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=01f34227"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -44,43 +42,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">FindXAssignVisitor</span></code></a><ul>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor.find_string"><code class="docutils literal notranslate"><span class="pre">FindXAssignVisitor.find_string()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor.generic_visit"><code class="docutils literal notranslate"><span class="pre">FindXAssignVisitor.generic_visit()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor.visit"><code class="docutils literal notranslate"><span class="pre">FindXAssignVisitor.visit()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor.visit_Assign"><code class="docutils literal notranslate"><span class="pre">FindXAssignVisitor.visit_Assign()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor.visit_Constant"><code class="docutils literal notranslate"><span class="pre">FindXAssignVisitor.visit_Constant()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.clean_return_block"><code class="docutils literal notranslate"><span class="pre">clean_return_block()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.extract_decorators"><code class="docutils literal notranslate"><span class="pre">extract_decorators()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.extract_executable_content_from_block"><code class="docutils literal notranslate"><span class="pre">extract_executable_content_from_block()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.extract_single_block"><code class="docutils literal notranslate"><span class="pre">extract_single_block()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.extract_unknown_text"><code class="docutils literal notranslate"><span class="pre">extract_unknown_text()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.find_longest_dict_list"><code class="docutils literal notranslate"><span class="pre">find_longest_dict_list()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.get_all_basic_func_from_cheatsheet"><code class="docutils literal notranslate"><span class="pre">get_all_basic_func_from_cheatsheet()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.get_all_variable_from_cheatsheet"><code class="docutils literal notranslate"><span class="pre">get_all_variable_from_cheatsheet()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.get_decorator_mapping"><code class="docutils literal notranslate"><span class="pre">get_decorator_mapping()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.get_param_from_block_t4"><code class="docutils literal notranslate"><span class="pre">get_param_from_block_t4()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.get_param_re_from_block_t1"><code class="docutils literal notranslate"><span class="pre">get_param_re_from_block_t1()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.get_param_re_from_block_t2"><code class="docutils literal notranslate"><span class="pre">get_param_re_from_block_t2()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.get_param_re_from_block_t3"><code class="docutils literal notranslate"><span class="pre">get_param_re_from_block_t3()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.get_returnparam_docstring"><code class="docutils literal notranslate"><span class="pre">get_returnparam_docstring()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.get_type_astObject"><code class="docutils literal notranslate"><span class="pre">get_type_astObject()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.get_variable_value"><code class="docutils literal notranslate"><span class="pre">get_variable_value()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.handle_tuple"><code class="docutils literal notranslate"><span class="pre">handle_tuple()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.load_dotenv"><code class="docutils literal notranslate"><span class="pre">load_dotenv()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.modify_import"><code class="docutils literal notranslate"><span class="pre">modify_import()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.parse"><code class="docutils literal notranslate"><span class="pre">parse()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.process_file"><code class="docutils literal notranslate"><span class="pre">process_file()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.process_function"><code class="docutils literal notranslate"><span class="pre">process_function()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.processdir_to_function"><code class="docutils literal notranslate"><span class="pre">processdir_to_function()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.replace_docstring_placeholder"><code class="docutils literal notranslate"><span class="pre">replace_docstring_placeholder()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.replace_placeholders"><code class="docutils literal notranslate"><span class="pre">replace_placeholders()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.save_json"><code class="docutils literal notranslate"><span class="pre">save_json()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.extract_function_from_sourcecode.to_tree_json"><code class="docutils literal notranslate"><span class="pre">to_tree_json()</span></code></a></li>
+              <div class="local-toc"><ul class="simple">
 </ul>
 </div>
         </div>
@@ -107,248 +69,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <p id="module-src.dataloader.extract_function_from_sourcecode">extract info from source code</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">FindXAssignVisitor</span></span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeVisitor</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor.find_string">
-<span class="sig-name descname"><span class="pre">find_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor.find_string" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor.generic_visit">
-<span class="sig-name descname"><span class="pre">generic_visit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor.generic_visit" title="Link to this definition"></a></dt>
-<dd><p>Called if no explicit visitor function exists for a node.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor.visit">
-<span class="sig-name descname"><span class="pre">visit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor.visit" title="Link to this definition"></a></dt>
-<dd><p>Visit a node.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor.visit_Assign">
-<span class="sig-name descname"><span class="pre">visit_Assign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor.visit_Assign" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor.visit_Constant">
-<span class="sig-name descname"><span class="pre">visit_Constant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.FindXAssignVisitor.visit_Constant" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.clean_return_block">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">clean_return_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_block</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.clean_return_block" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.extract_decorators">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">extract_decorators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.extract_decorators" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.extract_executable_content_from_block">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">extract_executable_content_from_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.extract_executable_content_from_block" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.extract_single_block">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">extract_single_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">docstring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyword_base</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.extract_single_block" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.extract_unknown_text">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">extract_unknown_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.extract_unknown_text" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.find_longest_dict_list">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">find_longest_dict_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">dicts</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.find_longest_dict_list" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.get_all_basic_func_from_cheatsheet">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">get_all_basic_func_from_cheatsheet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.get_all_basic_func_from_cheatsheet" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.get_all_variable_from_cheatsheet">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">get_all_variable_from_cheatsheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">LIB</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.get_all_variable_from_cheatsheet" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.get_decorator_mapping">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">get_decorator_mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.get_decorator_mapping" title="Link to this definition"></a></dt>
-<dd><p>get mapping of new old variables from string
-return: {fun1: {param2:param1}, func2: {param4:param3,param6:param5}}</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.get_param_from_block_t4">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">get_param_from_block_t4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.get_param_from_block_t4" title="Link to this definition"></a></dt>
-<dd><p>Get parameter description from docstring using parse() function.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.get_param_re_from_block_t1">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">get_param_re_from_block_t1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.get_param_re_from_block_t1" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.get_param_re_from_block_t2">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">get_param_re_from_block_t2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.get_param_re_from_block_t2" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.get_param_re_from_block_t3">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">get_param_re_from_block_t3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.get_param_re_from_block_t3" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.get_returnparam_docstring">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">get_returnparam_docstring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">docstring</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.get_returnparam_docstring" title="Link to this definition"></a></dt>
-<dd><p>Parses a function docstring to extract Name, type and description for Parameters, Returns, Examples
-Following specific patterns for parameter, return and example sections.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.get_type_astObject">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">get_type_astObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_return</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.get_type_astObject" title="Link to this definition"></a></dt>
-<dd><p>Extracts type information from function return annotation</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.get_variable_value">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">get_variable_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.get_variable_value" title="Link to this definition"></a></dt>
-<dd><p>get value for variable_name</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.handle_tuple">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">handle_tuple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.handle_tuple" title="Link to this definition"></a></dt>
-<dd><p>Get type of ast.Tuple</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.load_dotenv">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">load_dotenv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dotenv_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IO</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.load_dotenv" title="Link to this definition"></a></dt>
-<dd><p>Parse a .env file and then load all the variables found as environment variables.</p>
-<dl>
-<dt>Parameters:</dt><dd><p>dotenv_path: Absolute or relative path to .env file.
-stream: Text stream (such as <cite>io.StringIO</cite>) with .env content, used if</p>
-<blockquote>
-<div><p><cite>dotenv_path</cite> is <cite>None</cite>.</p>
-</div></blockquote>
-<p>verbose: Whether to output a warning the .env file is missing.
-override: Whether to override the system environment variables with the variables</p>
-<blockquote>
-<div><p>from the <cite>.env</cite> file.</p>
-</div></blockquote>
-<p>encoding: Encoding to be used to read the file.</p>
-</dd>
-<dt>Returns:</dt><dd><p>Bool: True if at least one environment variable is set else False</p>
-</dd>
-</dl>
-<p>If both <cite>dotenv_path</cite> and <cite>stream</cite> are <cite>None</cite>, <cite>find_dotenv()</cite> is used to find the
-.env file.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.main">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.main" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.modify_import">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">modify_import</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">libname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">import_str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.modify_import" title="Link to this definition"></a></dt>
-<dd><p>replace import as absolute path</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.parse">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DocstringStyle</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">DocstringStyle.AUTO</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Docstring</span></span></span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.parse" title="Link to this definition"></a></dt>
-<dd><p>Parse the docstring into its components.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>text</strong> – docstring text to parse</p></li>
-<li><p><strong>style</strong> – docstring style</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>parsed docstring representation</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.process_file">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">process_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.process_file" title="Link to this definition"></a></dt>
-<dd><p>Process a single Python file and return paired func:information.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.process_function">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">process_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pair_decorator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.process_function" title="Link to this definition"></a></dt>
-<dd><p>Extract information of node</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.processdir_to_function">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">processdir_to_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.processdir_to_function" title="Link to this definition"></a></dt>
-<dd><p>Process all Python files in a directory and its subdirectories, and return a list of defined functions.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.replace_docstring_placeholder">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">replace_docstring_placeholder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">docstring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">devar_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.replace_docstring_placeholder" title="Link to this definition"></a></dt>
-<dd><p>replace_placeholder in docstring
-Two steps:
-1. get string from other files import
-2. get string from defined variables within file</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.replace_placeholders">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">replace_placeholders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">docstring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">placeholders</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_variables</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.replace_placeholders" title="Link to this definition"></a></dt>
-<dd><p>Replace the placeholders in a string with the values of variables
-in the variables
-(imported value can not appear in current namespace that belong to the placeholders list.)</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.save_json">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">save_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.save_json" title="Link to this definition"></a></dt>
-<dd><p>Save results to a JSON file with indentation of 4 spaces.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>output_path</strong> (<em>str</em>) – Path to the output file.</p></li>
-<li><p><strong>results</strong> (<em>dict</em>) – Dictionary containing the results to be saved.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">save_json</span><span class="p">(</span><span class="s1">&#39;output.json&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.extract_function_from_sourcecode.to_tree_json">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.extract_function_from_sourcecode.</span></span><span class="sig-name descname"><span class="pre">to_tree_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.dataloader.extract_function_from_sourcecode.to_tree_json" title="Link to this definition"></a></dt>
-<dd><p>Organizes data into nested dictionaries based on relative import paths</p>
-</dd></dl>
-
-
+  
 
            </div>
           </div>

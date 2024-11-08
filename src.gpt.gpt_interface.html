@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -6,18 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>&lt;no title&gt; &mdash; BioMANIA 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=01f34227"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -44,11 +42,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">load_dotenv()</span></code></a></li>
-<li><a class="reference internal" href="#src.gpt.gpt_interface.load_json"><code class="docutils literal notranslate"><span class="pre">load_json()</span></code></a></li>
-<li><a class="reference internal" href="#src.gpt.gpt_interface.query_openai"><code class="docutils literal notranslate"><span class="pre">query_openai()</span></code></a></li>
-<li><a class="reference internal" href="#src.gpt.gpt_interface.setup_openai"><code class="docutils literal notranslate"><span class="pre">setup_openai()</span></code></a></li>
+              <div class="local-toc"><ul class="simple">
 </ul>
 </div>
         </div>
@@ -75,58 +69,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <dl class="py function" id="module-src.gpt.gpt_interface">
-<dt class="sig sig-object py" id="src.gpt.gpt_interface.load_dotenv">
-<span class="sig-prename descclassname"><span class="pre">src.gpt.gpt_interface.</span></span><span class="sig-name descname"><span class="pre">load_dotenv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dotenv_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IO</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#src.gpt.gpt_interface.load_dotenv" title="Link to this definition"></a></dt>
-<dd><p>Parse a .env file and then load all the variables found as environment variables.</p>
-<dl>
-<dt>Parameters:</dt><dd><p>dotenv_path: Absolute or relative path to .env file.
-stream: Text stream (such as <cite>io.StringIO</cite>) with .env content, used if</p>
-<blockquote>
-<div><p><cite>dotenv_path</cite> is <cite>None</cite>.</p>
-</div></blockquote>
-<p>verbose: Whether to output a warning the .env file is missing.
-override: Whether to override the system environment variables with the variables</p>
-<blockquote>
-<div><p>from the <cite>.env</cite> file.</p>
-</div></blockquote>
-<p>encoding: Encoding to be used to read the file.</p>
-</dd>
-<dt>Returns:</dt><dd><p>Bool: True if at least one environment variable is set else False</p>
-</dd>
-</dl>
-<p>If both <cite>dotenv_path</cite> and <cite>stream</cite> are <cite>None</cite>, <cite>find_dotenv()</cite> is used to find the
-.env file.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.gpt.gpt_interface.load_json">
-<span class="sig-prename descclassname"><span class="pre">src.gpt.gpt_interface.</span></span><span class="sig-name descname"><span class="pre">load_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#src.gpt.gpt_interface.load_json" title="Link to this definition"></a></dt>
-<dd><p>Load JSON data from a specified file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – The path to the JSON file to be loaded.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The data loaded from the JSON file.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.gpt.gpt_interface.query_openai">
-<span class="sig-prename descclassname"><span class="pre">src.gpt.gpt_interface.</span></span><span class="sig-name descname"><span class="pre">query_openai</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'azure'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gpt-35-turbo'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.gpt.gpt_interface.query_openai" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.gpt.gpt_interface.setup_openai">
-<span class="sig-prename descclassname"><span class="pre">src.gpt.gpt_interface.</span></span><span class="sig-name descname"><span class="pre">setup_openai</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'azure'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.gpt.gpt_interface.setup_openai" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-
+  
 
            </div>
           </div>

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -6,18 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>&lt;no title&gt; &mdash; BioMANIA 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=01f34227"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -44,15 +42,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">check_all_queries_unique()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.check_valid_API_annotate.check_api_coverage_and_uniqueness"><code class="docutils literal notranslate"><span class="pre">check_api_coverage_and_uniqueness()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.check_valid_API_annotate.check_api_presence_in_inquiry"><code class="docutils literal notranslate"><span class="pre">check_api_presence_in_inquiry()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.check_valid_API_annotate.check_for_query_text_overlap"><code class="docutils literal notranslate"><span class="pre">check_for_query_text_overlap()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.check_valid_API_annotate.compare_inquiries_in_datasets"><code class="docutils literal notranslate"><span class="pre">compare_inquiries_in_datasets()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.check_valid_API_annotate.get_training_and_test_sets"><code class="docutils literal notranslate"><span class="pre">get_training_and_test_sets()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.check_valid_API_annotate.load_json"><code class="docutils literal notranslate"><span class="pre">load_json()</span></code></a></li>
-<li><a class="reference internal" href="#src.dataloader.check_valid_API_annotate.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+              <div class="local-toc"><ul class="simple">
 </ul>
 </div>
         </div>
@@ -79,131 +69,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <p id="module-src.dataloader.check_valid_API_annotate">Author: Zhengyuan Dong
-Created Date: 2024-01-17
-Last Edited Date: 2024-01-23
-Description:</p>
-<blockquote>
-<div><p>Check whether there exist data leakage, duplicate queries, missing API for annotated data.</p>
-</div></blockquote>
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.check_valid_API_annotate.check_all_queries_unique">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.check_valid_API_annotate.</span></span><span class="sig-name descname"><span class="pre">check_all_queries_unique</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">annotated_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.check_valid_API_annotate.check_all_queries_unique" title="Link to this definition"></a></dt>
-<dd><p>Ensures that all query texts in the annotated data are unique.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>annotated_data</strong> (<em>list</em>) – A list of annotated data dictionaries, each containing a “query”.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.check_valid_API_annotate.check_api_coverage_and_uniqueness">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.check_valid_API_annotate.</span></span><span class="sig-name descname"><span class="pre">check_api_coverage_and_uniqueness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LIB</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.check_valid_API_annotate.check_api_coverage_and_uniqueness" title="Link to this definition"></a></dt>
-<dd><p>Ensures that each API from the training data appears only once in the test data and that all APIs in the test data
-are present in the training data. It also filters APIs by a given library prefix.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>train_data</strong> (<em>list</em>) – List of dictionaries representing the training data, each containing an “api_name”.</p></li>
-<li><p><strong>test_data</strong> (<em>list</em>) – List of dictionaries representing the test data, each containing an “api_name”.</p></li>
-<li><p><strong>LIB</strong> (<em>str</em>) – The library prefix to filter API names by.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.check_valid_API_annotate.check_api_presence_in_inquiry">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.check_valid_API_annotate.</span></span><span class="sig-name descname"><span class="pre">check_api_presence_in_inquiry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">composite_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inquiry_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.check_valid_API_annotate.check_api_presence_in_inquiry" title="Link to this definition"></a></dt>
-<dd><p>Checks if all APIs listed in the composite dataset are present in the inquiry dataset.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>composite_data</strong> (<em>dict</em>) – A dictionary representing composite data where keys are API names.</p></li>
-<li><p><strong>inquiry_data</strong> (<em>list</em>) – A list of inquiry data dictionaries, each containing an “api_calling” entry with API names.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.check_valid_API_annotate.check_for_query_text_overlap">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.check_valid_API_annotate.</span></span><span class="sig-name descname"><span class="pre">check_for_query_text_overlap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.check_valid_API_annotate.check_for_query_text_overlap" title="Link to this definition"></a></dt>
-<dd><p>Checks for any overlap in query texts between the training and test datasets to ensure no data leakage.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>train_data</strong> (<em>list</em>) – List of dictionaries representing the training data, each containing a “query”.</p></li>
-<li><p><strong>test_data</strong> (<em>list</em>) – List of dictionaries representing the test data, each containing a “query”.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.check_valid_API_annotate.compare_inquiries_in_datasets">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.check_valid_API_annotate.</span></span><span class="sig-name descname"><span class="pre">compare_inquiries_in_datasets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inquiry_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotated_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.check_valid_API_annotate.compare_inquiries_in_datasets" title="Link to this definition"></a></dt>
-<dd><p>Compares the inquiries between the inquiry data and annotated data based on their query IDs to ensure consistency.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>inquiry_data</strong> (<em>list</em>) – A list of inquiry data dictionaries, each containing a “query_id” and “query”.</p></li>
-<li><p><strong>annotated_data</strong> (<em>list</em>) – A list of annotated data dictionaries, each containing a “query_id” and “query”.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.check_valid_API_annotate.get_training_and_test_sets">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.check_valid_API_annotate.</span></span><span class="sig-name descname"><span class="pre">get_training_and_test_sets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inquiry_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">annotated_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.dataloader.check_valid_API_annotate.get_training_and_test_sets" title="Link to this definition"></a></dt>
-<dd><p>Separates the annotated data into training and test sets based on the presence of their query IDs in the inquiry data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>inquiry_data</strong> (<em>list</em>) – The list of inquiry data dictionaries, each containing a query_id.</p></li>
-<li><p><strong>annotated_data</strong> (<em>list</em>) – The list of annotated data dictionaries, each containing a query_id.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A tuple containing two lists: the training data and the test data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tuple[list, list]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.check_valid_API_annotate.load_json">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.check_valid_API_annotate.</span></span><span class="sig-name descname"><span class="pre">load_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#src.dataloader.check_valid_API_annotate.load_json" title="Link to this definition"></a></dt>
-<dd><p>Load JSON data from a specified file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – The path to the JSON file to be loaded.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The data loaded from the JSON file.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="src.dataloader.check_valid_API_annotate.main">
-<span class="sig-prename descclassname"><span class="pre">src.dataloader.check_valid_API_annotate.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">LIB</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.dataloader.check_valid_API_annotate.main" title="Link to this definition"></a></dt>
-<dd><p>Main function that loads data and performs checks to ensure data integrity for training and testing datasets.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>LIB</strong> (<em>str</em>) – The library name for the JSON data to be processed.</p>
-</dd>
-</dl>
-</dd></dl>
-
-
+  
 
            </div>
           </div>
